@@ -1,0 +1,84 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+#root {
+  display: flex;
+  background-color: black;
+  color: white;
+  height: 2000px;
+}
+
+#sidebar {
+  width: 245px;
+  /* position: fixed; */
+  border-right: 1px solid #1a1a1a;
+}
+
+#sidebar-titlebox {
+  display: flex;
+  align-items: center;
+}
+
+#sidebar-logo {
+  font-weight: bolder;
+  font-size: 13px;
+}
+
+#sidebar-title {
+  font-weight: bolder;
+  font-size: 23px;
+  padding-left: 5px;
+}
+
+#mainpage {
+  justify-content: center;
+  align-items: center;
+  width: 88%;
+  padding: 65px;
+}
+
+#title-title {
+  font-size: 38px;
+  font-weight: 700;
+}
+
+#title-menu {
+  display: flex;
+  border-bottom: 1px solid #1a1a1a;
+  color: #999999;
+}
+
+#title-menu div {
+  padding: 50px 15px 15px 0;
+}
+
+#list-board {
+  padding-top: 30px;
+  display: flex;
+  justify-content: space-between;
+  flex-flow: row wrap;
+}
+
+#list-post {
+  width: 13.5%;
+
+  padding-bottom: 45px;
+}
+
+/* 반응형 일정 너비 이하가 되면 마진px이 줄어드는거 확인 */
+#list-img img {
+  width: 100%;
+  /* object-fit: contain; */
+  padding-bottom: 5px;
+}
+#list-title {
+  padding-bottom: 5px;
+}
+
+#list-contents {
+  color: #737373;
+  font-size: 15px;
+}
