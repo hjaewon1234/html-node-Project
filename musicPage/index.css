@@ -1,0 +1,172 @@
+* {
+  box-sizing: border-box;
+}
+body {
+  margin: 0;
+  padding: 0;
+  color: white;
+}
+
+.root {
+  display: flex;
+}
+
+.side-bar {
+  width: 245px;
+  padding: 20px;
+  border-right: 1px solid lightgray;
+}
+
+.logo-btn {
+  color: white;
+  font-size: 30px;
+  font-weight: bold;
+}
+.main {
+  width: 80%;
+  margin: auto;
+}
+.music-header {
+  padding: 50px 0 40px;
+  display: flex;
+}
+.music-img {
+  width: 240px;
+}
+
+.header-text {
+  margin-left: 40px;
+}
+
+.music-info {
+  margin-bottom: 6px;
+}
+
+.header-btn-box {
+  margin-top: 30px;
+}
+.header-btn {
+  border: none;
+  width: 100px;
+  height: 42px;
+  border-radius: 8px;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+.header-btn-box button:first-child:hover {
+  background-color: #ff0050;
+  color: white;
+}
+
+.music-lyrics {
+  padding-top: 30px;
+}
+.lyrics-btn {
+  margin-top: 15px;
+  border: none;
+  background-color: transparent;
+  color: white;
+  font-size: 16px;
+  padding: 0;
+}
+
+.music-album {
+  padding-top: 60px;
+}
+
+.album-box {
+  display: flex;
+}
+
+.album-text {
+  margin-left: 25px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.album-text div {
+  margin-bottom: 8px;
+}
+
+.music-video {
+  padding-top: 60px;
+}
+
+.mv-img {
+  width: 280px;
+  height: 160px;
+  margin-right: 10px;
+}
+
+.mv-box {
+  display: flex;
+}
+
+.artist-album {
+  padding-top: 60px;
+}
+
+.album-list {
+  display: flex;
+  flex-direction: row;
+  overflow: hidden;
+}
+
+.album-list img {
+  width: 200px;
+  margin-right: 10px;
+}
+
+.playList {
+  padding: 60px 0;
+}
+
+.playList-line {
+  display: flex;
+  flex-direction: row;
+  overflow: hidden;
+}
+
+.playList-line img {
+  width: 200px;
+  margin-right: 10px;
+}
+
+.comment {
+  padding-top: 60px;
+  padding-bottom: 30px;
+  background-color: rgb(32, 32, 32);
+  border-radius: 10px;
+}
+
+#comment-btn {
+  width: 80px;
+  height: 35px;
+  font-size: 16px;
+  background-color: gray;
+  border: none;
+  border-radius: 6px;
+  color: white;
+  margin-right: 20px;
+}
+
+.comment-box {
+  margin-left: 20px;
+}
+
+#comment-length {
+  font-size: 12px;
+}
+
+.comment-item {
+  display: flex;
+  justify-content: space-between;
+}
+textarea {
+  resize: none;
+  border: none;
+  width: 100%;
+  background-color: transparent;
+}
