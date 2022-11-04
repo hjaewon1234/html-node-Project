@@ -47,6 +47,10 @@ select:focus {
   font-size: 70px;
   padding: 30px 0px 20px;
   font-weight: 900;
+}
+
+#logo a {
+  text-decoration: none;
   color: #00c850;
 }
 
@@ -78,10 +82,6 @@ select:focus {
   color: #00c850;
 }
 
-.input-warning {
-  opacity: 0.8;
-}
-
 #birthday-board {
   display: flex;
   justify-content: space-between;
@@ -111,6 +111,16 @@ select:focus {
   justify-content: center;
 }
 
+#serviceinfo a {
+  text-decoration: none;
+  color: black;
+}
+
+#serviceinfo a:hover {
+  color: #00c850;
+  text-decoration: underline;
+}
+
 #serviceinfo div {
   padding: 5px;
   border-right: 1px solid gray;
@@ -122,10 +132,17 @@ select:focus {
   justify-content: center;
 }
 
+#enterinfo a {
+  text-decoration: none;
+}
+
 #footer-logo {
-  color: #00c850;
   font-weight: bolder;
   margin-right: 10px;
+}
+
+#footer-logo a {
+  color: #00c850;
 }
 
 #footer-copyright1 {
@@ -134,6 +151,15 @@ select:focus {
 
 #footer-copyright2 {
   font-weight: bold;
+}
+
+#footer-copyright2 a {
+  color: black;
+}
+
+#footer-copyright2 a:hover {
+  color: #00c850;
+  text-decoration: underline;
 }
 
 #footer-copyright3 {

@@ -1,3 +1,5 @@
+//////////////////// 회원가입 경고창 /////////////////////////
+
 let inputid = document.getElementById("input-id");
 let warnid = document.getElementById("warn-id");
 let inputpw = document.getElementById("input-pw");
@@ -10,6 +12,8 @@ let warnbirthday = document.getElementById("warn-birthday");
 let selmm = document.getElementById("sel-mm");
 let inputemail = document.getElementById("input-email");
 let warnemail = document.getElementById("warn-email");
+let inputphone = document.getElementById("input-phone");
+let warnphone = document.getElementById("warn-phone");
 
 // 중복 가입된 아이디 체크 미구현
 inputid.addEventListener("focusout", (event) => {
@@ -39,6 +43,10 @@ inputpw.addEventListener("focusout", (event) => {
   } else {
     warnpw.classList.remove("green");
     warnpw.innerText = "8~16자 영문 대 소문자, 숫자, 특수문자를 사용하세요.";
+  }
+  if (inputpwrepeat.value && inputpw.value != inputpwrepeat.value) {
+    warnpwrepeat.classList.remove("green");
+    warnpwrepeat.innerText = "비밀번호가 일치하지 않습니다.";
   }
 });
 
@@ -158,3 +166,18 @@ inputemail.addEventListener("focusout", (event) => {
     warnemail.innerText = "이메일 주소를 다시 확인해주세요.";
   }
 });
+
+inputphone.addEventListener("focusout", (event) => {
+  console.log(typeof inputphone.value);
+  const phonecheck = /^01([0|1|6|7|8|9])-?([0-9]{4})-?([0-9]{4})$/;
+  const phoneresult = phonecheck.test(inputphone.value);
+
+  const barcheck = /\-/g;
+  const barresult = inputphone.value.replace(barcheck, "");
+  inputphone.value = barresult;
+
+  if (phoneresult) warnphone.innerText = "";
+  else warnphone.innerText = "형식에 맞지 않는 번호입니다.";
+});
+
+//////////////////// 회원가입 경고창 /////////////////////////
