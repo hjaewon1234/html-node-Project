@@ -174,14 +174,18 @@
     <div class="main-body-container">
       <div class="upload-box">
         <div class="upload-area">
-          <div>음원등록</div>
-          <div>
-            <div>제목 : <input type="text" id="music-title" /></div>
+          <div class="upload-title">음원등록</div>
+          <div class="upload-body">
             <div>
-              파일등록 : <input type="file" id="file-upload" required />
+              <div>제목 :</div>
+              <input type="text" id="music-title" />
             </div>
             <div>
-              이미지 :
+              <div>파일등록 :</div>
+              <input type="file" id="file-upload" required />
+            </div>
+            <div>
+              <div>이미지 :</div>
               <input
                 type="file"
                 id="img-upload"
@@ -190,7 +194,7 @@
               />
             </div>
             <div>
-              장르 :
+              <div>장르 :</div>
               <select class="form-select">
                 <option selected>장르 선택</option>
                 <option value="1">발라드</option>
@@ -198,17 +202,65 @@
                 <option value="3">힙합</option>
               </select>
             </div>
-            <div>아티스트 : <input type="text" id="singer-name" /></div>
-            <div>업로드일 : <input type="date" id="upload-date" /></div>
+            <div>
+              <div>아티스트 :</div>
+              <input type="text" id="singer-name" />
+            </div>
+            <div>
+              <div>업로드일 :</div>
+              <input type="date" id="upload-date" />
+            </div>
           </div>
-          <div>
+          <div class="upload-footer">
             <input type="submit" value="업로드" />
             <input type="reset" value="취소" />
           </div>
         </div>
       </div>
       <div class="footer-box">
-        <div class="footer-area"></div>
+        <div class="footer-area">
+          <div class="footer-first">
+            <div class="first-item">공지사항</div>
+            <div class="first-item">공시사항 내용</div>
+            <div class="img-box first-item">
+              <div class="img-item">
+                <img src="../../assets/img/facebook.svg" alt="" />
+              </div>
+              <div class="img-item">
+                <img src="../../assets/img/instagram.svg" alt="" />
+              </div>
+              <div class="img-item">
+                <img src="../../assets/img/house-heart.svg" alt="" />
+              </div>
+            </div>
+          </div>
+          <div class="footer-second">
+            <div>
+              <span>대표이사 : 최수연</span>
+              <span>사업자 등록번호 : 220-81-62517</span>
+              <span>통신판매업신고번호 : 제2006-경기성남-0692호</span>
+            </div>
+            <div>
+              <span>주소 : 경기도 성남 분당 정자일로 네이버</span>
+              <span>대표전화 : 1588-1234</span>
+              <span>이메일 : wkdwjdgus@naver.com</span>
+              <span>호스팅 서비스 제공 : NAVER.Cloud</span>
+            </div>
+          </div>
+          <div class="footer-third">
+            <div>
+              <a href="./">개인정보처리방침</a>
+              <a href="./">네이버 이용약관</a>
+              <a href="./">VIBE 이용약관</a>
+              <a href="./">고객센터</a>
+              <a href="./">결제/환불 안내</a>
+              <a href="./">VIBE 스마트봇</a>
+              <a href="./">목록상담</a>
+              <a href="./">사업자정보 확인</a>
+              <a href="./">@NAVER Corp</a>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
     <footer class="footer mt-auto py-3 bg-light">
