@@ -8,10 +8,13 @@
 .chart-page {
   position: absolute;
   left: 200px;
-  width: 1400px;
+  width: 90%;
   background-color: black;
   color: white;
   overflow: hidden;
+}
+.chart-inner-page {
+  margin-left: 50px;
 }
 .bottom-music-box {
   position: fixed;
@@ -26,16 +29,21 @@
 }
 .slide-inner-div {
   display: flex;
-  /* width: 410px; */
-  /* 너비를 고정하면 글자수가 너무 길었을때 
-  내려가는 경우가 있음 이거때문에 안주는게 좋을지 생각 */
+  width: 480px;
   margin-bottom: 20px;
+  border-bottom: 1px solid gray;
+}
+.slide-inner-div:nth-child(5n) {
+  border: 0px;
 }
 .slide-inner-div div {
   margin-right: 15px;
 }
 .slide-inner-div div:nth-child(2) {
   font-weight: 900;
+}
+.slide-inner-div div:nth-child(2) div:first-child {
+  width: 25px;
 }
 .slide-inner-div div:nth-child(1) img:hover {
   opacity: 0.5;
@@ -71,6 +79,7 @@
 .slide-prev-outter-btn-size {
   margin-left: 10px;
   justify-content: start;
+  flex: 0;
 }
 .slide-btn-size {
   border-radius: 100%;
@@ -105,4 +114,12 @@
   border-left: thick solid #32a1ce;
   margin: 0 10px 0 10px;
   height: 30px;
+}
+
+.chart-outter-div {
+  background-color: black;
+}
+
+.chart-in {
+  margin-top: 50px;
 }
