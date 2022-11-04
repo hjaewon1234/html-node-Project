@@ -29,7 +29,7 @@
 }
 .slide-inner-div {
   display: flex;
-  width: 480px;
+  width: 500px;
   margin-bottom: 20px;
   border-bottom: 1px solid gray;
 }
@@ -109,6 +109,7 @@
   border-radius: 5%;
   height: 50px;
   background-color: rgb(24, 24, 24);
+  cursor: pointer;
 }
 .v-line {
   border-left: thick solid #32a1ce;
