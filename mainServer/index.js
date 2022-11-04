@@ -49,37 +49,6 @@ db.sequelize
     console.error(error);
   });
 
-// db.Chart.create({
-//   albumImg: "fileName",
-//   musicName: "byebyebye",
-//   singer: "jeonghyunjjang",
-//   count: null,
-//   genre: "ballad",
-// });
-
-// db.PlayList.create({
-//   userId: "kawon",
-//   playlistName: "이것이 음악이다.",
-//   playlistInfo: "저의 정성과 혼을 담은 플레이리스트입니다. 많관부",
-// });
-
-// db.MusicList.create({
-//   albumImg: "filename",
-//   musicName: "예성아...",
-//   singer: "장정현",
-//   albumName: "어디서 뭐하니 형이 그렇게 가르쳤니",
-//   genre: "hiphop",
-// });
-
-// db.MusicUpload.create({
-//   userId: "hjw",
-//   musicName: "와우할때 듣기 좋은 브금",
-//   musicFile: "wow.mp3",
-//   albumImg: "filename",
-//   singer: "와우",
-//   albumName: "wowBGM",
-//   genre: "dance",
-// });
 app.use("/api", routes); // /api로 들어오는 통신은 routes로 보내겠다
 
 app.listen(app.get("port"), () => {
