@@ -7,7 +7,7 @@
     <link rel="shortcut icon" type="image/x-icon" href="./favicon.png" />
     <link rel="stylesheet" href="./index.css" />
   </head>
-  <body style="background-color: black">
+  <body style="background-color: #000">
     <div class="root">
       <div class="side-bar">
         <div class="logo-btn">U2VIBE</div>
@@ -15,6 +15,7 @@
       <div class="main">
         <div class="music-header">
           <img class="music-img" src="./savage-music.jpg" alt="앨범이미지" />
+
           <div class="header-text">
             <h1 style="margin-bottom: 10px">Savage</h1>
             <div style="margin-bottom: 10px">aespa</div>
@@ -27,6 +28,12 @@
             <div class="header-btn-box">
               <button class="header-btn">▶ 재생</button>
               <button class="header-btn">MP3 구매</button>
+              <button>
+                <img class="btn-img" src="./whiteheart.png" alt="" />
+              </button>
+              <button>
+                <img class="btn-img" src="./dott.png" alt="" />
+              </button>
             </div>
           </div>
         </div>
@@ -51,7 +58,13 @@
           <div class="music-album">
             <h2 style="margin-top: 0">수록 앨범</h2>
             <div class="album-box">
-              <img style="width: 200px" src="./savage-music.jpg" alt="노래" />
+              <div class="album-img-box">
+                <img class="album-img" src="./savage-music.jpg" alt="노래" />
+                <div class="hidden-box">
+                  <img class="hidden-btn-img" src="./play-icon.svg" alt="" />
+                  <img class="hidden-btn-img" src="./dott.png" alt="" />
+                </div>
+              </div>
               <div class="album-text">
                 <div>Savage - The 1st Mini Album</div>
                 <div>aespa</div>
@@ -62,125 +75,279 @@
           <div class="music-video">
             <h2 style="margin-top: 0">이 곡의 뮤비</h2>
             <div class="mv-box">
-              <div>
+              <div class="mv-item1">
                 <img class="mv-img" src="./savage-mv.jpg" alt="mv" />
                 <div>Savage</div>
-                <div>aespa</div>
+                <div style="color: #999">aespa</div>
               </div>
-              <div>
+              <div class="mv-item2">
                 <img class="mv-img" src="./savage-teaser.jpg" alt="teaser" />
                 <div>Savage (Teaser)</div>
-                <div>aespa</div>
+                <div style="color: #999">aespa</div>
               </div>
             </div>
           </div>
           <div class="artist-album">
             <h2 style="margin-top: 0">관련 아티스트 앨범</h2>
             <div class="album-list">
-              <div>
-                <img src="./album/iScreaM.jpg" alt="" />
-                <div style="margin-top: 8px">iScreaM Vol.18 Girls Remixes</div>
-                <div>aespa, BRLLNT, Minit</div>
+              <div class="album-img-box">
+                <img class="album-list-img" src="./album/iScreaM.jpg" alt="" />
+                <div class="list-text">iScreaM Vol.18 Girls Remixes</div>
+                <div style="color: #999">aespa, BRLLNT, Minit</div>
+                <div class="hidden-box">
+                  <img class="hidden-btn-img" src="./play-icon.svg" alt="" />
+                  <img class="hidden-btn-img" src="./dott.png" alt="" />
+                </div>
               </div>
-              <div>
-                <img src="./album/Girls.jpg" alt="" />
-                <div>Girls - The 2nd Mini Album</div>
-                <div>aespa</div>
+              <div class="album-img-box">
+                <img class="album-list-img" src="./album/Girls.jpg" alt="" />
+                <div class="list-text">Girls - The 2nd Mini Album</div>
+                <div style="color: #999">aespa</div>
+                <div class="hidden-box">
+                  <img class="hidden-btn-img" src="./play-icon.svg" alt="" />
+                  <img class="hidden-btn-img" src="./dott.png" alt="" />
+                </div>
               </div>
-              <div>
-                <img src="./album/Life's too Short.jpg" alt="" />
-                <div>Life's Too Short</div>
-                <div>aespa</div>
+              <div class="album-img-box">
+                <img
+                  class="album-list-img"
+                  src="./album/Life's too Short.jpg"
+                  alt=""
+                />
+                <div class="list-text">Life's Too Short</div>
+                <div style="color: #999">aespa</div>
+                <div class="hidden-box">
+                  <img class="hidden-btn-img" src="./play-icon.svg" alt="" />
+                  <img class="hidden-btn-img" src="./dott.png" alt="" />
+                </div>
               </div>
-              <div>
-                <img src="./album/Dreams Come True.jpg" alt="" />
-                <div>Dreams Come True - SM STATION</div>
-                <div>aespa</div>
+              <div class="album-img-box">
+                <img
+                  class="album-list-img"
+                  src="./album/Dreams Come True.jpg"
+                  alt=""
+                />
+                <div class="list-text">Dreams Come True - SM STATION</div>
+                <div style="color: #999">aespa</div>
+                <div class="hidden-box">
+                  <img class="hidden-btn-img" src="./play-icon.svg" alt="" />
+                  <img class="hidden-btn-img" src="./dott.png" alt="" />
+                </div>
               </div>
-              <div>
-                <img src="./album/iScreaM vol10.jpg" alt="" />
-                <div>iScreaM Vo.10 : Next Level Remixes</div>
-                <div>aespa</div>
+              <div class="album-img-box">
+                <img
+                  class="album-list-img"
+                  src="./album/iScreaM vol10.jpg"
+                  alt=""
+                />
+                <div class="list-text">iScreaM Vo.10 : Next Level Remixes</div>
+                <div style="color: #999">aespa</div>
+                <div class="hidden-box">
+                  <img class="hidden-btn-img" src="./play-icon.svg" alt="" />
+                  <img class="hidden-btn-img" src="./dott.png" alt="" />
+                </div>
               </div>
-              <div>
-                <img src="./album/NextLevel.jpg" alt="" />
-                <div>Next Level</div>
-                <div>aespa</div>
+              <div class="album-img-box">
+                <img
+                  class="album-list-img"
+                  src="./album/NextLevel.jpg"
+                  alt=""
+                />
+                <div class="list-text">Next Level</div>
+                <div style="color: #999">aespa</div>
+                <div class="hidden-box">
+                  <img class="hidden-btn-img" src="./play-icon.svg" alt="" />
+                  <img class="hidden-btn-img" src="./dott.png" alt="" />
+                </div>
               </div>
-              <div>
-                <img src="./album/Forever.jpg" alt="" />
-                <div>Forever (약속)</div>
-                <div>aespa</div>
+              <div class="album-img-box">
+                <img class="album-list-img" src="./album/Forever.jpg" alt="" />
+                <div class="list-text">Forever (약속)</div>
+                <div style="color: #999">aespa</div>
+                <div class="hidden-box">
+                  <img class="hidden-btn-img" src="./play-icon.svg" alt="" />
+                  <img class="hidden-btn-img" src="./dott.png" alt="" />
+                </div>
               </div>
-              <div>
-                <img src="./album/BlackMamba.jpg" alt="" />
-                <div>Black Mamba</div>
-                <div>aespa</div>
+              <div class="album-img-box">
+                <img
+                  class="album-list-img"
+                  src="./album/BlackMamba.jpg"
+                  alt=""
+                />
+                <div class="list-text">Black Mamba</div>
+                <div style="color: #999">aespa</div>
+                <div class="hidden-box">
+                  <img class="hidden-btn-img" src="./play-icon.svg" alt="" />
+                  <img class="hidden-btn-img" src="./dott.png" alt="" />
+                </div>
               </div>
             </div>
           </div>
           <div class="playList">
             <h2 style="margin-top: 0">관련 플레이리스트</h2>
             <div class="playList-line">
-              <div>
-                <img src="./playlist/viberecent.png" alt="" />
-                <div>VIBE 최신곡 믹스</div>
-                <div>NAVER NOW</div>
+              <div class="album-img-box">
+                <img
+                  class="playList-line-img"
+                  src="./playlist/viberecent.png"
+                  alt=""
+                />
+                <div class="list-text">VIBE 최신곡 믹스</div>
+                <div style="color: #999">NAVER NOW</div>
+                <div class="hidden-box">
+                  <img class="hidden-btn-img" src="./play-icon.svg" alt="" />
+                  <img class="hidden-btn-img" src="./dott.png" alt="" />
+                </div>
               </div>
-              <div>
-                <img src="./playlist/New Release62.jpg" alt="" />
-                <div>New Realease #62 : 에스파, 제임스 블레이크</div>
-                <div>VIBE</div>
+              <div class="album-img-box">
+                <img
+                  class="playList-line-img"
+                  src="./playlist/New Release62.jpg"
+                  alt=""
+                />
+                <div class="list-text">
+                  New Realease #62 : 에스파, 제임스 블레이크
+                </div>
+                <div style="color: #999">VIBE</div>
+                <div class="hidden-box">
+                  <img class="hidden-btn-img" src="./play-icon.svg" alt="" />
+                  <img class="hidden-btn-img" src="./dott.png" alt="" />
+                </div>
               </div>
-              <div>
-                <img src="./playlist/2021 billboard k-pop.jpg" alt="" />
-                <div>2021 빌보드 K-POP 100 연말 결산</div>
-                <div>VIBE</div>
+              <div class="album-img-box">
+                <img
+                  class="playList-line-img"
+                  src="./playlist/2021 billboard k-pop.jpg"
+                  alt=""
+                />
+                <div class="list-text">2021 빌보드 K-POP 100 연말 결산</div>
+                <div style="color: #999">VIBE</div>
+                <div class="hidden-box">
+                  <img class="hidden-btn-img" src="./play-icon.svg" alt="" />
+                  <img class="hidden-btn-img" src="./dott.png" alt="" />
+                </div>
               </div>
-              <div>
-                <img src="./playlist/hiphop, indi,idol.png" alt="" />
-                <div>힙합, 인디, 아이돌 음악으로 돌아보는 2021</div>
-                <div>VIBE</div>
+              <div class="album-img-box">
+                <img
+                  class="playList-line-img"
+                  src="./playlist/hiphop, indi,idol.png"
+                  alt=""
+                />
+                <div class="list-text">
+                  힙합, 인디, 아이돌 음악으로 돌아보는 2021
+                </div>
+                <div style="color: #999">VIBE</div>
+                <div class="hidden-box">
+                  <img class="hidden-btn-img" src="./play-icon.svg" alt="" />
+                  <img class="hidden-btn-img" src="./dott.png" alt="" />
+                </div>
               </div>
-              <div>
-                <img src="./playlist/TriBE.jpg" alt="" />
-                <div>트라이비(TRI.BE)가 들려주고 싶어서</div>
-                <div>VIBE</div>
+              <div class="album-img-box">
+                <img
+                  class="playList-line-img"
+                  src="./playlist/TriBE.jpg"
+                  alt=""
+                />
+                <div class="list-text">트라이비(TRI.BE)가 들려주고 싶어서</div>
+                <div style="color: #999">VIBE</div>
+                <div class="hidden-box">
+                  <img class="hidden-btn-img" src="./play-icon.svg" alt="" />
+                  <img class="hidden-btn-img" src="./dott.png" alt="" />
+                </div>
               </div>
-              <div>
-                <img src="./playlist/SMMusic.png" alt="" />
-                <div>SM 대표곡</div>
-                <div>VIBE 국내 댄스</div>
+              <div class="album-img-box">
+                <img
+                  class="playList-line-img"
+                  src="./playlist/SMMusic.png"
+                  alt=""
+                />
+                <div class="list-text">SM 대표곡</div>
+                <div style="color: #999">VIBE 국내 댄스</div>
+                <div class="hidden-box">
+                  <img class="hidden-btn-img" src="./play-icon.svg" alt="" />
+                  <img class="hidden-btn-img" src="./dott.png" alt="" />
+                </div>
               </div>
-              <div>
-                <img src="./playlist/2021k-pop chart.jpg" alt="" />
-                <div>2021년 K-Pop 차트</div>
-                <div>VIBE K-Pop</div>
+              <div class="album-img-box">
+                <img
+                  class="playList-line-img"
+                  src="./playlist/2021k-pop chart.jpg"
+                  alt=""
+                />
+                <div class="list-text">2021년 K-Pop 차트</div>
+                <div style="color: #999">VIBE K-Pop</div>
+                <div class="hidden-box">
+                  <img class="hidden-btn-img" src="./play-icon.svg" alt="" />
+                  <img class="hidden-btn-img" src="./dott.png" alt="" />
+                </div>
               </div>
-              <div>
-                <img src="./playlist/challenge.jpg" alt="" />
-                <div>대세는 챌린지! 따라추고 싶은 틱톡송</div>
-                <div>VIBE</div>
+              <div class="album-img-box">
+                <img
+                  class="playList-line-img"
+                  src="./playlist/challenge.jpg"
+                  alt=""
+                />
+                <div class="list-text">대세는 챌린지! 따라추고 싶은 틱톡송</div>
+                <div style="color: #999">VIBE</div>
+                <div class="hidden-box">
+                  <img class="hidden-btn-img" src="./play-icon.svg" alt="" />
+                  <img class="hidden-btn-img" src="./dott.png" alt="" />
+                </div>
               </div>
-              <div>
-                <img src="./playlist/monthSong.png" alt="" />
-                <div>이달의 노래 11월 (2021)</div>
-                <div>VIBE</div>
+              <div class="album-img-box">
+                <img
+                  class="playList-line-img"
+                  src="./playlist/monthSong.png"
+                  alt=""
+                />
+                <div class="list-text">이달의 노래 11월 (2021)</div>
+                <div style="color: #999">VIBE</div>
+                <div class="hidden-box">
+                  <img class="hidden-btn-img" src="./play-icon.svg" alt="" />
+                  <img class="hidden-btn-img" src="./dott.png" alt="" />
+                </div>
               </div>
-              <div>
-                <img src="./playlist/3years.jpg" alt="" />
-                <div>3년 만에 부활한 대학 축제 함께 즐기기</div>
-                <div>VIBE</div>
+              <div class="album-img-box">
+                <img
+                  class="playList-line-img"
+                  src="./playlist/3years.jpg"
+                  alt=""
+                />
+                <div class="list-text">
+                  3년 만에 부활한 대학 축제 함께 즐기기
+                </div>
+                <div style="color: #999">VIBE</div>
+                <div class="hidden-box">
+                  <img class="hidden-btn-img" src="./play-icon.svg" alt="" />
+                  <img class="hidden-btn-img" src="./dott.png" alt="" />
+                </div>
               </div>
-              <div>
-                <img src="./playlist/kwangya.jpg" alt="" />
-                <div>광야로 걸어가 🪐</div>
-                <div>VIBE</div>
+              <div class="album-img-box">
+                <img
+                  class="playList-line-img"
+                  src="./playlist/kwangya.jpg"
+                  alt=""
+                />
+                <div class="list-text">광야로 걸어가 🪐</div>
+                <div style="color: #999">VIBE</div>
+                <div class="hidden-box">
+                  <img class="hidden-btn-img" src="./play-icon.svg" alt="" />
+                  <img class="hidden-btn-img" src="./dott.png" alt="" />
+                </div>
               </div>
-              <div>
-                <img src="./playlist/hotsummer.jpg" alt="" />
-                <div>무더운 여름, 7월 컴백 아티스트</div>
-                <div>VIBE</div>
+              <div class="album-img-box">
+                <img
+                  class="playList-line-img"
+                  src="./playlist/hotsummer.jpg"
+                  alt=""
+                />
+                <div class="list-text">무더운 여름, 7월 컴백 아티스트</div>
+                <div style="color: #999">VIBE</div>
+                <div class="hidden-box">
+                  <img class="hidden-btn-img" src="./play-icon.svg" alt="" />
+                  <img class="hidden-btn-img" src="./dott.png" alt="" />
+                </div>
               </div>
             </div>
           </div>
@@ -195,6 +362,7 @@
                 rows="3"
                 placeholder="이 노래 어때요? 한 마디 남겨주세요 :)"
                 maxlength="400"
+                style="color: white"
               ></textarea>
               <div class="comment-item">
                 <div id="comment-length">(0 / 400)</div>
