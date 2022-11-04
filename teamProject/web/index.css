@@ -28,6 +28,7 @@
   justify-content: space-between;
 }
 .slide-inner-div {
+  height: 60px;
   display: flex;
   width: 500px;
   margin-bottom: 20px;
@@ -45,8 +46,18 @@
 .slide-inner-div div:nth-child(2) div:first-child {
   width: 25px;
 }
-.slide-inner-div div:nth-child(1) img:hover {
-  opacity: 0.5;
+
+.display-img {
+  width: 50px;
+  height: 50px;
+}
+.slide-inner-div:nth-child(n):hover::before {
+  content: "";
+  background-image: url(./chart/play.svg);
+  background-size: 50px 50px;
+  width: 50px;
+  height: 50px;
+  position: absolute;
   cursor: pointer;
 }
 
