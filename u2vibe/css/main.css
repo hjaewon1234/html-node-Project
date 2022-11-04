@@ -10,10 +10,11 @@ main {
   position: fixed;
   top: 0;
   left: 0;
-  width: 20%;
+  width: 15%;
   height: 100%;
   overflow-x: hidden;
   overflow-y: hidden;
+  border-right: 1px solid hsla(0, 0%, 100%, 0.1);
 }
 main > div {
   width: 100%;
@@ -30,10 +31,11 @@ main ul li:nth-child(9) {
 }
 .d-flex {
   display: inline-flex !important;
+  padding-bottom: 15px;
 }
 .main-body-container {
-  margin-left: 20%;
-  width: 80%;
+  margin-left: 15%;
+  width: 85%;
   margin-bottom: 56px;
 }
 .footer {
@@ -158,7 +160,10 @@ main ul li:nth-child(9) {
 .footer-box {
   background-color: #111;
   padding: 20px 15px 30px 50px;
-  margin-top: 11%;
+  width: 83%;
+  position: absolute;
+  top: 77%;
+  left: 15%;
 }
 .footer-area {
   font-size: 0.7rem;
@@ -180,9 +185,14 @@ main ul li:nth-child(9) {
   padding-bottom: 10px;
   border-bottom: 0.5px solid gray;
 }
+.first-item:first-child {
+  width: 5%;
+}
+.first-item:nth-child(2) {
+  width: 85%;
+}
 .first-item:last-child {
-  padding-left: 70%;
-  padding-top: 0;
+  width: 10%;
 }
 .img-container {
   display: flex;
@@ -193,9 +203,46 @@ main ul li:nth-child(9) {
 .img-container-item {
   width: 100%;
   padding: 0 5px;
+  cursor: pointer;
 }
 .img-container img {
-  width: 30px;
-  height: 30px;
+  width: 25px;
+  height: 25px;
   filter: invert(30%);
+}
+.footer-second {
+  padding: 10px 0;
+}
+.footer-second span,
+.footer-third a {
+  margin-right: 10px;
+}
+.logout-box {
+  display: flex;
+  width: 100%;
+  justify-content: space-around;
+  align-items: center;
+  padding: 20px 0;
+  border-top: 1px solid hsla(0, 0%, 100%, 0.1);
+}
+.logout-box img {
+  filter: invert(70%);
+}
+#logout-btn {
+  border-radius: 5px;
+  background-color: gray;
+  color: white;
+  padding: 5px 10px;
+  font-size: 0.7rem;
+}
+#logout-btn:hover {
+  background-color: #ff0050;
+  color: white;
+}
+
+.nav {
+  border-top: 1px solid hsla(0, 0%, 100%, 0.1);
+}
+ul img {
+  filter: invert(90%);
 }
