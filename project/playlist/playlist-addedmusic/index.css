@@ -40,8 +40,9 @@
 }
 
 #title-colorline {
-  width: 97px;
+  width: 126px;
   border: 1px solid #ff0050;
+  margin-left: 110px;
 }
 
 #list-board {

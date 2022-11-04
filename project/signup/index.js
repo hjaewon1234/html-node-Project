@@ -168,13 +168,12 @@ inputemail.addEventListener("focusout", (event) => {
 });
 
 inputphone.addEventListener("focusout", (event) => {
-  console.log(typeof inputphone.value);
-  const phonecheck = /^01([0|1|6|7|8|9])-?([0-9]{4})-?([0-9]{4})$/;
-  const phoneresult = phonecheck.test(inputphone.value);
-
   const barcheck = /\-/g;
+
   const barresult = inputphone.value.replace(barcheck, "");
   inputphone.value = barresult;
+  const phonecheck = /^01([0|1|6|7|8|9])-?([0-9]{4})-?([0-9]{4})$/;
+  const phoneresult = phonecheck.test(inputphone.value);
 
   if (phoneresult) warnphone.innerText = "";
   else warnphone.innerText = "형식에 맞지 않는 번호입니다.";

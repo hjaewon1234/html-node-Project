@@ -3,7 +3,7 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>playlist-playlist</title>
+    <title>playlist-addedmusic</title>
     <link rel="stylesheet" href="index.css" />
     <link
       rel="canonical"
@@ -179,20 +179,12 @@
           <div id="header">
             <div id="title-title">보관함</div>
             <div id="title-menu">
-              <div class="Titlemenu">플레이리스트</div>
-              <div>내가 등록한 음원</div>
+              <div>플레이리스트</div>
+              <div class="Titlemenu">내가 등록한 음원</div>
             </div>
             <div id="title-colorline"></div>
           </div>
           <div id="list-board">
-            <div class="list-post">
-              <div id="add-playlist">
-                <div class="list-img">
-                  <img src="image/playlistadd.png" alt="imsi" />
-                </div>
-                <div class="list-title">새 플레이리스트 추가</div>
-              </div>
-            </div>
             <div class="list-post">
               <div class="list-click">
                 <div class="list-img">
@@ -202,16 +194,16 @@
                       <div class="icon-box">
                         <img src="./image/playbtn.png" alt="play" />
                         <img
-                          src="./image/delbtn.png"
+                          src="./image/dotbtn.png"
                           alt="dot"
-                          onclick="removelist()"
+                          onclick="dropdown()"
                         />
                       </div></div
                   ></a>
                 </div>
-                <div class="list-title">플레이리스트 제목</div>
+                <div class="list-title">노래 제목</div>
               </div>
-              <div class="list-contents">0곡</div>
+              <div class="list-contents">가수</div>
             </div>
           </div>
         </div>
