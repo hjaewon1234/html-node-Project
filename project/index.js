@@ -4,9 +4,13 @@ const dotenv = require("dotenv");
 const morgan = require("morgan");
 const cookieParser = require("cookie-parser");
 const path = require("path");
+const multer = require("multer");
+const fs = require("fs");
 
 const db = require("./models/index.js");
 const routes = require("./routes/index.js");
+
+let uploadList = [];
 
 dotenv.config();
 

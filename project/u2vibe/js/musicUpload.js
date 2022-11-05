@@ -1,5 +1,8 @@
 const previewImg = document.getElementById("preview-img");
 const imgUpload = document.getElementById("img-upload");
+const uploadContent = document.getElementById("upload-content");
+const submitBtn = document.getElementById("submit");
+const resetBtn = document.getElementById("reset");
 
 // 이미지 미리보기 함수
 function setImg(input) {
@@ -21,3 +24,12 @@ imgUpload.addEventListener("change", (e) => {
   setImg(e.target);
   console.log(e.target);
 });
+
+uploadContent.onsubmit = (e) => {
+  e.preventDefault();
+  submitBtn.onclick = () => {
+    console.log(document.getElementById("music-title").value);
+    console.log(document.getElementById("file-upload").value);
+    console.log(document.getElementById("img-upload").value);
+  };
+};
