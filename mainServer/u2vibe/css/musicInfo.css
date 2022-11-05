@@ -11,24 +11,22 @@ body {
   display: flex;
 }
 
-.side-bar {
-  width: 245px;
-  padding: 20px;
-  border-right: 1px solid lightgray;
-}
-
-.logo-btn {
-  color: white;
-  font-size: 30px;
-  font-weight: bold;
-}
 .main {
-  width: 80%;
+  width: 90%;
   margin: auto;
 }
 .music-header {
   padding: 50px 0 40px;
   display: flex;
+}
+
+h1 {
+  font-weight: bold;
+}
+
+h2 {
+  font-weight: bold;
+  font-size: 25px;
 }
 .music-img {
   width: 240px;
@@ -282,6 +280,6 @@ body {
 textarea {
   resize: none;
   border: none;
-  width: 100%;
+  width: 80%;
   background-color: transparent;
 }
