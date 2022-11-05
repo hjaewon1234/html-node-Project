@@ -11,19 +11,8 @@ body {
   display: flex;
 }
 
-.side-bar {
-  width: 245px;
-  padding: 20px;
-  border-right: 1px solid lightgray;
-}
-
-.logo-btn {
-  color: white;
-  font-size: 30px;
-  font-weight: bold;
-}
 .main {
-  width: 80%;
+  width: 90%;
   margin: auto;
 }
 .music-header {
