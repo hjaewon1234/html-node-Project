@@ -39,10 +39,21 @@
   font-weight: 900;
 }
 
+<<<<<<<< HEAD:project/u2vibe/css/addlist.css
+#movetoplaylist a,
+#movetoadded a {
+  text-decoration: none;
+  color: #999999;
+========
+#movetoadded a {
+  text-decoration: none;
+  color: #999999;
+}
+
 #title-colorline {
-  width: 126px;
+  width: 97px;
   border: 1px solid #ff0050;
-  margin-left: 110px;
+>>>>>>>> 60e1e75 (1105 project connect):project/u2vibe/playlist/playlist-playlist/index.css
 }
 
 #list-board {
