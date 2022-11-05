@@ -56,12 +56,16 @@
   .play-list-inner-contents
   div:nth-child(2):before {
   content: "";
-  background-image: url(../chart/play.svg);
+  background-image: url(../assets/img/play.png);
   background-size: 50px 50px;
   width: 50px;
   height: 50px;
   position: absolute;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   cursor: pointer;
+  background-repeat: no-repeat;
 }
 .del-btn {
   margin-right: 150px;

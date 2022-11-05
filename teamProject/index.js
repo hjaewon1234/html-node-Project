@@ -17,7 +17,7 @@ app.use((req, res, next) => {
 });
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
-app.use(`/`, express.static(path.join(__dirname, "web")));
+app.use(`/`, express.static(path.join(__dirname, "u2vibe")));
 app.use(cookieParser(process.env.COOKIE_SECRET));
 app.use(
   session({
