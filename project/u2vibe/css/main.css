@@ -194,8 +194,10 @@ main ul li:nth-child(9) {
 .footer-box {
   background-color: #111;
   padding: 20px 15px 30px 50px;
-  margin-top: 15%;
-  width: 90%;
+  width: 83%;
+  position: absolute;
+  top: 77%;
+  left: 15%;
 }
 .footer-area {
   font-size: 0.7rem;

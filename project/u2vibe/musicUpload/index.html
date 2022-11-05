@@ -224,6 +224,43 @@
               <input type="reset" id="reset" value="취소" />
             </div>
           </form>
+            <div>
+              <div>이미지 :</div>
+              <img src="" alt="미리보기 없음" id="preview-img" />
+              <input
+                type="file"
+                id="img-upload"
+                accept=".jpg, .jpeg, .png"
+                required
+              />
+            </div>
+            <div>
+              <div>장르 :</div>
+              <select class="form-select">
+                <option selected>장르 선택</option>
+                <option value="1">발라드</option>
+                <option value="2">댄스</option>
+                <option value="3">힙합</option>
+              </select>
+            </div>
+            <div>
+              <div>아티스트 :</div>
+              <input type="text" id="singer-name" />
+            </div>
+            <div>
+              <div>앨범명 :</div>
+              <input type="text" id="album-title" />
+            </div>
+            <div>
+              <div>업로드일 :</div>
+              <input type="date" id="upload-date" />
+            </div>
+          </div>
+          <div class="upload-footer">
+            <input type="submit" value="업로드" />
+            <input type="reset" value="취소" />
+          </div>
+>>>>>>> 60e1e75 (1105 project connect)
         </div>
       </div>
       <!-- 테스트용 객체 생성 영역 -->

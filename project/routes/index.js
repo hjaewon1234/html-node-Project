@@ -7,7 +7,6 @@ const musicUpload = require("./musicUpload.js");
 //   console.log(req.body, req.query);
 //   next();
 // });
-
 router.use("/user", user);
 router.use("/upload", musicUpload);
 
