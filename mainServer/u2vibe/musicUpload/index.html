@@ -1,14 +1,8 @@
-<!DOCTYPE html>
 <html lang="ko">
   <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta name="description" content="" />
-    <meta
-      name="author"
-      content="Mark Otto, Jacob Thornton, and Bootstrap contributors"
-    />
-    <meta name="generator" content="Hugo 0.104.2" />
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>U2 VIBE</title>
     <link
       rel="canonical"
@@ -18,9 +12,8 @@
       rel="canonical"
       href="https://getbootstrap.com/docs/5.2/examples/sidebars/"
     />
-
-    <link href="../assets/dist/css/bootstrap.min.css" rel="stylesheet" />
-    <link href="./css/main.css" rel="stylesheet" />
+    <link href="../../assets/dist/css/bootstrap.min.css" rel="stylesheet" />
+    <link href="../css/main.css" rel="stylesheet" />
   </head>
   <body>
     <main class="d-flex flex-nowrap">
@@ -32,7 +25,7 @@
           <span class="fs-4">U2 VIBE</span>
         </a>
         <div class="login-box">
-          <a href="../u2vibe/signin/" class="text-white text-decoration-none">
+          <a href="./signin/" class="text-white text-decoration-none">
             <svg
               xmlns="http://www.w3.org/2000/svg"
               width="16"
@@ -52,7 +45,7 @@
         </div>
         <ul class="nav nav-pills flex-column mb-auto">
           <li>
-            <a href="./" class="nav-link text-white"
+            <a href="#" class="nav-link text-white"
               ><svg
                 xmlns="http://www.w3.org/2000/svg"
                 width="16"
@@ -73,7 +66,7 @@
             </a>
           </li>
           <li>
-            <a href="./chart/" class="nav-link text-white">
+            <a href="#" class="nav-link text-white">
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 width="16"
@@ -90,7 +83,7 @@
             </a>
           </li>
           <li>
-            <a href="./" class="nav-link text-white">
+            <a href="#" class="nav-link text-white">
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 width="16"
@@ -107,7 +100,7 @@
             </a>
           </li>
           <li>
-            <a href="./" class="nav-link text-white">
+            <a href="#" class="nav-link text-white">
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 width="16"
@@ -124,7 +117,7 @@
             </a>
           </li>
           <li>
-            <a href="./" class="nav-link text-white">
+            <a href="#" class="nav-link text-white">
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 width="16"
@@ -144,7 +137,7 @@
             </a>
           </li>
           <li>
-            <a href="./" class="nav-link text-white">
+            <a href="#" class="nav-link text-white">
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 width="16"
@@ -164,119 +157,112 @@
             </a>
           </li>
           <li>
-            <a href="./" class="nav-link text-white"> #내돈내산 </a>
+            <a href="#" class="nav-link text-white"> #내돈내산 </a>
           </li>
           <li>
-            <a href="./" class="nav-link text-white"> ON STAGE </a>
+            <a href="#" class="nav-link text-white"> ON STAGE </a>
           </li>
           <li>
-            <a href="./" class="nav-link text-white"> 서비스 소개 </a>
+            <a href="#" class="nav-link text-white"> 서비스 소개 </a>
           </li>
           <li>
-            <a href="./" class="nav-link text-white"> VIBE 멤버쉽 </a>
+            <a href="#" class="nav-link text-white"> VIBE 멤버쉽 </a>
           </li>
         </ul>
       </div>
     </main>
     <div class="main-body-container">
-      <div class="img-box">
-        <div class="img">
-          <div class="img-item">
-            <img src="../assets/img/coverImg.png" alt="" />
-          </div>
-          <div class="text-item">
-            <div><button>special</button></div>
-            <div><b class="b-title">언제나영화 처럼, 쎄이의 시네마</b></div>
+      <div class="upload-box">
+        <div class="upload-area">
+          <div class="upload-title">음원등록</div>
+          <div class="upload-body">
             <div>
-              데뷔하자마자 ‘완성형 아티스트’로 불린다는 건 어쩌면 꽤 막중한
-              부담일 것이다. 그 무게만큼 많은 고민을 거쳐 4년간 공들여 다듬은
-              2번째 정규앨범을 내는 뮤지션 쎄이가 지난 시간을 흑백영화
-              장면들처럼 회상했다.
+              <div>제목 :</div>
+              <input type="text" id="music-title" />
             </div>
-            <div>VIBE MAG , 2222.11.11</div>
+            <div>
+              <div>파일등록 :</div>
+              <input type="file" id="file-upload" required />
+            </div>
+            <div>
+              <div>이미지 :</div>
+              <img src="" alt="미리보기 없음" id="preview-img" />
+              <input
+                type="file"
+                id="img-upload"
+                accept=".jpg, .jpeg, .png"
+                required
+              />
+            </div>
+            <div>
+              <div>장르 :</div>
+              <select class="form-select">
+                <option selected>장르 선택</option>
+                <option value="1">발라드</option>
+                <option value="2">댄스</option>
+                <option value="3">힙합</option>
+              </select>
+            </div>
+            <div>
+              <div>아티스트 :</div>
+              <input type="text" id="singer-name" />
+            </div>
+            <div>
+              <div>앨범명 :</div>
+              <input type="text" id="album-title" />
+            </div>
+            <div>
+              <div>업로드일 :</div>
+              <input type="date" id="upload-date" />
+            </div>
+          </div>
+          <div class="upload-footer">
+            <input type="submit" value="업로드" />
+            <input type="reset" value="취소" />
           </div>
         </div>
       </div>
-      <div class="news-box">
-        <div class="news">
-          <div class="news-title">NEWS</div>
-          <div class="news-flex">
-            <div class="news-item">
-              <div><img src="../assets/img/newImg1.jpg" alt="img" /></div>
-              <div class="news-item-body">
-                테일러 스위프트가 사상 최초로 빌보드 차트 점령했습니다.
+      <div class="footer-box">
+        <div class="footer-area">
+          <div class="footer-first">
+            <div class="first-item">공지사항</div>
+            <div class="first-item">아뇽하세요 유2팀 입니다</div>
+            <div class="img-container first-item">
+              <div class="img-container-item">
+                <img src="../../assets/img/facebook.svg" alt="" />
               </div>
-              <div><a href="#">관련뉴스보기</a></div>
-            </div>
-            <div class="news-item">
-              <div><img src="../assets/img/newImg1.jpg" alt="img" /></div>
-              <div class="news-item-body">
-                테일러 스위프트가 사상 최초로 빌보드 차트 점령했습니다.
+              <div class="img-container-item">
+                <img src="../../assets/img/instagram.svg" alt="" />
               </div>
-              <div><a href="#">관련뉴스보기</a></div>
-            </div>
-            <div class="news-item">
-              <div><img src="../assets/img/newImg1.jpg" alt="img" /></div>
-              <div class="news-item-body">
-                테일러 스위프트가 사상 최초로 빌보드 차트 점령했습니다.
+              <div class="img-container-item">
+                <img src="../../assets/img/house-heart.svg" alt="" />
               </div>
-              <div><a href="#">관련뉴스보기</a></div>
-            </div>
-            <div class="news-item">
-              <div><img src="../assets/img/newImg1.jpg" alt="img" /></div>
-              <div class="news-item-body">
-                테일러 스위프트가 사상 최초로 빌보드 차트 점령했습니다.
-              </div>
-              <div><a href="#">관련뉴스보기</a></div>
-            </div>
-            <div class="news-item">
-              <div><img src="../assets/img/newImg1.jpg" alt="img" /></div>
-              <div class="news-item-body">
-                테일러 스위프트가 사상 최초로 빌보드 차트 점령했습니다.
-              </div>
-              <div><a href="#">관련뉴스보기</a></div>
             </div>
           </div>
-        </div>
-      </div>
-      <div class="news-box">
-        <div class="news">
-          <div class="news-title">NEWS</div>
-          <div class="news-flex">
-            <div class="news-item">
-              <div><img src="../assets/img/newImg1.jpg" alt="img" /></div>
-              <div class="news-item-body">
-                테일러 스위프트가 사상 최초로 빌보드 차트 점령했습니다.
-              </div>
-              <div><a href="#">관련뉴스보기</a></div>
+          <div class="footer-second">
+            <div>
+              <span>대표이사 : 최수연</span>
+              <span>사업자 등록번호 : 220-81-62517</span>
+              <span>통신판매업신고번호 : 제2006-경기성남-0692호</span>
             </div>
-            <div class="news-item">
-              <div><img src="../assets/img/newImg1.jpg" alt="img" /></div>
-              <div class="news-item-body">
-                테일러 스위프트가 사상 최초로 빌보드 차트 점령했습니다.
-              </div>
-              <div><a href="#">관련뉴스보기</a></div>
+            <div>
+              <span>주소 : 경기도 성남 분당 정자일로 네이버</span>
+              <span>대표전화 : 1588-1234</span>
+              <span>이메일 : wkdwjdgus@naver.com</span>
+              <span>호스팅 서비스 제공 : NAVER.Cloud</span>
             </div>
-            <div class="news-item">
-              <div><img src="../assets/img/newImg1.jpg" alt="img" /></div>
-              <div class="news-item-body">
-                테일러 스위프트가 사상 최초로 빌보드 차트 점령했습니다.
-              </div>
-              <div><a href="#">관련뉴스보기</a></div>
-            </div>
-            <div class="news-item">
-              <div><img src="../assets/img/newImg1.jpg" alt="img" /></div>
-              <div class="news-item-body">
-                테일러 스위프트가 사상 최초로 빌보드 차트 점령했습니다.
-              </div>
-              <div><a href="#">관련뉴스보기</a></div>
-            </div>
-            <div class="news-item">
-              <div><img src="../assets/img/newImg1.jpg" alt="img" /></div>
-              <div class="news-item-body">
-                테일러 스위프트가 사상 최초로 빌보드 차트 점령했습니다.
-              </div>
-              <div><a href="#">관련뉴스보기</a></div>
+          </div>
+          <div class="footer-third">
+            <div>
+              <a href="./">개인정보처리방침</a>
+              <a href="./">네이버 이용약관</a>
+              <a href="./">VIBE 이용약관</a>
+              <a href="./">고객센터</a>
+              <a href="./">결제/환불 안내</a>
+              <a href="./">VIBE 스마트봇</a>
+              <a href="./">목록상담</a>
+              <a href="./">사업자정보 확인</a>
+              <a href="./">@NAVER Corp</a>
             </div>
           </div>
         </div>
@@ -293,6 +279,6 @@
         <span class="text-muted">space1</span>
       </div>
     </footer>
-    <script src="sidebars.js"></script>
+    <script src="../js/musicUpload.js"></script>
   </body>
 </html>
