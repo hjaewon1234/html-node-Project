@@ -12,13 +12,15 @@ dotenv.config();
 
 const app = express();
 
+app.set("port", process.env.PORT);
+
 app.use((req, res, next) => {
   if (process.env.NODE_ENV === "production") morgan("combined")(req, res, next);
   else morgan("dev")(req, res, next);
 });
 
-// Client 폴더명 : public
-app.use("/", express.static(path.join(__dirname, "public")));
+// Client 폴더명 : u2vibe
+app.use("/", express.static(path.join(__dirname, "u2vibe")));
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser(process.env.COOKIE_SECRET));
