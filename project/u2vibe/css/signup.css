@@ -61,6 +61,7 @@ select:focus {
 #input-pw,
 #input-pwrepeat {
   background-image: url(../assets/img/signup-lock-open-solid.svg);
+
   background-position: 420px center;
   background-repeat: no-repeat;
   background-size: 20px;

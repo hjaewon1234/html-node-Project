@@ -3,6 +3,7 @@
     "username": "root",
 
     "password": "940214",
+
     "database": "project",
     "host": "127.0.0.1",
     "dialect": "mysql"
@@ -19,6 +20,7 @@
     "username": "root",
 
     "password": "940214",
+
     "database": "project",
     "host": "127.0.0.1",
     "dialect": "mysql"
