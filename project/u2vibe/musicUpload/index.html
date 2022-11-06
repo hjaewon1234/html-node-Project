@@ -14,7 +14,7 @@
     />
     <link href="../../assets/dist/css/bootstrap.min.css" rel="stylesheet" />
     <link href="../css/main.css" rel="stylesheet" />
-    <!-- <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script> -->
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
   </head>
   <body>
     <main class="d-flex flex-nowrap">
@@ -176,25 +176,15 @@
       <div class="upload-box">
         <div class="upload-area">
           <div class="upload-title">음원등록</div>
-          <form
-            action="/upload"
-            id="upload-content"
-            method="post"
-            enctype="multipart/form-data"
-          >
+          <form id="upload-content" enctype="multipart/form-data">
             <div class="upload-body">
               <div>
                 <div>제목 :</div>
-                <input type="text" id="music-title" />
+                <input type="text" id="music-title" autocomplete="off" />
               </div>
               <div>
                 <div>파일등록 :</div>
-                <input
-                  type="file"
-                  id="file-upload"
-                  name="file-upload"
-                  required
-                />
+                <input type="file" id="file-upload" name="file" required />
               </div>
               <div>
                 <div>이미지 :</div>
@@ -202,9 +192,8 @@
                 <input
                   type="file"
                   id="img-upload"
-                  name="img-upload"
+                  name="img"
                   accept=".jpg, .jpeg, .png"
-                  required
                 />
               </div>
               <div>
@@ -218,15 +207,11 @@
               </div>
               <div>
                 <div>아티스트 :</div>
-                <input type="text" id="singer-name" />
+                <input type="text" id="singer-name" autocomplete="off" />
               </div>
               <div>
                 <div>앨범명 :</div>
-                <input type="text" id="album-title" />
-              </div>
-              <div>
-                <div>업로드일 :</div>
-                <input type="date" id="upload-date" />
+                <input type="text" id="album-title" autocomplete="off" />
               </div>
             </div>
             <div class="upload-footer">
@@ -284,13 +269,33 @@
     </div>
     <footer class="footer mt-auto py-3 bg-light">
       <div class="container">
-        <span class="text-muted">space1</span>
+        <div>Img</div>
+        <div>
+          <div>music-title</div>
+          <div>singer-name</div>
+        </div>
       </div>
       <div class="container">
-        <span class="text-muted">space1</span>
+        <button>
+          <img src="../assets/img/skip-start-btn-fill.svg" alt="" />
+        </button>
+        <button id="play-btn">
+          <img src="../assets/img/play-btn-fill.svg" alt="" />
+        </button>
+        <button id="stop-btn">
+          <img src="../assets/img/pause-btn-fill.svg" alt="" />
+        </button>
+        <button>
+          <img src="../assets/img/skip-end-btn-fill.svg" alt="" />
+        </button>
       </div>
       <div class="container">
-        <span class="text-muted">space1</span>
+        <div><audio src="" id="play-controller"></audio></div>
+        <div>
+          <img src="../assets/img/megaphone-fill.svg" alt="" />
+          <input type="range" id="volume-control" min="1" max="10" />
+        </div>
+        <div>재생리스트</div>
       </div>
     </footer>
     <script src="../js/musicUpload.js"></script>
