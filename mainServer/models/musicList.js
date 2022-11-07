@@ -1,6 +1,6 @@
 const Sequelize = require("sequelize");
 
-module.exports = class Chart extends Sequelize.Model {
+module.exports = class MusicList extends Sequelize.Model {
   static init(sequelize) {
     return super.init(
       {
@@ -13,9 +13,8 @@ module.exports = class Chart extends Sequelize.Model {
         singer: {
           type: Sequelize.STRING(100),
         },
-        count: {
-          type: Sequelize.INTEGER.UNSIGNED,
-          allowNull: true,
+        albumName: {
+          type: Sequelize.STRING(100),
         },
         genre: {
           type: Sequelize.STRING(100),
@@ -25,8 +24,8 @@ module.exports = class Chart extends Sequelize.Model {
         sequelize,
         timestamps: true,
         underscored: true,
-        modelName: "Chart",
-        tableName: "chart",
+        modelName: "MusicList",
+        tableName: "musiclist",
         charset: "utf8mb4",
         collate: "utf8mb4_general_ci",
       }
