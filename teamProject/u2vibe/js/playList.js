@@ -3,6 +3,8 @@ const album = `i_love`;
 const songName = `Nxde`;
 const singerName = `(여자)아이들`;
 const albumName = `I love`;
+const ListName = `아이브가좋아요`;
+const ListContents = `아이고야~~~~~`;
 
 function playListInfo() {
   const playListPage = document.getElementsByClassName(`play-list-page`)[0];
@@ -18,8 +20,27 @@ function playListInfo() {
 
   playListPage.prepend(playListHeader);
   playListHeader.append(playListHeaderImg);
+  playListHeader.append(playListInfo);
+  playListInfo.append(playListInfoDiv);
+  playListInfoDiv.append(playListName);
+  playListInfoDiv.append(playListContents);
+  playListInfo.append(playListBtnBox);
+  playListBtnBox.append(playListPlayBtn);
+  playListBtnBox.append(playListRandomPlayBtn);
+  // 위에는 모양에 맞게 구성 시켜줬음.
+  playListHeader.classList.add(`play-list-header`);
+  playListHeaderImg.innerHTML = `<img src="../assets/img/${album}.jpg" alt="" style="width: 240px" />`;
+  // 엘범명으로 가져오는 플레이리스트 사진
+  playListInfo.classList.add(`play-list-info`);
+  playListName.innerText = `${ListName}`;
+  // 플레이 리스트의 이름을 가져온다.
+  playListContents.innerText = `${ListContents}`;
+  playListPlayBtn.classList.add(`start-btn`);
+  playListRandomPlayBtn.classList.add(`random-start-btn`);
+  playListPlayBtn.innerText = `재생`;
+  playListRandomPlayBtn.innerText = `랜덤 재생`;
 }
-
+playListInfo();
 function makePlayList() {
   const container = document.getElementById(`play-list-container`);
   const contentsOutterDiv = document.createElement(`div`);
@@ -65,4 +86,7 @@ function makePlayList() {
   delBtnDiv.innerHTML = `<button>삭제123413213</button>`;
   // 여기는 삭제 버튼을 만들 곳인데 나중에 삭제 버튼을 바꿀때 바꿔주면 될 것 같음.
 }
-makePlayList();
+
+document.getElementsByClassName(`start-btn`)[0].onclick = () => {
+  makePlayList();
+};
