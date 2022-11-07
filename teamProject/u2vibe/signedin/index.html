@@ -1,14 +1,8 @@
-<!DOCTYPE html>
 <html lang="ko">
   <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta name="description" content="" />
-    <meta
-      name="author"
-      content="Mark Otto, Jacob Thornton, and Bootstrap contributors"
-    />
-    <meta name="generator" content="Hugo 0.104.2" />
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>U2 VIBE</title>
     <link
       rel="canonical"
@@ -18,10 +12,8 @@
       rel="canonical"
       href="https://getbootstrap.com/docs/5.2/examples/sidebars/"
     />
-
-    <link href="../assets/dist/css/bootstrap.min.css" rel="stylesheet" />
-    <link href="./css/main.css" rel="stylesheet" />
-    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <link href="../../assets/dist/css/bootstrap.min.css" rel="stylesheet" />
+    <link href="../css/main.css" rel="stylesheet" />
   </head>
   <body>
     <main class="d-flex flex-nowrap">
@@ -32,28 +24,24 @@
         >
           <span class="fs-4">U2 VIBE</span>
         </a>
-        <div class="login-box">
-          <a href="../u2vibe/signup/" class="text-white text-decoration-none">
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              width="16"
-              height="16"
-              fill="currentColor"
-              class="bi bi-person-circle"
-              viewBox="0 0 16 16"
-            >
-              <path d="M11 6a3 3 0 1 1-6 0 3 3 0 0 1 6 0z" />
-              <path
-                fill-rule="evenodd"
-                d="M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8zm8-7a7 7 0 0 0-5.468 11.37C3.242 11.226 4.805 10 8 10s4.757 1.225 5.468 2.37A7 7 0 0 0 8 1z"
-              />
-            </svg>
-            <span>로그인</span></a
-          >
+        <div class="logout-box">
+          <div>
+            <img src="../../assets/img/person-circle.svg" alt="" />
+            <span>사용자</span>
+          </div>
+          <div>
+            <button id="logout-btn">로그아웃</button>
+          </div>
         </div>
         <ul class="nav nav-pills flex-column mb-auto">
           <li>
-            <a href="./" class="nav-link text-white"
+            <a href="#" class="nav-link text-white"
+              ><img src="../../assets/img/music-note-list.svg" alt="" />
+              재생목록
+            </a>
+          </li>
+          <li>
+            <a href="#" class="nav-link text-white"
               ><svg
                 xmlns="http://www.w3.org/2000/svg"
                 width="16"
@@ -74,7 +62,7 @@
             </a>
           </li>
           <li>
-            <a href="./chart/" class="nav-link text-white">
+            <a href="#" class="nav-link text-white">
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 width="16"
@@ -91,7 +79,7 @@
             </a>
           </li>
           <li>
-            <a href="./" class="nav-link text-white">
+            <a href="#" class="nav-link text-white">
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 width="16"
@@ -108,7 +96,7 @@
             </a>
           </li>
           <li>
-            <a href="./" class="nav-link text-white">
+            <a href="#" class="nav-link text-white">
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 width="16"
@@ -125,7 +113,7 @@
             </a>
           </li>
           <li>
-            <a href="./" class="nav-link text-white">
+            <a href="#" class="nav-link text-white">
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 width="16"
@@ -145,7 +133,7 @@
             </a>
           </li>
           <li>
-            <a href="./" class="nav-link text-white">
+            <a href="#" class="nav-link text-white">
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 width="16"
@@ -165,16 +153,16 @@
             </a>
           </li>
           <li>
-            <a href="./" class="nav-link text-white"> #내돈내산 </a>
+            <a href="#" class="nav-link text-white"> #내돈내산 </a>
           </li>
           <li>
-            <a href="./" class="nav-link text-white"> ON STAGE </a>
+            <a href="#" class="nav-link text-white"> ON STAGE </a>
           </li>
           <li>
-            <a href="./" class="nav-link text-white"> 서비스 소개 </a>
+            <a href="#" class="nav-link text-white"> 서비스 소개 </a>
           </li>
           <li>
-            <a href="./" class="nav-link text-white"> VIBE 멤버쉽 </a>
+            <a href="#" class="nav-link text-white"> VIBE 멤버쉽 </a>
           </li>
         </ul>
       </div>
@@ -183,7 +171,7 @@
       <div class="img-box">
         <div class="img">
           <div class="img-item">
-            <img src="./assets/img/coverImg.png" alt="asd" />
+            <img src="../../assets/img/coverImg.png" alt="" />
           </div>
           <div class="text-item">
             <div><button>special</button></div>
@@ -203,35 +191,35 @@
           <div class="news-title">NEWS</div>
           <div class="news-flex">
             <div class="news-item">
-              <div><img src="../assets/img/newImg1.jpg" alt="img" /></div>
+              <div><img src="../../assets/img/newImg1.jpg" alt="img" /></div>
               <div class="news-item-body">
                 테일러 스위프트가 사상 최초로 빌보드 차트 점령했습니다.
               </div>
               <div><a href="#">관련뉴스보기</a></div>
             </div>
             <div class="news-item">
-              <div><img src="../assets/img/newImg1.jpg" alt="img" /></div>
+              <div><img src="../../assets/img/newImg1.jpg" alt="img" /></div>
               <div class="news-item-body">
                 테일러 스위프트가 사상 최초로 빌보드 차트 점령했습니다.
               </div>
               <div><a href="#">관련뉴스보기</a></div>
             </div>
             <div class="news-item">
-              <div><img src="../assets/img/newImg1.jpg" alt="img" /></div>
+              <div><img src="../../assets/img/newImg1.jpg" alt="img" /></div>
               <div class="news-item-body">
                 테일러 스위프트가 사상 최초로 빌보드 차트 점령했습니다.
               </div>
               <div><a href="#">관련뉴스보기</a></div>
             </div>
             <div class="news-item">
-              <div><img src="../assets/img/newImg1.jpg" alt="img" /></div>
+              <div><img src="../../assets/img/newImg1.jpg" alt="img" /></div>
               <div class="news-item-body">
                 테일러 스위프트가 사상 최초로 빌보드 차트 점령했습니다.
               </div>
               <div><a href="#">관련뉴스보기</a></div>
             </div>
             <div class="news-item">
-              <div><img src="../assets/img/newImg1.jpg" alt="img" /></div>
+              <div><img src="../../assets/img/newImg1.jpg" alt="img" /></div>
               <div class="news-item-body">
                 테일러 스위프트가 사상 최초로 빌보드 차트 점령했습니다.
               </div>
@@ -245,35 +233,35 @@
           <div class="news-title">NEWS</div>
           <div class="news-flex">
             <div class="news-item">
-              <div><img src="../assets/img/newImg1.jpg" alt="img" /></div>
+              <div><img src="../../assets/img/newImg1.jpg" alt="img" /></div>
               <div class="news-item-body">
                 테일러 스위프트가 사상 최초로 빌보드 차트 점령했습니다.
               </div>
               <div><a href="#">관련뉴스보기</a></div>
             </div>
             <div class="news-item">
-              <div><img src="../assets/img/newImg1.jpg" alt="img" /></div>
+              <div><img src="../../assets/img/newImg1.jpg" alt="img" /></div>
               <div class="news-item-body">
                 테일러 스위프트가 사상 최초로 빌보드 차트 점령했습니다.
               </div>
               <div><a href="#">관련뉴스보기</a></div>
             </div>
             <div class="news-item">
-              <div><img src="../assets/img/newImg1.jpg" alt="img" /></div>
+              <div><img src="../../assets/img/newImg1.jpg" alt="img" /></div>
               <div class="news-item-body">
                 테일러 스위프트가 사상 최초로 빌보드 차트 점령했습니다.
               </div>
               <div><a href="#">관련뉴스보기</a></div>
             </div>
             <div class="news-item">
-              <div><img src="../assets/img/newImg1.jpg" alt="img" /></div>
+              <div><img src="../../assets/img/newImg1.jpg" alt="img" /></div>
               <div class="news-item-body">
                 테일러 스위프트가 사상 최초로 빌보드 차트 점령했습니다.
               </div>
               <div><a href="#">관련뉴스보기</a></div>
             </div>
             <div class="news-item">
-              <div><img src="../assets/img/newImg1.jpg" alt="img" /></div>
+              <div><img src="../../assets/img/newImg1.jpg" alt="img" /></div>
               <div class="news-item-body">
                 테일러 스위프트가 사상 최초로 빌보드 차트 점령했습니다.
               </div>
@@ -285,35 +273,14 @@
     </div>
     <footer class="footer mt-auto py-3 bg-light">
       <div class="container">
-        <div>Img</div>
-        <div>
-          <div>music-title</div>
-          <div>singer-name</div>
-        </div>
+        <span class="text-muted">space1</span>
       </div>
       <div class="container">
-        <button id="prev-play">
-          <img src="../assets/img/skip-start-btn-fill.svg" alt="" />
-        </button>
-        <button id="play-btn">
-          <img src="../assets/img/play-btn-fill.svg" alt="" />
-        </button>
-        <button id="stop-btn">
-          <img src="../assets/img/pause-btn-fill.svg" alt="" />
-        </button>
-        <button>
-          <img src="../assets/img/skip-end-btn-fill.svg" alt="" />
-        </button>
+        <span class="text-muted">space1</span>
       </div>
       <div class="container">
-        <div><audio src="" id="play-controller"></audio></div>
-        <div>
-          <img src="../assets/img/megaphone-fill.svg" alt="" />
-          <input type="range" id="volume-control" min="1" max="10" />
-        </div>
-        <div>재생리스트</div>
+        <span class="text-muted">space1</span>
       </div>
     </footer>
-    <script src="./js/main.js"></script>
   </body>
 </html>
