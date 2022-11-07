@@ -1,6 +1,8 @@
 const router = require("express").Router();
 const multer = require("multer");
 
+const { Upload } = require("../models/index.js");
+
 const storage = multer.diskStorage({
   destination: (req, file, cb) => {
     cb(null, "./upload/");
