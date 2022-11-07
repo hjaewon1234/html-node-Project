@@ -1,6 +1,5 @@
 const router = require("express").Router();
 const multer = require("multer");
-const { MusicUpload } = require("../models");
 
 // const { Upload } = require("../models/index.js");
 
@@ -33,16 +32,7 @@ router.post(
   "/upload",
   uploader.fields([{ name: "file" }, { name: "img" }]),
   (req, res) => {
-    console.log(FormData);
-    MusicUpload.create({
-      userId: "jjh",
-      musicName: req.body.musicTitle,
-      musicFile: req.files.file[0].filename,
-      albumImg: req.files.img[0].filename,
-      singer: req.body.singerName,
-      albumName: req.body.albumTitle,
-      genre: req.body.formSelect,
-    });
+    console.log(req.files);
 
     res.send({
       fileName: req.files.file[0].filename,
@@ -50,5 +40,4 @@ router.post(
     });
   }
 );
-
 module.exports = router;
