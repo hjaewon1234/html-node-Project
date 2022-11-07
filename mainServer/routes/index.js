@@ -9,7 +9,7 @@ const musicInfo = require("./musicInfo.js");
 const playList = require("./playList.js");
 
 router.use("/user", user);
-router.use("musicUpload", musicUpload);
+router.use("/musicUpload", musicUpload);
 router.use("/chart", chart);
 router.use("/musicInfo", musicInfo);
 router.use("/playList", playList);
