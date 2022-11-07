@@ -1,0 +1,112 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+#root {
+  display: flex;
+  background-color: black;
+  color: white;
+  height: 1000px;
+}
+
+#mainpage {
+  justify-content: center;
+  align-items: center;
+  width: 91%;
+  margin: 0 auto;
+}
+
+#title-title {
+  font-size: 38px;
+  font-weight: 700;
+}
+
+#title-menu {
+  display: flex;
+  border-bottom: 1px solid #1a1a1a;
+  color: #999999;
+}
+
+#title-menu div {
+  padding: 50px 15px 15px 0;
+  cursor: pointer;
+}
+
+.Titlemenu {
+  color: white;
+  font-weight: 900;
+}
+
+#movetoplaylist a,
+#movetoadded a {
+  text-decoration: none;
+  color: #999999;
+}
+
+#list-board {
+  padding-top: 30px;
+  display: flex;
+  justify-content: flex-start;
+  flex-flow: row wrap;
+}
+
+#add-playlist {
+  cursor: pointer;
+}
+
+.list-post {
+  width: 13.5%;
+  padding-bottom: 45px;
+  position: relative;
+}
+.list-post:first-child {
+  margin: 0;
+}
+.list-post:nth-child(n + 1) {
+  margin: 5px;
+}
+.list-click {
+  cursor: pointer;
+}
+
+/* 반응형 일정 너비 이하가 되면 마진px이 줄어드는거 확인 */
+.list-img img {
+  width: 100%;
+  /* object-fit: contain; */
+  padding-bottom: 5px;
+}
+.list-title {
+  padding-bottom: 5px;
+}
+
+.list-title:hover {
+  text-decoration: underline;
+}
+
+.list-contents {
+  color: #737373;
+  font-size: 15px;
+}
+
+.list-hidden {
+  position: absolute;
+  top: 50%;
+  width: 100%;
+  opacity: 0;
+}
+
+.list-hidden img {
+  width: 40px;
+  height: 40px;
+}
+
+.list-img:hover .list-hidden {
+  opacity: 1;
+}
+
+.icon-box {
+  display: flex;
+  justify-content: space-around;
+}

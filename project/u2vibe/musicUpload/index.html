@@ -179,21 +179,26 @@
           <form id="upload-content" enctype="multipart/form-data">
             <div class="upload-body">
               <div>
-                <div>제목 :</div>
+                <div>노래제목 :</div>
                 <input type="text" id="music-title" autocomplete="off" />
               </div>
               <div>
-                <div>파일등록 :</div>
-                <input type="file" id="file-upload" name="file" required />
+                <div>음원등록 :</div>
+                <input
+                  type="file"
+                  id="file-upload"
+                  name="file"
+                  accept="audio/*"
+                />
               </div>
               <div>
-                <div>이미지 :</div>
+                <div>앨범이미지 :</div>
                 <img src="" alt="미리보기 없음" id="preview-img" />
                 <input
                   type="file"
                   id="img-upload"
                   name="img"
-                  accept=".jpg, .jpeg, .png"
+                  accept="image/*"
                 />
               </div>
               <div>

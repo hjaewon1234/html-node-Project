@@ -60,19 +60,17 @@ uploadContent.onsubmit = async (e) => {
 
   try {
     const { file, img } = e.target;
-
-    const formData = new FormData();
+    // const img = e.target.img;
+    // const file = e.target.file;
+    let formData = new FormData();
     formData.append("file", file.files[0]);
     formData.append("img", img.files[0]);
+    formData.append("musicTitle", musicTitle.value);
+    formData.append("formSelect", formSelect[0].value);
+    formData.append("singerName", singerName.value);
+    formData.append("albumTitle", albumTitle.value);
 
     const data = await axios.post("/api/upload/upload", formData);
-    alert(
-      "선택하신" +
-        data.data.fileName +
-        " & " +
-        data.data.imgName +
-        "가 업로드 되었습니다."
-    );
   } catch (err) {
     console.error(err);
   }
