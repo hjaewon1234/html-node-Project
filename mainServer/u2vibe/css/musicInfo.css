@@ -79,6 +79,15 @@ h2 {
   padding-top: 30px;
 }
 
+.lyrics-text {
+  overflow: hidden;
+  height: 235px;
+}
+
+.lyrics-text.on {
+  height: auto;
+}
+
 .music-lyrics div:nth-child(2) {
   color: #999;
 }
@@ -90,6 +99,25 @@ h2 {
   font-size: 16px;
   padding: 0;
   cursor: pointer;
+}
+
+.lyricsoff-btn {
+  display: none;
+  margin-top: 15px;
+  border: none;
+  background-color: transparent;
+  color: white;
+  font-size: 16px;
+  padding: 0;
+  cursor: pointer;
+}
+
+.lyricsoff-btn.on {
+  display: block;
+}
+
+.lyrics-btn.on {
+  display: none;
 }
 
 .music-album {
@@ -184,6 +212,8 @@ h2 {
 
 .artist-album {
   padding-top: 60px;
+  overflow: hidden;
+  position: relative;
 }
 
 .artist-album h2:hover {
@@ -194,7 +224,9 @@ h2 {
 .album-list {
   display: flex;
   flex-direction: row;
-  overflow: hidden;
+  /* overflow: hidden; */
+  align-items: center;
+  position: relative;
 }
 
 .album-list div div:nth-child(n + 2):nth-child(-n + 3):hover {
@@ -212,12 +244,14 @@ h2 {
 
 .album-list-img {
   width: 200px;
-  margin-right: 10px;
+  margin-right: 20px;
   cursor: pointer;
 }
 
 .playList {
   padding: 60px 0;
+  position: relative;
+  overflow: hidden;
 }
 
 .playList h2:hover {
@@ -228,12 +262,12 @@ h2 {
 .playList-line {
   display: flex;
   flex-direction: row;
-  overflow: hidden;
+  /* overflow: hidden; */
 }
 
 .playList-line-img {
   width: 200px;
-  margin-right: 10px;
+  margin-right: 20px;
   cursor: pointer;
 }
 
@@ -276,10 +310,48 @@ h2 {
   display: flex;
   justify-content: space-between;
   margin-top: 15px;
+  margin: 0 20px;
 }
 textarea {
   resize: none;
   border: none;
-  width: 80%;
+  width: 95%;
   background-color: transparent;
+  margin: 0 20px;
+}
+
+#left-btn {
+  background-color: white;
+  height: 50px;
+  position: absolute;
+  top: 175px;
+  left: 0;
+  z-index: 10;
+}
+
+#right-btn {
+  background-color: white;
+  height: 50px;
+  position: absolute;
+  top: 175px;
+  right: 0;
+  z-index: 10;
+}
+
+#playleft-btn {
+  background-color: white;
+  height: 50px;
+  position: absolute;
+  top: 175px;
+  left: 0;
+  z-index: 10;
+}
+
+#playright-btn {
+  background-color: white;
+  height: 50px;
+  position: absolute;
+  top: 175px;
+  right: 0;
+  z-index: 10;
 }
