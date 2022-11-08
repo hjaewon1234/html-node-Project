@@ -43,6 +43,7 @@ router.post("/cookie", function (req, res) {
 router.post("/login", async (req, res) => {
   try {
     const checkUser = await User.findOne({ where: { userId: req.body.id } });
+
     if (!checkUser) {
       res.send({ message: "회원가입 되지 않은 ID 입니다." });
       res.status(500);

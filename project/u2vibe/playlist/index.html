@@ -1,19 +1,19 @@
-<html lang="ko">
+<html lang="en">
   <head>
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>U2 VIBE</title>
+    <title>play list jaewon</title>
     <link
-      rel="canonical"
-      href="https://getbootstrap.kr/docs/5.2/examples/sticky-footer/"
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi"
+      crossorigin="anonymous"
     />
-    <link
-      rel="canonical"
-      href="https://getbootstrap.com/docs/5.2/examples/sidebars/"
-    />
-    <link href="../../assets/dist/css/bootstrap.min.css" rel="stylesheet" />
+    <link href="../assets/dist/css/bootstrap.min.css" rel="stylesheet" />
+    <link rel="stylesheet" href="../css/playList.css" />
     <link href="../css/main.css" rel="stylesheet" />
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
   </head>
   <body>
     <main class="d-flex flex-nowrap">
@@ -172,102 +172,8 @@
       </div>
     </main>
     <div class="main-body-container">
-      <div class="upload-box">
-        <div class="upload-area">
-          <div class="upload-title">음원등록</div>
-          <div class="upload-body">
-            <div>
-              <div>제목 :</div>
-              <input type="text" id="music-title" />
-            </div>
-            <div>
-              <div>파일등록 :</div>
-              <input type="file" id="file-upload" required />
-            </div>
-            <div>
-              <div>이미지 :</div>
-              <img src="" alt="미리보기 없음" id="preview-img" />
-              <input
-                type="file"
-                id="img-upload"
-                accept=".jpg, .jpeg, .png"
-                required
-              />
-            </div>
-            <div>
-              <div>장르 :</div>
-              <select class="form-select">
-                <option selected>장르 선택</option>
-                <option value="1">발라드</option>
-                <option value="2">댄스</option>
-                <option value="3">힙합</option>
-              </select>
-            </div>
-            <div>
-              <div>아티스트 :</div>
-              <input type="text" id="singer-name" />
-            </div>
-            <div>
-              <div>앨범명 :</div>
-              <input type="text" id="album-title" />
-            </div>
-            <div class="upload-footer">
-              <input type="submit" id="submit" value="업로드" />
-              <input type="reset" id="reset" value="취소" />
-            </div>
-          </div>
-          <div class="upload-footer">
-            <input type="submit" value="업로드" />
-            <input type="reset" value="취소" />
-          </div>
-        </div>
-      </div>
-      <!-- 테스트용 객체 생성 영역 -->
-
-      <div class="footer-box">
-        <div class="footer-area">
-          <div class="footer-first">
-            <div class="first-item">공지사항</div>
-            <div class="first-item">아뇽하세요 유2팀 입니다</div>
-            <div class="img-container first-item">
-              <div class="img-container-item">
-                <img src="../../assets/img/facebook.svg" alt="" />
-              </div>
-              <div class="img-container-item">
-                <img src="../../assets/img/instagram.svg" alt="" />
-              </div>
-              <div class="img-container-item">
-                <img src="../../assets/img/house-heart.svg" alt="" />
-              </div>
-            </div>
-          </div>
-          <div class="footer-second">
-            <div>
-              <span>대표이사 : 최수연</span>
-              <span>사업자 등록번호 : 220-81-62517</span>
-              <span>통신판매업신고번호 : 제2006-경기성남-0692호</span>
-            </div>
-            <div>
-              <span>주소 : 경기도 성남 분당 정자일로 네이버</span>
-              <span>대표전화 : 1588-1234</span>
-              <span>이메일 : wkdwjdgus@naver.com</span>
-              <span>호스팅 서비스 제공 : NAVER.Cloud</span>
-            </div>
-          </div>
-          <div class="footer-third">
-            <div>
-              <a href="./">개인정보처리방침</a>
-              <a href="./">네이버 이용약관</a>
-              <a href="./">VIBE 이용약관</a>
-              <a href="./">고객센터</a>
-              <a href="./">결제/환불 안내</a>
-              <a href="./">VIBE 스마트봇</a>
-              <a href="./">목록상담</a>
-              <a href="./">사업자정보 확인</a>
-              <a href="./">@NAVER Corp</a>
-            </div>
-          </div>
-        </div>
+      <div class="play-list-page">
+        <div id="play-list-container"></div>
       </div>
     </div>
     <footer class="footer mt-auto py-3 bg-light">
@@ -281,6 +187,11 @@
         <span class="text-muted">space1</span>
       </div>
     </footer>
-    <script src="../js/musicUpload.js"></script>
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-OERcA2EqjJCMA+/3y+gxIOqMEjwtxJY7qPCqsdltbNJuaOe923+mo//f6V8Qbsw3"
+      crossorigin="anonymous"
+    ></script>
+    <script src="../js/playList.js"></script>
   </body>
 </html>

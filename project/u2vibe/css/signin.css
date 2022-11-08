@@ -82,7 +82,8 @@
   width: 15px;
 }
 
-#signup-atag {
+#signup-atag,
+#login-atag {
   text-decoration: none;
 }
 

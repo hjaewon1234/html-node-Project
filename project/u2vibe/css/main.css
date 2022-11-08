@@ -47,6 +47,7 @@ main ul li:nth-child(9) {
 
   top: 93.5%;
   left: 0;
+  right: 0;
   width: 100%;
   background-color: black !important;
   justify-content: space-between;
@@ -83,9 +84,28 @@ main ul li:nth-child(9) {
 }
 .footer .container {
   text-align: center;
-  width: 15%;
+  width: 33%;
   padding: 0;
   margin: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.footer .container div {
+  padding: 0 10px;
+}
+
+.footer .container button {
+  background-color: transparent;
+  margin: 0 10px;
+}
+.footer .container img {
+  width: 40px;
+  filter: invert(70%);
+}
+.footer .container:last-child img {
+  width: 25px;
+  padding-bottom: 10px;
 }
 .footer .text-muted {
   color: white;
@@ -196,7 +216,7 @@ main ul li:nth-child(9) {
   padding: 20px 15px 30px 50px;
   width: 83%;
   position: absolute;
-  top: 77%;
+  bottom: 9%;
   left: 15%;
 }
 .footer-area {

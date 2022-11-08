@@ -171,3 +171,20 @@ listUp();
 // const tempElem = arr[i]
 // let `tempImg${i}` = document.createElemnet("img");
 //}
+
+    const formData = new FormData();
+    formData.append("file", file.files[0]);
+    formData.append("img", img.files[0]);
+
+    const data = await axios.post("/api/upload/upload", formData);
+    alert(
+      "선택하신" +
+        data.data.fileName +
+        " & " +
+        data.data.imgName +
+        "가 업로드 되었습니다."
+    );
+  } catch (err) {
+    console.error(err);
+  }
+};
