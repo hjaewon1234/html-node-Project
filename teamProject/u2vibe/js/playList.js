@@ -56,7 +56,7 @@ function makePlayList() {
   contentsOutterDiv.classList.add(`play-list-contents-outter`);
   contentsAddDiv.classList.add(`play-list-contents-add`);
   playListInnerContentsDiv.classList.add(`play-list-inner-contents`);
-  // 바깥을 감싸주는 애들은 미리 클래스 리스트를 줫따.
+  // 바깥을 감싸주는 애들은 미리 클래스 리스트를 주었습니다.
   contentsOutterDiv.append(contentsAddDiv);
   contentsAddDiv.append(playListInnerContentsDiv);
   contentsAddDiv.append(singerNameDiv);
