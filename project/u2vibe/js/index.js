@@ -1,8 +1,12 @@
 let userprofileid = document.getElementById("userprofile-id");
 
 let logincheck = document.cookie.split("=")[1].split(".")[1];
-console.log(logincheck);
+
 if (logincheck) {
+  // logoutbox.classList.remove("on");
+  // loginbox.classList.add("on");
+  // todayhide.classList.add("on");
+  // playlisthide.classList.remove("on");
   const curuserName = JSON.parse(
     window.atob(document.cookie.split("=")[1].split(".")[1])
   ).id;

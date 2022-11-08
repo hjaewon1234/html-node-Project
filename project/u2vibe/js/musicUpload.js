@@ -120,28 +120,28 @@ async function listUp() {
 
   //   document.getElementsByClassName("footer-box")[0].before(slideDiv);
 
-  imgElem.onclick = () => {
-    const imgDiv = document.createElement("div");
-    const tempDiv = document.createElement("div");
-    const tempImg = document.createElement("img");
+  // imgElem.onclick = () => {
+  //   const imgDiv = document.createElement("div");
+  //   const tempDiv = document.createElement("div");
+  //   const tempImg = document.createElement("img");
 
-    const innerDiv = document.createElement("div");
-    const innerSecondDiv = document.createElement("div");
+  //   const innerDiv = document.createElement("div");
+  //   const innerSecondDiv = document.createElement("div");
 
-    tempImg.src = `../upload/${item.albumImg}`;
-    tempImg.setAttribute("filter", "none");
+  //   tempImg.src = `../upload/${item.albumImg}`;
+  //   tempImg.setAttribute("filter", "none");
 
-    innerDiv.innerText = item.musicName;
-    innerSecondDiv.innerText = item.singer;
+  //   innerDiv.innerText = item.musicName;
+  //   innerSecondDiv.innerText = item.singer;
 
-    tempDiv.append(innerDiv);
-    tempDiv.append(innerSecondDiv);
+  //   tempDiv.append(innerDiv);
+  //   tempDiv.append(innerSecondDiv);
 
-    imgDiv.append(tempImg);
+  //   imgDiv.append(tempImg);
 
-    document.getElementsByClassName("container")[0].append(imgDiv);
-    document.getElementsByClassName("container")[0].append(tempDiv);
-  };
+  //   document.getElementsByClassName("container")[0].append(imgDiv);
+  //   document.getElementsByClassName("container")[0].append(tempDiv);
+  // };
   // });
   console.log("result");
   console.log(result.data);

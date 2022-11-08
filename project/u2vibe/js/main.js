@@ -6,14 +6,23 @@ let userprofileid = document.getElementById("userprofile-id");
 let logoutbtn = document.getElementById("logout-btn");
 
 let logincheck = document.cookie.split("=")[1].split(".")[1];
-console.log(logincheck);
+
+let loginbox = document.getElementById("login-box");
+let logoutbox = document.getElementById("logout-box");
+
+const playlisthide = document.getElementById("playlist-hide");
+const todayhide = document.getElementById("today-hide");
 
 if (logincheck && window.location.href == "http://localhost:8080/") {
   location.href = "http://localhost:8080/signedin/";
 }
+if (logincheck) {
+  const curuserName = JSON.parse(
+    window.atob(document.cookie.split("=")[1].split(".")[1])
+  ).id;
 
-const imgTag = document.getElementsByTagName("img");
-let checkMusic = 0;
+  userprofileid.innerText = curuserName;
+}
 playBtn.onclick = () => {
   playController.play();
 };
@@ -24,12 +33,6 @@ stopBtn.onclick = () => {
 volumeControl.addEventListener("change", (e) => {
   playController.volume = this.value / 10;
 });
-
-const curuserName = JSON.parse(
-  window.atob(document.cookie.split("=")[1].split(".")[1])
-).id;
-
-userprofileid.innerText = curuserName;
 
 document.getElementById("logout-btn").onclick = async function (e) {
   console.log("로그아웃");
@@ -52,7 +55,7 @@ async function listUp() {
   console.log(result.list);
 }
 
-listUp();
+// listUp();
 
 // const firstDivBox = document.createElement("div");
 // const secondDivBox = document.createElement("div");
