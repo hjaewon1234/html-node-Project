@@ -14,30 +14,6 @@ let inputemail = document.getElementById("input-email");
 let warnemail = document.getElementById("warn-email");
 let inputphone = document.getElementById("input-phone");
 let warnphone = document.getElementById("warn-phone");
-let inputname = document.getElementById("input-name");
-let selgender = document.getElementById("sel-gender");
-
-function signupcheck() {
-  const idcheck = /^[a-z0-9_-]{5,20}$/g;
-  const idresult = idcheck.test(inputid.value);
-  const pwcheck = /^(?=.*[a-zA-Z])(?=.*[!@#$%^*+=-])(?=.*[0-9]).{8,16}$/;
-  const pwresult = pwcheck.test(inputpw.value);
-  const emailcheck =
-    /^[0-9a-zA-Z]([-_.]?[0-9a-zA-Z])*@[0-9a-zA-Z]([-_.]?[0-9a-zA-Z])*.[a-zA-Z]{2,3}$/i;
-  const emailresult = emailcheck.test(inputemail.value);
-  const phonecheck = /^01([0|1|6|7|8|9])-?([0-9]{4})-?([0-9]{4})$/;
-  const phoneresult = phonecheck.test(inputphone.value);
-  if (!idresult) return;
-  if (!pwresult) return;
-  if (inputpw.value != inputpwrepeat.value) return;
-  if (inputyyyy.value <= 1922 || inputyyyy.value >= 2008) return;
-  if (selmm.value == "") return;
-  if (inputdd.value >= 32 || inputdd.value <= 0) return;
-  if (inputemail.value != "" && !emailresult) return;
-  if (!phoneresult) return;
-  if (selgender.value == "") return;
-  return 1;
-}
 
 // 중복 가입된 아이디 체크 미구현
 inputid.addEventListener("focusout", (event) => {
@@ -46,7 +22,12 @@ inputid.addEventListener("focusout", (event) => {
   if (idresult) {
     warnid.classList.add("green");
     warnid.innerText = "멋진 아이디네요!";
-  } else {
+  }
+  // else if(중복 id){
+  //   warnid.innerText = "이미 사용중이거나 탈퇴한 아이디입니다.";
+  //   warnid.classList.remove("green");
+  // }
+  else {
     warnid.classList.remove("green");
     warnid.innerText =
       "5~20자의 영문 소문자, 숫자와 특수기호(_),(-)만 사용 가능합니다.";
@@ -104,9 +85,7 @@ inputyyyy.addEventListener("focusout", (event) => {
           warnbirthday.innerText = "생년월일을 다시 확인해주세요.";
         }
       }
-    } else {
-      warnbirthday.innerText = "태어난 월을 선택하세요";
-    }
+    } else warnbirthday.innerText = "태어난 월을 선택하세요";
   } else {
     warnbirthday.classList.remove("green");
     warnbirthday.innerText = "태어난 년도 4자리를 정확하게 입력하세요.";
@@ -138,9 +117,7 @@ function change() {
           warnbirthday.innerText = "생년월일을 다시 확인해주세요.";
         }
       }
-    } else {
-      warnbirthday.innerText = "태어난 월을 선택하세요";
-    }
+    } else warnbirthday.innerText = "태어난 월을 선택하세요";
   } else {
     warnbirthday.classList.remove("green");
     warnbirthday.innerText = "태어난 년도 4자리를 정확하게 입력하세요.";
@@ -172,9 +149,7 @@ inputdd.addEventListener("focusout", (event) => {
           warnbirthday.innerText = "생년월일을 다시 확인해주세요.";
         }
       }
-    } else {
-      warnbirthday.innerText = "태어난 월을 선택하세요";
-    }
+    } else warnbirthday.innerText = "태어난 월을 선택하세요";
   } else {
     warnbirthday.classList.remove("green");
     warnbirthday.innerText = "태어난 년도 4자리를 정확하게 입력하세요.";
@@ -200,45 +175,8 @@ inputphone.addEventListener("focusout", (event) => {
   const phonecheck = /^01([0|1|6|7|8|9])-?([0-9]{4})-?([0-9]{4})$/;
   const phoneresult = phonecheck.test(inputphone.value);
 
-  if (phoneresult) {
-    warnphone.innerText = "";
-  } else {
-    warnphone.innerText = "형식에 맞지 않는 번호입니다.";
-  }
+  if (phoneresult) warnphone.innerText = "";
+  else warnphone.innerText = "형식에 맞지 않는 번호입니다.";
 });
 
 //////////////////// 회원가입 경고창 /////////////////////////
-
-document.forms["signup-form"].onsubmit = async function (e) {
-  let checkcount = signupcheck();
-  e.preventDefault();
-  console.log(checkcount);
-  if (checkcount != 1) {
-    alert("정확한 정보를 입력해주세요");
-  }
-  try {
-    const data = await axios.post("/api/user/regist", {
-      id: e.target["input-id"].value || null,
-      pw: e.target["input-pw"].value || null,
-      name: e.target["input-name"].value || null,
-      yyyy: e.target["input-yyyy"].value || null,
-      mm: e.target["sel-mm"].value || null,
-      dd: e.target["input-dd"].value || null,
-      gender: e.target["sel-gender"].value || null,
-      email: e.target["input-email"].value || null,
-      phone: e.target["input-phone"].value || null,
-    });
-    if (data.data.overlap == 1) {
-      warnid.innerText = "";
-      warnid.innerText = "이미 사용중이거나 탈퇴한 아이디입니다.";
-      warnid.classList.remove("green");
-    }
-
-    if (checkcount == 1 && data.data.signupcom == 1) {
-      alert("회원가입이 완료되었습니다. 로그인 화면으로 이동합니다.");
-      location.href = "http://localhost:8080/signin";
-    }
-  } catch (error) {
-    console.error(error);
-  }
-};
