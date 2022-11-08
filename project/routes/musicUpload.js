@@ -1,7 +1,9 @@
 const router = require("express").Router();
 const multer = require("multer");
+const fs = require("fs");
 
-const { Upload } = require("../models/index.js");
+const { MusicUpload } = require("../models/index.js");
+
 const storage = multer.diskStorage({
   destination: (req, file, cb) => {
     cb(null, "./upload/");
@@ -11,10 +13,16 @@ const storage = multer.diskStorage({
   },
 });
 const uploader = multer({ storage: storage });
-router.get("/upload", (req, res) => {
-  console.log("get");
 
-  res.send("get으로 옴");
+router.get("/upload", async (req, res) => {
+  const listUp = await MusicUpload.findAll();
+  console.log("listUp");
+  console.log(listUp);
+
+  fs.readdir("./upload", (err, data) => {
+    console.log("data : ", data);
+    res.send({ list: listUp, data: data });
+  });
 });
 
 // multer로 한개의 파일만 업로드 할 때
@@ -52,21 +60,28 @@ router.post(
       // let imgPath = [];
       // imgPath.push(req.files.img[0].path);
 
-      const tempUpload = await Upload.create({
-        user_id: "jj",
-        musicTitle: req.body.musicTitle,
-        formSelect: req.body.formSelect,
-        singerName: req.body.singerName,
-        albumTitle: req.body.albumTitle,
+      const tempUpload = await MusicUpload.create({
+        userId: "lkw",
+        musicName: req.body.musicTitle,
+        musicFile: req.files.file[0].filename,
+        albumImg: req.files.img[0].filename,
+        singer: req.body.singerName,
+        albumName: req.body.albumTitle,
+        genre: req.body.formSelect,
+      });
+      console.log(tempUpload);
+      res.send({
+        userId: "jjh",
+        musicName: req.body.musicTitle,
+        musicFile: req.files.file[0].filename,
+        albumImg: req.files.img[0].filename,
+        singer: req.body.singerName,
+        albumName: req.body.albumTitle,
+        genre: req.body.formSelect,
       });
     } catch (err) {
       console.log(err);
     }
-
-    res.send({
-      fileName: req.files.file[0].filename,
-      imgName: req.files.img[0].filename,
-    });
   }
 );
 module.exports = router;

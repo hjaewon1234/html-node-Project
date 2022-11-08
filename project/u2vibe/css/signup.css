@@ -60,7 +60,7 @@ select:focus {
 
 #input-pw,
 #input-pwrepeat {
-  background-image: url(../assets/img/lock-open-solid.svg);
+  background-image: url(../assets/img/signup-lock-open-solid.svg);
   background-position: 420px center;
   background-repeat: no-repeat;
   background-size: 20px;
@@ -100,8 +100,27 @@ select:focus {
   margin-top: 20px;
   background-color: #00c850;
   height: 50px;
+  width: 100%;
   color: white;
   font-size: 20px;
+  border: none;
+}
+
+#back-btn {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 10px;
+  background-color: #888888;
+  height: 50px;
+  width: 100%;
+  color: white;
+  font-size: 20px;
+  border: none;
+}
+
+#back-atag {
+  text-decoration: none;
 }
 
 #serviceinfo {

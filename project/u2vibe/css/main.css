@@ -71,6 +71,9 @@ main ul li:nth-child(9) {
   width: 40px;
   filter: invert(70%);
 }
+.footer .container:first-child > div img {
+  filter: none;
+}
 .footer .container:last-child img {
   width: 25px;
   padding-bottom: 10px;
@@ -78,6 +81,7 @@ main ul li:nth-child(9) {
 .footer .text-muted {
   color: white;
 }
+
 .login-box {
   margin: 15% 0;
 }

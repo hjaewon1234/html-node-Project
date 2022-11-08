@@ -14,6 +14,7 @@
     <link href="../assets/dist/css/bootstrap.min.css" rel="stylesheet" />
     <link rel="stylesheet" href="../css/chart.css" />
     <link href="../css/main.css" rel="stylesheet" />
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
   </head>
   <body>
     <main class="d-flex flex-nowrap">
@@ -42,6 +43,15 @@
             </svg>
             <span>로그인</span></a
           >
+        </div>
+        <div id="logout-box" class="logout-box on">
+          <div>
+            <img src="../../assets/img/person-circle.svg" alt="" />
+            <span id="userprofile-id"></span>
+          </div>
+          <div>
+            <button id="logout-btn">로그아웃</button>
+          </div>
         </div>
         <ul class="nav nav-pills flex-column mb-auto">
           <li>
@@ -200,53 +210,63 @@
                 <div class="slide-div">
                   <div>
                     <div class="slide-inner-div">
-                      <div>
-                        <img src="../assets/img/I_love.jpg" alt="" />
+                      <div class="slide-inner-img">
+                        <img src="" alt="" class="inner-img" />
                       </div>
-                      <div><div>1</div></div>
                       <div>
-                        <div>Nxde</div>
-                        <div>(여자)아이들</div>
+                        <div class="slide-inner-id"></div>
                       </div>
-                    </div>
-                    <div class="slide-inner-div">
                       <div>
-                        <img src="../assets/img/After_LIKE.jpg" alt="" />
-                      </div>
-                      <div><div>2</div></div>
-                      <div>
-                        <div>After LIKE</div>
-                        <div>IVE(아이브)</div>
+                        <div class="slide-inner-title"></div>
+                        <div class="slide-inner-singer"></div>
                       </div>
                     </div>
                     <div class="slide-inner-div">
-                      <div>
-                        <img src="../assets/img/ANTIFRAGILE.jpg" alt="" />
+                      <div class="slide-inner-img">
+                        <img src="" alt="" class="inner-img" />
                       </div>
-                      <div><div>3</div></div>
                       <div>
-                        <div>ANTIFRAGILE</div>
-                        <div>LE SSERAFIM (르세라핌)</div>
+                        <div class="slide-inner-id"></div>
                       </div>
-                    </div>
-                    <div class="slide-inner-div">
                       <div>
-                        <img src="../assets/img/SMF_Vol3.jpg" alt="" />
-                      </div>
-                      <div><div>4</div></div>
-                      <div>
-                        <div>새삥 (Prod. ZICO) (Feat. 호미들)</div>
-                        <div>지코 (ZICO)</div>
+                        <div class="slide-inner-title"></div>
+                        <div class="slide-inner-singer"></div>
                       </div>
                     </div>
                     <div class="slide-inner-div">
-                      <div>
-                        <img src="../assets/img/newjeans_1st_ep.jpg" alt="" />
+                      <div class="slide-inner-img">
+                        <img src="" alt="" class="inner-img" />
                       </div>
-                      <div><div>5</div></div>
                       <div>
-                        <div>Attention</div>
-                        <div>NewJeans</div>
+                        <div class="slide-inner-id"></div>
+                      </div>
+                      <div>
+                        <div class="slide-inner-title"></div>
+                        <div class="slide-inner-singer"></div>
+                      </div>
+                    </div>
+                    <div class="slide-inner-div">
+                      <div class="slide-inner-img">
+                        <img src="" alt="" class="inner-img" />
+                      </div>
+                      <div>
+                        <div class="slide-inner-id"></div>
+                      </div>
+                      <div>
+                        <div class="slide-inner-title"></div>
+                        <div class="slide-inner-singer"></div>
+                      </div>
+                    </div>
+                    <div class="slide-inner-div">
+                      <div class="slide-inner-img">
+                        <img src="" alt="" class="inner-img" />
+                      </div>
+                      <div>
+                        <div class="slide-inner-id"></div>
+                      </div>
+                      <div>
+                        <div class="slide-inner-title"></div>
+                        <div class="slide-inner-singer"></div>
                       </div>
                     </div>
                   </div>
@@ -1355,13 +1375,7 @@
       </div>
     </div>
     <footer class="footer mt-auto py-3 bg-light">
-      <div class="container">
-        <div>Img</div>
-        <div>
-          <div>music-title</div>
-          <div>singer-name</div>
-        </div>
-      </div>
+      <div class="container"></div>
       <div class="container">
         <button>
           <img src="../assets/img/skip-start-btn-fill.svg" alt="" />

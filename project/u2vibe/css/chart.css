@@ -129,3 +129,19 @@
 .chart-in {
   margin-top: 50px;
 }
+
+.logout-box.on {
+  display: none;
+}
+
+.login-box.on {
+  display: none;
+}
+
+#playlist-hide.on {
+  display: none;
+}
+
+#today-hide.on {
+  display: none;
+}

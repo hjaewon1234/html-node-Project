@@ -8,8 +8,13 @@
   text-align: center;
 }
 
-.logo {
-  font-size: 35px;
+.logo h2 {
+  font-size: 60px;
+}
+
+.logo a {
+  text-decoration: none;
+  color: #03c75a;
 }
 
 .login-wrap {
@@ -25,6 +30,11 @@
 
 #warn-msg {
   color: red;
+  width: 85%;
+  text-align: left;
+  margin-left: 33px;
+  margin-top: 20px;
+  height: 42px;
 }
 
 .inputid-wrap {
@@ -72,7 +82,8 @@
   width: 15px;
 }
 
-#signup-atag {
+#signup-atag,
+#login-atag {
   text-decoration: none;
 }
 
@@ -95,9 +106,11 @@
   color: white;
   font-weight: 700;
   border-radius: 5px;
-  margin-top: 15px;
+  margin-top: 25px;
   margin-bottom: 5px;
   border: 1px solid #167e4ae5;
+  font-size: 16px;
+  cursor: pointer;
 }
 
 #signup-btn {
@@ -149,6 +162,10 @@
 
 #enterinfo a {
   text-decoration: none;
+}
+
+#footer {
+  margin-top: 50px;
 }
 
 #footer-logo {

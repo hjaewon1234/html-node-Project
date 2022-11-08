@@ -74,4 +74,100 @@ uploadContent.onsubmit = async (e) => {
   } catch (err) {
     console.error(err);
   }
+  musicTitle.value = "";
 };
+
+async function listUp() {
+  const result = (await axios.get("/api/upload/upload")).data;
+  // result?.list?.forEach((item) => {
+  //   const firstDivBox = document.createElement("div");
+  //   const secondDivBox = document.createElement("div");
+  //   const thirdDivBox = document.createElement("div");
+
+  //   const tempAudio = document.createElement("audio");
+
+  //   const slideInnerDiv = document.createElement("div");
+  //   const imgElem = document.createElement("img");
+  //   const divElem = document.createElement("div");
+  //   const titleDivElem = document.createElement("div");
+  //   const musicDivElem = document.createElement("div");
+
+  //   const slideDiv = document.createElement("div");
+
+  // imgElem.src = `../upload/${item.albumImg}`;
+  //   imgElem.setAttribute("width", "100px");
+
+  //   divElem.innerHTML = `${item.id}`;
+
+  //   tempAudio.src = `../upload/${item.musicFile}`;
+  //   tempAudio.setAttribute("width", "100px");
+
+  //   titleDivElem.innerHTML = `${item.musicName}`;
+  //   musicDivElem.innerHTML = `${item.singer}`;
+  //   imgElem.after(tempAudio);
+
+  //   firstDivBox.append(imgElem);
+
+  //   secondDivBox.append(divElem);
+  //   thirdDivBox.append(titleDivElem);
+  //   thirdDivBox.append(musicDivElem);
+
+  //   slideInnerDiv.append(firstDivBox);
+  //   slideInnerDiv.append(secondDivBox);
+  //   slideInnerDiv.append(thirdDivBox);
+
+  //   slideDiv.append(slideInnerDiv);
+
+  //   document.getElementsByClassName("footer-box")[0].before(slideDiv);
+
+  imgElem.onclick = () => {
+    const imgDiv = document.createElement("div");
+    const tempDiv = document.createElement("div");
+    const tempImg = document.createElement("img");
+
+    const innerDiv = document.createElement("div");
+    const innerSecondDiv = document.createElement("div");
+
+    tempImg.src = `../upload/${item.albumImg}`;
+    tempImg.setAttribute("filter", "none");
+
+    innerDiv.innerText = item.musicName;
+    innerSecondDiv.innerText = item.singer;
+
+    tempDiv.append(innerDiv);
+    tempDiv.append(innerSecondDiv);
+
+    imgDiv.append(tempImg);
+
+    document.getElementsByClassName("container")[0].append(imgDiv);
+    document.getElementsByClassName("container")[0].append(tempDiv);
+  };
+  // });
+  console.log("result");
+  console.log(result.data);
+  console.log(result.list);
+}
+
+listUp();
+
+// onclick = ()=>{ 노래제목, 가수이름
+// server 측
+// db에 const musicPlay = MusicUpload.findAll ({ where :
+// {musicName:req.body.musicName,
+//  singer : req.body.singer}})
+// fs.readdir("./upload", (err, data)=>{
+// res.send({play : musicPlay, data : data})
+//
+//})}
+
+// client
+// const result = await axios.post("router", (req,res)=>{
+
+//})
+// result.play.albumImg && result.play.musicName && result.play.singer
+// \
+
+/// for(let i = 0  ; i< arr.length ; i++ ){
+// const tempElem = arr[i]
+// let `tempImg${i}` = document.createElemnet("img");
+//}
