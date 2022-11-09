@@ -19,10 +19,11 @@ let userprofileid = document.getElementById("userprofile-id");
 let logincheck = document.cookie.split("=")[1].split(".")[1];
 
 // 로그인 정보 불러오기
+
+const curuserName = JSON.parse(
+  window.atob(document.cookie.split("=")[1].split(".")[1])
+).id;
 if (logincheck) {
-  const curuserName = JSON.parse(
-    window.atob(document.cookie.split("=")[1].split(".")[1])
-  ).id;
   userprofileid.innerText = curuserName;
 }
 
@@ -85,6 +86,7 @@ uploadContent.onsubmit = async (e) => {
     // const img = e.target.img;
     // const file = e.target.file;
     let formData = new FormData();
+    formData.append("id", curuserName);
     formData.append("file", file.files[0]);
     formData.append("img", img.files[0]);
     formData.append("musicTitle", musicTitle.value);

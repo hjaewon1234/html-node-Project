@@ -167,7 +167,7 @@
           </div>
           <div id="list-board">
             <div class="list-post">
-              <div onclick="" id="add-playlist">
+              <div id="add-playlist">
                 <div class="list-img">
                   <img src="../../assets/img/playlistadd.png" alt="imsi" />
                 </div>
@@ -195,8 +195,39 @@
               <div class="list-contents">0곡</div>
             </div>
           </div>
+          <div id="mordal-root" class="on">
+            <div id="mordal-title">새 플레이리스트</div>
+            <div id="mordal-list-album">
+              <img src="../../assets/img/newplaylist.png" alt="imsi" />
+            </div>
+            <div id="mordal-list-title">
+              <input
+                id="mordal-input-title"
+                type="text"
+                placeholder="플레이리스트 제목 (최대 30자)"
+                maxlength="30"
+                autocomplete="off"
+              />
+            </div>
+            <div id="mordal-list-contents">
+              <textarea
+                name="textarea"
+                id="mordal-input-contents"
+                cols="30"
+                rows="10"
+                maxlength="40"
+                placeholder="플레이리스트 설명을 입력해주세요. (최대 40자)"
+                autocomplete="off"
+              ></textarea>
+            </div>
+            <div id="mordal-btn-box">
+              <div id="mordal-cancle-btn">취소</div>
+              <div id="mordal-add-btn" onclick="makePlaylist()">추가</div>
+            </div>
+          </div>
         </div>
       </div>
+
       <footer class="footer mt-auto py-3 bg-light">
         <div class="container">
           <!-- <div>Img</div>
