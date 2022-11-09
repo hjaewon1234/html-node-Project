@@ -14,6 +14,30 @@ let inputemail = document.getElementById("input-email");
 let warnemail = document.getElementById("warn-email");
 let inputphone = document.getElementById("input-phone");
 let warnphone = document.getElementById("warn-phone");
+let selgender = document.getElementById("sel-gender");
+let inputname = document.getElementById("input-name");
+
+function signupcheck() {
+  const idcheck = /^[a-z0-9_-]{5,20}$/g;
+  const idresult = idcheck.test(inputid.value);
+  const pwcheck = /^(?=.*[a-zA-Z])(?=.*[!@#$%^*+=-])(?=.*[0-9]).{8,16}$/;
+  const pwresult = pwcheck.test(inputpw.value);
+  const emailcheck =
+    /^[0-9a-zA-Z]([-_.]?[0-9a-zA-Z])*@[0-9a-zA-Z]([-_.]?[0-9a-zA-Z])*.[a-zA-Z]{2,3}$/i;
+  const emailresult = emailcheck.test(inputemail.value);
+  const phonecheck = /^01([0|1|6|7|8|9])-?([0-9]{4})-?([0-9]{4})$/;
+  const phoneresult = phonecheck.test(inputphone.value);
+  if (!idresult) return;
+  if (!pwresult) return;
+  if (inputpw.value != inputpwrepeat.value) return;
+  if (inputyyyy.value <= 1922 || inputyyyy.value >= 2008) return;
+  if (selmm.value == "") return;
+  if (inputdd.value >= 32 || inputdd.value <= 0) return;
+  if (inputemail.value != "" && !emailresult) return;
+  if (!phoneresult) return;
+  if (selgender.value == "") return;
+  return 1;
+}
 
 // 중복 가입된 아이디 체크 미구현
 inputid.addEventListener("focusout", (event) => {
@@ -42,6 +66,9 @@ inputpw.addEventListener("focusout", (event) => {
   if (inputpwrepeat.value && inputpw.value != inputpwrepeat.value) {
     warnpwrepeat.classList.remove("green");
     warnpwrepeat.innerText = "비밀번호가 일치하지 않습니다.";
+  } else if (inputpw.value == inputpwrepeat.value) {
+    warnpwrepeat.classList.add("green");
+    warnpwrepeat.innerText = "비밀번호가 일치합니다.";
   }
 });
 
@@ -177,9 +204,8 @@ inputphone.addEventListener("focusout", (event) => {
 //////////////////// 회원가입 경고창 /////////////////////////
 
 document.forms["signup-form"].onsubmit = async function (e) {
-  let checkcount = signupcheck();
   e.preventDefault();
-  console.log(checkcount);
+  let checkcount = signupcheck();
   if (checkcount != 1) {
     alert("정확한 정보를 입력해주세요");
   }
