@@ -23,20 +23,6 @@ const volumeControl = document.getElementById("volume-control");
 
 let checkNum = 0;
 
-const playController = document.getElementById("play-controller");
-const playBtn = document.getElementById("play-btn");
-const stopBtn = document.getElementById("stop-btn");
-const volumeControl = document.getElementById("volume-control");
-
-let checkNum = 0;
-
-const playController = document.getElementById("play-controller");
-const playBtn = document.getElementById("play-btn");
-const stopBtn = document.getElementById("stop-btn");
-const volumeControl = document.getElementById("volume-control");
-
-let checkNum = 0;
-
 if (logincheck) {
   logoutbox.classList.remove("on");
   loginbox.classList.add("on");
