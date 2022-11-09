@@ -45,15 +45,15 @@ app.use(
 );
 
 // 일단 force 초기값 false 설정
-db.sequelize
-  .sync({ force: false })
+// db.sequelize
+//   .sync({ force: false })
 
-  .then(() => {
-    console.log("DB System On");
-  })
-  .catch((err) => {
-    console.log(err);
-  });
+//   .then(() => {
+//     console.log("DB System On");
+//   })
+//   .catch((err) => {
+//     console.log(err);
+//   });
 
 // routes 폴더 라우터 /api
 app.use("/api", routes);
