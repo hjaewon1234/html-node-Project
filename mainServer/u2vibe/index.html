@@ -21,6 +21,7 @@
 
     <link href="../assets/dist/css/bootstrap.min.css" rel="stylesheet" />
     <link href="./css/main.css" rel="stylesheet" />
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
   </head>
   <body>
     <main class="d-flex flex-nowrap">
@@ -32,7 +33,7 @@
           <span class="fs-4">U2 VIBE</span>
         </a>
         <div class="login-box">
-          <a href="../u2vibe/signin/" class="text-white text-decoration-none">
+          <a href="./signin/" class="text-white text-decoration-none">
             <svg
               xmlns="http://www.w3.org/2000/svg"
               width="16"
@@ -182,7 +183,7 @@
       <div class="img-box">
         <div class="img">
           <div class="img-item">
-            <img src="../assets/img/coverImg.png" alt="" />
+            <img src="./assets/img/coverImg.png" alt="asd" />
           </div>
           <div class="text-item">
             <div><button>special</button></div>
@@ -202,35 +203,37 @@
           <div class="news-title">NEWS</div>
           <div class="news-flex">
             <div class="news-item">
-              <div><img src="../assets/img/newImg1.jpg" alt="img" /></div>
+              <div><img src="./assets/img/groot2.gif" alt="" / ></div>
               <div class="news-item-body">
                 테일러 스위프트가 사상 최초로 빌보드 차트 점령했습니다.
               </div>
               <div><a href="#">관련뉴스보기</a></div>
             </div>
             <div class="news-item">
-              <div><img src="../assets/img/newImg1.jpg" alt="img" /></div>
+              <div>
+                <img src="./assets/img/groot2.gif" alt="" />
+              </div>
               <div class="news-item-body">
                 테일러 스위프트가 사상 최초로 빌보드 차트 점령했습니다.
               </div>
               <div><a href="#">관련뉴스보기</a></div>
             </div>
             <div class="news-item">
-              <div><img src="../assets/img/newImg1.jpg" alt="img" /></div>
+              <div><img src="./assets/img/groot2.gif" alt="" / ></div>
               <div class="news-item-body">
                 테일러 스위프트가 사상 최초로 빌보드 차트 점령했습니다.
               </div>
               <div><a href="#">관련뉴스보기</a></div>
             </div>
             <div class="news-item">
-              <div><img src="../assets/img/newImg1.jpg" alt="img" /></div>
+              <div><img src="./assets/img/groot2.gif" alt="" / ></div>
               <div class="news-item-body">
                 테일러 스위프트가 사상 최초로 빌보드 차트 점령했습니다.
               </div>
               <div><a href="#">관련뉴스보기</a></div>
             </div>
             <div class="news-item">
-              <div><img src="../assets/img/newImg1.jpg" alt="img" /></div>
+              <div><img src="./assets/img/groot2.gif" alt="" / ></div>
               <div class="news-item-body">
                 테일러 스위프트가 사상 최초로 빌보드 차트 점령했습니다.
               </div>
@@ -244,35 +247,35 @@
           <div class="news-title">NEWS</div>
           <div class="news-flex">
             <div class="news-item">
-              <div><img src="../assets/img/newImg1.jpg" alt="img" /></div>
+              <div><img src="./assets/img/groot2.gif" alt="" / ></div>
               <div class="news-item-body">
                 테일러 스위프트가 사상 최초로 빌보드 차트 점령했습니다.
               </div>
               <div><a href="#">관련뉴스보기</a></div>
             </div>
             <div class="news-item">
-              <div><img src="../assets/img/newImg1.jpg" alt="img" /></div>
+              <div><img src="./assets/img/groot2.gif" alt="" / ></div>
               <div class="news-item-body">
                 테일러 스위프트가 사상 최초로 빌보드 차트 점령했습니다.
               </div>
               <div><a href="#">관련뉴스보기</a></div>
             </div>
             <div class="news-item">
-              <div><img src="../assets/img/newImg1.jpg" alt="img" /></div>
+              <div><img src="./assets/img/groot2.gif" alt="" / ></div>
               <div class="news-item-body">
                 테일러 스위프트가 사상 최초로 빌보드 차트 점령했습니다.
               </div>
               <div><a href="#">관련뉴스보기</a></div>
             </div>
             <div class="news-item">
-              <div><img src="../assets/img/newImg1.jpg" alt="img" /></div>
+              <div><img src="./assets/img/groot2.gif" alt="" / ></div>
               <div class="news-item-body">
                 테일러 스위프트가 사상 최초로 빌보드 차트 점령했습니다.
               </div>
               <div><a href="#">관련뉴스보기</a></div>
             </div>
             <div class="news-item">
-              <div><img src="../assets/img/newImg1.jpg" alt="img" /></div>
+              <div><img src="./assets/img/groot2.gif" alt="" / ></div>
               <div class="news-item-body">
                 테일러 스위프트가 사상 최초로 빌보드 차트 점령했습니다.
               </div>
@@ -284,15 +287,35 @@
     </div>
     <footer class="footer mt-auto py-3 bg-light">
       <div class="container">
-        <span class="text-muted">space1</span>
+        <!-- <div>Img</div>
+        <div>
+          <div>music-title</div>
+          <div>singer-name</div>
+        </div> -->
       </div>
       <div class="container">
-        <span class="text-muted">space1</span>
+        <button>
+          <img src="../assets/img/skip-start-btn-fill.svg" alt="" />
+        </button>
+        <button id="play-btn">
+          <img src="../assets/img/play-btn-fill.svg" alt="" />
+        </button>
+        <button id="stop-btn">
+          <img src="../assets/img/pause-btn-fill.svg" alt="" />
+        </button>
+        <button>
+          <img src="../assets/img/skip-end-btn-fill.svg" alt="" />
+        </button>
       </div>
       <div class="container">
-        <span class="text-muted">space1</span>
+        <div><audio src="" id="play-controller"></audio></div>
+        <div>
+          <img src="../assets/img/megaphone-fill.svg" alt="" />
+          <input type="range" id="volume-control" min="1" max="10" />
+        </div>
+        <div>재생리스트</div>
       </div>
     </footer>
-    <script src="sidebars.js"></script>
+    <script src="./js/main.js"></script>
   </body>
 </html>

@@ -179,21 +179,26 @@
           <form id="upload-content" enctype="multipart/form-data">
             <div class="upload-body">
               <div>
-                <div>제목 :</div>
+                <div>노래제목 :</div>
                 <input type="text" id="music-title" autocomplete="off" />
               </div>
               <div>
-                <div>파일등록 :</div>
-                <input type="file" id="file-upload" name="file" required />
+                <div>음원등록 :</div>
+                <input
+                  type="file"
+                  id="file-upload"
+                  name="file"
+                  accept="audio/*"
+                />
               </div>
               <div>
-                <div>이미지 :</div>
+                <div>앨범이미지 :</div>
                 <img src="" alt="미리보기 없음" id="preview-img" />
                 <input
                   type="file"
                   id="img-upload"
                   name="img"
-                  accept=".jpg, .jpeg, .png"
+                  accept="image/*"
                 />
               </div>
               <div>
@@ -221,6 +226,7 @@
           </form>
         </div>
       </div>
+      <!-- 테스트용 객체 생성 영역 -->
       <div class="footer-box">
         <div class="footer-area">
           <div class="footer-first">
@@ -269,11 +275,11 @@
     </div>
     <footer class="footer mt-auto py-3 bg-light">
       <div class="container">
-        <div>Img</div>
-        <div>
+        <!-- <div>Img</div> -->
+        <!-- <div>
           <div>music-title</div>
           <div>singer-name</div>
-        </div>
+        </div> -->
       </div>
       <div class="container">
         <button>

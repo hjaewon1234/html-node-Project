@@ -1,0 +1,147 @@
+.chart-page {
+  width: 100%;
+  background-color: black;
+  color: white;
+  overflow: hidden;
+}
+.chart-inner-page {
+  margin-left: 50px;
+}
+.bottom-music-box {
+  position: fixed;
+  top: 90%;
+  height: 10vh;
+  width: 100vw;
+  background-color: yellow;
+}
+.slide-div {
+  display: flex;
+  justify-content: space-between;
+}
+.slide-inner-div {
+  height: 60px;
+  display: flex;
+  width: 500px;
+  margin-bottom: 20px;
+  border-bottom: 1px solid gray;
+}
+.slide-inner-div:nth-child(5n) {
+  border: 0px;
+}
+.slide-inner-div div {
+  margin-right: 15px;
+}
+.slide-inner-div div:nth-child(2) {
+  font-weight: 900;
+}
+.slide-inner-div div:nth-child(2) div:first-child {
+  width: 25px;
+}
+
+.display-img {
+  width: 50px;
+  height: 50px;
+}
+.slide-inner-div:nth-child(n):hover {
+  opacity: 0.5;
+}
+.slide-inner-div:nth-child(n):hover::before {
+  content: "";
+  background-image: url(../assets/img/play.png);
+  background-size: 50px 50px;
+  width: 50px;
+  height: 50px;
+  position: absolute;
+  cursor: pointer;
+}
+
+.slide-inner-div div:nth-child(3) div:nth-child(2) {
+  color: rgb(136, 136, 136);
+}
+.slide-inner-div div:nth-child(3) div:nth-child(1):hover {
+  text-decoration: underline;
+  cursor: pointer;
+}
+.slide-inner-div div:nth-child(3) div:nth-child(2):hover {
+  text-decoration: underline;
+  cursor: pointer;
+}
+/* 위쪽은 아래 가수이름에 대한 css */
+.slide-inner-div div img {
+  width: 50px;
+}
+
+.chart-page h3:hover {
+  text-decoration: underline;
+  cursor: pointer;
+}
+
+.slide-next-outter-btn-size {
+  justify-content: flex-end;
+  margin-right: 10px;
+}
+
+.slide-prev-outter-btn-size {
+  margin-left: 10px;
+  justify-content: start;
+  flex: 0;
+}
+.slide-btn-size {
+  border-radius: 100%;
+  background-color: rgb(34, 34, 34);
+  color: white;
+  width: 20px;
+  height: 20px;
+}
+
+.slide-prev-outter-btn-size.off {
+  display: none;
+}
+.slide-next-outter-btn-size.off {
+  display: none;
+}
+
+.genre-div {
+  display: flex;
+  width: 180%;
+  flex-wrap: wrap;
+}
+.genre-inner-div {
+  display: flex;
+  margin: 10px 10px 0px 0px;
+  align-items: center;
+  width: 10%;
+  border-radius: 5%;
+  height: 50px;
+  background-color: rgb(24, 24, 24);
+  cursor: pointer;
+}
+.v-line {
+  border-left: thick solid #32a1ce;
+  margin: 0 10px 0 10px;
+  height: 30px;
+}
+
+.chart-outter-div {
+  background-color: black;
+}
+
+.chart-in {
+  margin-top: 50px;
+}
+
+.logout-box.on {
+  display: none;
+}
+
+.login-box.on {
+  display: none;
+}
+
+#playlist-hide.on {
+  display: none;
+}
+
+#today-hide.on {
+  display: none;
+}
