@@ -1,4 +1,3 @@
-console.log(`장정현`);
 const album = `i_love`;
 const songName = `Nxde`;
 const singerName = `(여자)아이들`;
@@ -6,7 +5,11 @@ const albumName = `I love`;
 const ListName = `아이브가좋아요`;
 const ListContents = `아이고야~~~~~`;
 
-function playListInfo() {
+async function playListInfo() {
+  const data = await axios.post(`/api/playlist/list`, {
+    userId: `wodnjs`,
+    playlistInfo: `호박씨발아`,
+  });
   const playListPage = document.getElementsByClassName(`play-list-page`)[0];
   const playListHeader = document.createElement(`div`);
   const playListHeaderImg = document.createElement(`div`);
@@ -17,6 +20,8 @@ function playListInfo() {
   const playListBtnBox = document.createElement(`div`);
   const playListPlayBtn = document.createElement(`button`);
   const playListRandomPlayBtn = document.createElement(`button`);
+
+  console.log(data.data.playlistName);
 
   playListPage.prepend(playListHeader);
   playListHeader.append(playListHeaderImg);
@@ -31,17 +36,19 @@ function playListInfo() {
   playListHeader.classList.add(`play-list-header`);
   playListHeaderImg.innerHTML = `<img src="../assets/img/${album}.jpg" alt="" style="width: 240px" />`;
   // 엘범명으로 가져오는 플레이리스트 사진
+  // 플레이리스트를 만들 때 따로 설정하는게 없으면 가장 위에 노래에 앨범 사진이
+  //
   playListInfo.classList.add(`play-list-info`);
-  playListName.innerText = `${ListName}`;
+  playListName.innerText = `${data.data.playlistName}`;
   // 플레이 리스트의 이름을 가져온다.
-  playListContents.innerText = `${ListContents}`;
+  playListContents.innerText = `${data.data.playlistInfo}`;
   playListPlayBtn.classList.add(`start-btn`);
   playListRandomPlayBtn.classList.add(`random-start-btn`);
   playListPlayBtn.innerText = `재생`;
   playListRandomPlayBtn.innerText = `랜덤 재생`;
 }
 playListInfo();
-function makePlayList() {
+function makePlayInList() {
   const container = document.getElementById(`play-list-container`);
   const contentsOutterDiv = document.createElement(`div`);
   const contentsAddDiv = document.createElement(`div`);
@@ -87,6 +94,6 @@ function makePlayList() {
   // 여기는 삭제 버튼을 만들 곳인데 나중에 삭제 버튼을 바꿀때 바꿔주면 될 것 같음.
 }
 
-document.getElementsByClassName(`start-btn`)[0].onclick = () => {
-  makePlayList();
-};
+// document.getElementsByClassName(`start-btn`)[0].onclick = () => {
+//   makePlayList();
+// };
