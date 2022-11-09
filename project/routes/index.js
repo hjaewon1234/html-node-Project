@@ -8,9 +8,7 @@ const chart = require("./chart.js");
 //   console.log(req.body, req.query);
 //   next();
 // });
-
-// router.use("/user", user);
-// router.use("/upload", musicUpload);
-router.use("/chart", chart);
+router.use("/user", user);
+router.use("/upload", musicUpload);
 
 module.exports = router;

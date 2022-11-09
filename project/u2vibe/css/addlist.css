@@ -44,6 +44,10 @@
   text-decoration: none;
   color: #999999;
 }
+#title-colorline {
+  width: 97px;
+  border: 1px solid #ff0050;
+}
 
 #list-board {
   padding-top: 30px;
