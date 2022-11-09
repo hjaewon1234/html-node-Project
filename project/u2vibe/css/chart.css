@@ -45,14 +45,15 @@
 .slide-inner-div:nth-child(n):hover {
   opacity: 0.5;
 }
-.slide-inner-div:nth-child(n):hover::before {
+.slide-inner-div:nth-child(n):hover::after {
   content: "";
-  background-image: url(../assets/img/play.png);
+  background-image: url(/assets/img/play.png);
   background-size: 50px 50px;
   width: 50px;
   height: 50px;
   position: absolute;
   cursor: pointer;
+  z-index: -1;
 }
 
 .slide-inner-div div:nth-child(3) div:nth-child(2) {
