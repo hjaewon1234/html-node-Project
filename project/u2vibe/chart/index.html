@@ -1,0 +1,1415 @@
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>U2 VIBE</title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi"
+      crossorigin="anonymous"
+    />
+
+    <link href="../assets/dist/css/bootstrap.min.css" rel="stylesheet" />
+    <link rel="stylesheet" href="../css/chart.css" />
+    <link href="../css/main.css" rel="stylesheet" />
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+  </head>
+  <body>
+    <main class="d-flex flex-nowrap">
+      <div class="d-flex flex-column flex-shrink-0 p-3 text-bg-dark">
+        <a
+          href="../"
+          class="d-flex align-items-center mb-3 mb-md-0 me-md-auto text-white text-decoration-none"
+        >
+          <span class="fs-4">U2 VIBE</span>
+        </a>
+        <div id="login-box" class="login-box">
+          <a href="../signin/" class="text-white text-decoration-none">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="16"
+              height="16"
+              fill="currentColor"
+              class="bi bi-person-circle"
+              viewBox="0 0 16 16"
+            >
+              <path d="M11 6a3 3 0 1 1-6 0 3 3 0 0 1 6 0z" />
+              <path
+                fill-rule="evenodd"
+                d="M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8zm8-7a7 7 0 0 0-5.468 11.37C3.242 11.226 4.805 10 8 10s4.757 1.225 5.468 2.37A7 7 0 0 0 8 1z"
+              />
+            </svg>
+            <span>로그인</span></a
+          >
+        </div>
+        <div id="logout-box" class="logout-box on">
+          <div>
+            <img src="../../assets/img/person-circle.svg" alt="" />
+            <span id="userprofile-id"></span>
+          </div>
+          <div>
+            <button id="logout-btn">로그아웃</button>
+          </div>
+        </div>
+        <ul class="nav nav-pills flex-column mb-auto">
+          <li id="playlist-hide" class="on">
+            <a href="../playlist/playlist-playlist/" class="nav-link text-white"
+              ><img src="../../assets/img/music-note-list.svg" alt="" />
+              재생목록
+            </a>
+          </li>
+          <li id="today-hide">
+            <a href="#" class="nav-link text-white"
+              ><svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="16"
+                height="16"
+                fill="currentColor"
+                class="bi bi-music-note"
+                viewBox="0 0 16 16"
+              >
+                <path
+                  d="M9 13c0 1.105-1.12 2-2.5 2S4 14.105 4 13s1.12-2 2.5-2 2.5.895 2.5 2z"
+                />
+                <path fill-rule="evenodd" d="M9 3v10H8V3h1z" />
+                <path
+                  d="M8 2.82a1 1 0 0 1 .804-.98l3-.6A1 1 0 0 1 13 2.22V4L8 5V2.82z"
+                />
+              </svg>
+              투데이
+            </a>
+          </li>
+          <li>
+            <a href="#" class="nav-link text-white">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="16"
+                height="16"
+                fill="currentColor"
+                class="bi bi-trophy"
+                viewBox="0 0 16 16"
+              >
+                <path
+                  d="M2.5.5A.5.5 0 0 1 3 0h10a.5.5 0 0 1 .5.5c0 .538-.012 1.05-.034 1.536a3 3 0 1 1-1.133 5.89c-.79 1.865-1.878 2.777-2.833 3.011v2.173l1.425.356c.194.048.377.135.537.255L13.3 15.1a.5.5 0 0 1-.3.9H3a.5.5 0 0 1-.3-.9l1.838-1.379c.16-.12.343-.207.537-.255L6.5 13.11v-2.173c-.955-.234-2.043-1.146-2.833-3.012a3 3 0 1 1-1.132-5.89A33.076 33.076 0 0 1 2.5.5zm.099 2.54a2 2 0 0 0 .72 3.935c-.333-1.05-.588-2.346-.72-3.935zm10.083 3.935a2 2 0 0 0 .72-3.935c-.133 1.59-.388 2.885-.72 3.935zM3.504 1c.007.517.026 1.006.056 1.469.13 2.028.457 3.546.87 4.667C5.294 9.48 6.484 10 7 10a.5.5 0 0 1 .5.5v2.61a1 1 0 0 1-.757.97l-1.426.356a.5.5 0 0 0-.179.085L4.5 15h7l-.638-.479a.501.501 0 0 0-.18-.085l-1.425-.356a1 1 0 0 1-.757-.97V10.5A.5.5 0 0 1 9 10c.516 0 1.706-.52 2.57-2.864.413-1.12.74-2.64.87-4.667.03-.463.049-.952.056-1.469H3.504z"
+                />
+              </svg>
+              차트
+            </a>
+          </li>
+          <li>
+            <a href="#" class="nav-link text-white">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="16"
+                height="16"
+                fill="currentColor"
+                class="bi bi-stars"
+                viewBox="0 0 16 16"
+              >
+                <path
+                  d="M7.657 6.247c.11-.33.576-.33.686 0l.645 1.937a2.89 2.89 0 0 0 1.829 1.828l1.936.645c.33.11.33.576 0 .686l-1.937.645a2.89 2.89 0 0 0-1.828 1.829l-.645 1.936a.361.361 0 0 1-.686 0l-.645-1.937a2.89 2.89 0 0 0-1.828-1.828l-1.937-.645a.361.361 0 0 1 0-.686l1.937-.645a2.89 2.89 0 0 0 1.828-1.828l.645-1.937zM3.794 1.148a.217.217 0 0 1 .412 0l.387 1.162c.173.518.579.924 1.097 1.097l1.162.387a.217.217 0 0 1 0 .412l-1.162.387A1.734 1.734 0 0 0 4.593 5.69l-.387 1.162a.217.217 0 0 1-.412 0L3.407 5.69A1.734 1.734 0 0 0 2.31 4.593l-1.162-.387a.217.217 0 0 1 0-.412l1.162-.387A1.734 1.734 0 0 0 3.407 2.31l.387-1.162zM10.863.099a.145.145 0 0 1 .274 0l.258.774c.115.346.386.617.732.732l.774.258a.145.145 0 0 1 0 .274l-.774.258a1.156 1.156 0 0 0-.732.732l-.258.774a.145.145 0 0 1-.274 0l-.258-.774a1.156 1.156 0 0 0-.732-.732L9.1 2.137a.145.145 0 0 1 0-.274l.774-.258c.346-.115.617-.386.732-.732L10.863.1z"
+                />
+              </svg>
+              최신앨범
+            </a>
+          </li>
+          <li>
+            <a href="#" class="nav-link text-white">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="16"
+                height="16"
+                fill="currentColor"
+                class="bi bi-broadcast"
+                viewBox="0 0 16 16"
+              >
+                <path
+                  d="M3.05 3.05a7 7 0 0 0 0 9.9.5.5 0 0 1-.707.707 8 8 0 0 1 0-11.314.5.5 0 0 1 .707.707zm2.122 2.122a4 4 0 0 0 0 5.656.5.5 0 1 1-.708.708 5 5 0 0 1 0-7.072.5.5 0 0 1 .708.708zm5.656-.708a.5.5 0 0 1 .708 0 5 5 0 0 1 0 7.072.5.5 0 1 1-.708-.708 4 4 0 0 0 0-5.656.5.5 0 0 1 0-.708zm2.122-2.12a.5.5 0 0 1 .707 0 8 8 0 0 1 0 11.313.5.5 0 0 1-.707-.707 7 7 0 0 0 0-9.9.5.5 0 0 1 0-.707zM10 8a2 2 0 1 1-4 0 2 2 0 0 1 4 0z"
+                />
+              </svg>
+              DJ 스테이션
+            </a>
+          </li>
+          <li>
+            <a href="#" class="nav-link text-white">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="16"
+                height="16"
+                fill="currentColor"
+                class="bi bi-card-text"
+                viewBox="0 0 16 16"
+              >
+                <path
+                  d="M14.5 3a.5.5 0 0 1 .5.5v9a.5.5 0 0 1-.5.5h-13a.5.5 0 0 1-.5-.5v-9a.5.5 0 0 1 .5-.5h13zm-13-1A1.5 1.5 0 0 0 0 3.5v9A1.5 1.5 0 0 0 1.5 14h13a1.5 1.5 0 0 0 1.5-1.5v-9A1.5 1.5 0 0 0 14.5 2h-13z"
+                />
+                <path
+                  d="M3 5.5a.5.5 0 0 1 .5-.5h9a.5.5 0 0 1 0 1h-9a.5.5 0 0 1-.5-.5zM3 8a.5.5 0 0 1 .5-.5h9a.5.5 0 0 1 0 1h-9A.5.5 0 0 1 3 8zm0 2.5a.5.5 0 0 1 .5-.5h6a.5.5 0 0 1 0 1h-6a.5.5 0 0 1-.5-.5z"
+                />
+              </svg>
+              VIBE MAG
+            </a>
+          </li>
+          <li>
+            <a href="#" class="nav-link text-white">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="16"
+                height="16"
+                fill="currentColor"
+                class="bi bi-file-earmark-music"
+                viewBox="0 0 16 16"
+              >
+                <path
+                  d="M11 6.64a1 1 0 0 0-1.243-.97l-1 .25A1 1 0 0 0 8 6.89v4.306A2.572 2.572 0 0 0 7 11c-.5 0-.974.134-1.338.377-.36.24-.662.628-.662 1.123s.301.883.662 1.123c.364.243.839.377 1.338.377.5 0 .974-.134 1.338-.377.36-.24.662-.628.662-1.123V8.89l2-.5V6.64z"
+                />
+                <path
+                  d="M14 14V4.5L9.5 0H4a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h8a2 2 0 0 0 2-2zM9.5 3A1.5 1.5 0 0 0 11 4.5h2V14a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1h5.5v2z"
+                />
+              </svg>
+              이달의 노래
+            </a>
+          </li>
+          <li>
+            <a href="#" class="nav-link text-white"> #내돈내산 </a>
+          </li>
+          <li>
+            <a href="#" class="nav-link text-white"> ON STAGE </a>
+          </li>
+          <li>
+            <a href="#" class="nav-link text-white"> 서비스 소개 </a>
+          </li>
+          <li>
+            <a href="#" class="nav-link text-white"> VIBE 멤버쉽 </a>
+          </li>
+        </ul>
+      </div>
+    </main>
+    <div class="main-body-container">
+      <div class="chart-page">
+        <div class="chart-inner-page">
+          <h1 style="margin-top: 30px">차트</h1>
+          <div style="display: flex; align-items: center">
+            <h3>오늘 Top 100</h3>
+            <h3>
+              <div
+                style="
+                  border-top: 1px solid white;
+                  border-right: 1px solid white;
+                  width: 15px;
+                  height: 15px;
+                  transform: rotate(45deg);
+                "
+              ></div>
+            </h3>
+          </div>
+          <div
+            id="carouselExample"
+            class="carousel slide chart-in"
+            data-interval="false"
+            style="width: 95%"
+          >
+            <div class="carousel-inner">
+              <div class="carousel-item active">
+                <div class="slide-div">
+                  <div>
+                    <div class="slide-inner-div">
+                      <div class="slide-inner-img">
+                        <img src="" alt="" class="inner-img" />
+                      </div>
+                      <div>
+                        <div class="slide-inner-id"></div>
+                      </div>
+                      <div>
+                        <div class="slide-inner-title"></div>
+                        <div class="slide-inner-singer"></div>
+                      </div>
+                    </div>
+                    <div class="slide-inner-div">
+                      <div class="slide-inner-img">
+                        <img src="" alt="" class="inner-img" />
+                      </div>
+                      <div>
+                        <div class="slide-inner-id"></div>
+                      </div>
+                      <div>
+                        <div class="slide-inner-title"></div>
+                        <div class="slide-inner-singer"></div>
+                      </div>
+                    </div>
+                    <div class="slide-inner-div">
+                      <div class="slide-inner-img">
+                        <img src="" alt="" class="inner-img" />
+                      </div>
+                      <div>
+                        <div class="slide-inner-id"></div>
+                      </div>
+                      <div>
+                        <div class="slide-inner-title"></div>
+                        <div class="slide-inner-singer"></div>
+                      </div>
+                    </div>
+                    <div class="slide-inner-div">
+                      <div class="slide-inner-img">
+                        <img src="" alt="" class="inner-img" />
+                      </div>
+                      <div>
+                        <div class="slide-inner-id"></div>
+                      </div>
+                      <div>
+                        <div class="slide-inner-title"></div>
+                        <div class="slide-inner-singer"></div>
+                      </div>
+                    </div>
+                    <div class="slide-inner-div">
+                      <div class="slide-inner-img">
+                        <img src="" alt="" class="inner-img" />
+                      </div>
+                      <div>
+                        <div class="slide-inner-id"></div>
+                      </div>
+                      <div>
+                        <div class="slide-inner-title"></div>
+                        <div class="slide-inner-singer"></div>
+                      </div>
+                    </div>
+                  </div>
+                  <div>
+                    <div class="slide-inner-div">
+                      <div>
+                        <img src="../assets/img/newjeans_1st_ep.jpg" alt="" />
+                      </div>
+                      <div><div>6</div></div>
+                      <div>
+                        <div>Hype boy</div>
+                        <div>NewJeans</div>
+                      </div>
+                    </div>
+                    <div class="slide-inner-div">
+                      <div>
+                        <img src="../assets/img/younha_6th_album.jpg" alt="" />
+                      </div>
+                      <div><div>7</div></div>
+                      <div>
+                        <div>사건의 지평선</div>
+                        <div>윤하</div>
+                      </div>
+                    </div>
+                    <div class="slide-inner-div">
+                      <div>
+                        <img src="../assets/img/love_dive.jpg" alt="" />
+                      </div>
+                      <div><div>8</div></div>
+                      <div>
+                        <div>LOVE DIVE</div>
+                        <div>IVE(아이브)</div>
+                      </div>
+                    </div>
+                    <div class="slide-inner-div">
+                      <div>
+                        <img src="../assets/img/born_pink.jpg" alt="" />
+                      </div>
+                      <div><div>9</div></div>
+                      <div>
+                        <div>Shut Down</div>
+                        <div>BLACKPINK</div>
+                      </div>
+                    </div>
+                    <div class="slide-inner-div">
+                      <div>
+                        <img src="../assets/img/born_pink.jpg" alt="" />
+                      </div>
+                      <div><div>10</div></div>
+                      <div>
+                        <div>Pink Venom</div>
+                        <div>BLACKPINK</div>
+                      </div>
+                    </div>
+                  </div>
+                  <div>
+                    <div class="slide-inner-div">
+                      <div>
+                        <img src="../assets/img/rush_hour.jpg" alt="" />
+                      </div>
+                      <div><div>11</div></div>
+                      <div>
+                        <div>Rush Hour (Feat. j-hope of BTS)</div>
+                        <div>Crush</div>
+                      </div>
+                    </div>
+                    <div class="slide-inner-div">
+                      <div>
+                        <img src="../assets/img/monologuer.jpg" alt="" />
+                      </div>
+                      <div><div>12</div></div>
+                      <div>
+                        <div>Monologue</div>
+                        <div>테이</div>
+                      </div>
+                    </div>
+                    <div class="slide-inner-div">
+                      <div>
+                        <img src="../assets/img/wsg_1.jpg" alt="" />
+                      </div>
+                      <div><div>13</div></div>
+                      <div>
+                        <div>그때 그 순간 그대로 (그그그)</div>
+                        <div>WSG워너비(가야G)</div>
+                      </div>
+                    </div>
+                    <div class="slide-inner-div">
+                      <div>
+                        <img src="../assets/img/five_senses.jpg" alt="" />
+                      </div>
+                      <div><div>14</div></div>
+                      <div>
+                        <div>자격지심 (Feat. ZICO)</div>
+                        <div>BE'O(비오)</div>
+                      </div>
+                    </div>
+                    <div class="slide-inner-div">
+                      <div>
+                        <img src="../assets/img/to_x.jpg" alt="" />
+                      </div>
+                      <div><div>15</div></div>
+                      <div>
+                        <div>나의 X에게</div>
+                        <div>경서</div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="carousel-item">
+                <div class="slide-div">
+                  <div>
+                    <div class="slide-inner-div">
+                      <div>
+                        <img src="../assets/img/i_never_die.jpg" alt="" />
+                      </div>
+                      <div><div>16</div></div>
+                      <div>
+                        <div>TOMBOY</div>
+                        <div>(여자)아이들</div>
+                      </div>
+                    </div>
+                    <div class="slide-inner-div">
+                      <div>
+                        <img src="../assets/img/5_3.jpg" alt="" />
+                      </div>
+                      <div><div>17</div></div>
+                      <div>
+                        <div>그라데이션</div>
+                        <div>10CM</div>
+                      </div>
+                    </div>
+                    <div class="slide-inner-div">
+                      <div>
+                        <img src="../assets/img/from_to_star_ost.jpg" alt="" />
+                      </div>
+                      <div><div>18</div></div>
+                      <div>
+                        <div>너의 모든 순간</div>
+                        <div>성시경</div>
+                      </div>
+                    </div>
+                    <div class="slide-inner-div">
+                      <div>
+                        <img src="../assets/img/fearless.jpg" alt="" />
+                      </div>
+                      <div><div>19</div></div>
+                      <div>
+                        <div>FEARLESS</div>
+                        <div>LE SSERAFIM (르세라핌)</div>
+                      </div>
+                    </div>
+                    <div class="slide-inner-div">
+                      <div>
+                        <img src="../assets/img/statue.jpg" alt="" />
+                      </div>
+                      <div><div>20</div></div>
+                      <div>
+                        <div>드라마</div>
+                        <div>아이유(IU)</div>
+                      </div>
+                    </div>
+                  </div>
+                  <div>
+                    <div class="slide-inner-div">
+                      <div>
+                        <img src="../assets/img/newjeans_1st_ep.jpg" alt="" />
+                      </div>
+                      <div><div>21</div></div>
+                      <div>
+                        <div>Cookie</div>
+                        <div>NewJeans</div>
+                      </div>
+                    </div>
+                    <div class="slide-inner-div">
+                      <div>
+                        <img src="../assets/img/eleven.jpg" alt="" />
+                      </div>
+                      <div><div>22</div></div>
+                      <div>
+                        <div>ELEVEN</div>
+                        <div>IVE(아이브)</div>
+                      </div>
+                    </div>
+                    <div class="slide-inner-div">
+                      <div>
+                        <img src="../assets/img/charlie.jpg" alt="" />
+                      </div>
+                      <div><div>23</div></div>
+                      <div>
+                        <div>That's Hilarious</div>
+                        <div>Charlie Puth</div>
+                      </div>
+                    </div>
+                    <div class="slide-inner-div">
+                      <div>
+                        <img src="../assets/img/SMF_Vol3.jpg" alt="" />
+                      </div>
+                      <div><div>24</div></div>
+                      <div>
+                        <div>LAW (Prod. Czaer)</div>
+                        <div>윤미래, 비비(BIBI)</div>
+                      </div>
+                    </div>
+                    <div class="slide-inner-div">
+                      <div>
+                        <img src="../assets/img/we_loved.jpg" alt="" />
+                      </div>
+                      <div><div>25</div></div>
+                      <div>
+                        <div>우린 그렇게 사랑해서</div>
+                        <div>강민경, 잔나비 최정훈</div>
+                      </div>
+                    </div>
+                  </div>
+                  <div>
+                    <div class="slide-inner-div">
+                      <div>
+                        <img
+                          src="../assets/img/forever_1_the_7th_album.jpg"
+                          alt=""
+                        />
+                      </div>
+                      <div><div>26</div></div>
+                      <div>
+                        <div>FOREVER 1</div>
+                        <div>소녀시대 (GIRLS' GENERATION)</div>
+                      </div>
+                    </div>
+                    <div class="slide-inner-div">
+                      <div>
+                        <img
+                          src="../assets/img/girls_the_2nd_album.jpg"
+                          alt=""
+                        />
+                      </div>
+                      <div><div>27</div></div>
+                      <div>
+                        <div>도깨비불 (Illusion)</div>
+                        <div>aespa</div>
+                      </div>
+                    </div>
+                    <div class="slide-inner-div">
+                      <div>
+                        <img src="../assets/img/only_10cm.jpg" alt="" />
+                      </div>
+                      <div><div>28</div></div>
+                      <div>
+                        <div>딱 10CM만</div>
+                        <div>10CM, BIG Naughty (서동현)</div>
+                      </div>
+                    </div>
+                    <div class="slide-inner-div">
+                      <div>
+                        <img src="../assets/img/wsg_1.jpg" alt="" />
+                      </div>
+                      <div><div>29</div></div>
+                      <div>
+                        <div>보고싶었어</div>
+                        <div>WSG워너비(4FIRE)</div>
+                      </div>
+                    </div>
+                    <div class="slide-inner-div">
+                      <div>
+                        <img src="../assets/img/checkmate.jpg" alt="" />
+                      </div>
+                      <div><div>30</div></div>
+                      <div>
+                        <div>SNEAKERS</div>
+                        <div>ITZY(있지)</div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="carousel-item">
+                <div class="slide-div">
+                  <div>
+                    <div class="slide-inner-div">
+                      <div>
+                        <img src="../assets/img/drunken.jpg" alt="" />
+                      </div>
+                      <div><div>31</div></div>
+                      <div>
+                        <div>취중고백</div>
+                        <div>김민석(멜로망스)</div>
+                      </div>
+                    </div>
+                    <div class="slide-inner-div">
+                      <div>
+                        <img src="../assets/img/sail.jpg" alt="" />
+                      </div>
+                      <div><div>32</div></div>
+                      <div>
+                        <div>어떻게 이별까지 사랑하겠어, 널 사랑하는 거지</div>
+                        <div>AKMU(악뮤)</div>
+                      </div>
+                    </div>
+                    <div class="slide-inner-div">
+                      <div>
+                        <img src="../assets/img/call_jung.jpg" alt="" />
+                      </div>
+                      <div><div>33</div></div>
+                      <div>
+                        <div>정이라고 하자 (Feat. 10CM)</div>
+                        <div>BIG Naughty (서동현)</div>
+                      </div>
+                    </div>
+                    <div class="slide-inner-div">
+                      <div>
+                        <img src="../assets/img/charlie.jpg" alt="" />
+                      </div>
+                      <div><div>34</div></div>
+                      <div>
+                        <div>I Don't Think That I Like Her</div>
+                        <div>Charlie Puth</div>
+                      </div>
+                    </div>
+                    <div class="slide-inner-div">
+                      <div>
+                        <img src="../assets/img/this_is_love.jpg" alt="" />
+                      </div>
+                      <div><div>35</div></div>
+                      <div>
+                        <div>사랑인가 봐</div>
+                        <div>멜로망스(Melomance)</div>
+                      </div>
+                    </div>
+                  </div>
+                  <div>
+                    <div class="slide-inner-div">
+                      <div>
+                        <img src="../assets/img/night_sky_star.jpg" alt="" />
+                      </div>
+                      <div><div>36</div></div>
+                      <div>
+                        <div>밤하늘의 별을 (2020)</div>
+                        <div>경서</div>
+                      </div>
+                    </div>
+                    <div class="slide-inner-div">
+                      <div>
+                        <img src="../assets/img/psy_9.jpg" alt="" />
+                      </div>
+                      <div><div>37</div></div>
+                      <div>
+                        <div>That That (prod. ＆ feat. SUGA of BTS)</div>
+                        <div>싸이 (PSY)</div>
+                      </div>
+                    </div>
+                    <div class="slide-inner-div">
+                      <div>
+                        <img src="../assets/img/im_nayeon.jpg" alt="" />
+                      </div>
+                      <div><div>38</div></div>
+                      <div>
+                        <div>POP!</div>
+                        <div>나연 (TWICE)</div>
+                      </div>
+                    </div>
+                    <div class="slide-inner-div">
+                      <div>
+                        <img src="../assets/img/im_hero.jpg" alt="" />
+                      </div>
+                      <div><div>39</div></div>
+                      <div>
+                        <div>우리들의 블루스</div>
+                        <div>임영웅</div>
+                      </div>
+                    </div>
+                    <div class="slide-inner-div">
+                      <div>
+                        <img src="../assets/img/night_letter.jpg" alt="" />
+                      </div>
+                      <div><div>40</div></div>
+                      <div>
+                        <div>밤편지</div>
+                        <div>아이유(IU)</div>
+                      </div>
+                    </div>
+                  </div>
+                  <div>
+                    <div class="slide-inner-div">
+                      <div>
+                        <img src="../assets/img/traffic_light.jpg" alt="" />
+                      </div>
+                      <div><div>41</div></div>
+                      <div>
+                        <div>신호등</div>
+                        <div>이무진</div>
+                      </div>
+                    </div>
+                    <div class="slide-inner-div">
+                      <div>
+                        <img src="../assets/img/real_mind_dumb.jpg" alt="" />
+                      </div>
+                      <div><div>42</div></div>
+                      <div>
+                        <div>진심이었던 사람만 바보가 돼</div>
+                        <div>권진아</div>
+                      </div>
+                    </div>
+                    <div class="slide-inner-div">
+                      <div>
+                        <img src="../assets/img/between_1&2.jpg" alt="" />
+                      </div>
+                      <div><div>43</div></div>
+                      <div>
+                        <div>Talk that Talk</div>
+                        <div>TWICE(트와이스)</div>
+                      </div>
+                    </div>
+                    <div class="slide-inner-div">
+                      <div>
+                        <img src="../assets/img/legend.jpg" alt="" />
+                      </div>
+                      <div><div>44</div></div>
+                      <div>
+                        <div>주저하는 연인들을 위해</div>
+                        <div>잔나비</div>
+                      </div>
+                    </div>
+                    <div class="slide-inner-div">
+                      <div>
+                        <img
+                          src="../assets/img/call_my_name_kindly.jpg"
+                          alt=""
+                        />
+                      </div>
+                      <div><div>45</div></div>
+                      <div>
+                        <div>다정히 내 이름을 부르면</div>
+                        <div>경서예지, 전건호</div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <button
+              class="carousel-control-prev slide-prev-outter-btn-size off"
+              type="button"
+              data-bs-target="#carouselExample"
+              data-bs-slide="prev"
+              id="prev-btn"
+              onclick="prevBtn()"
+            >
+              <span
+                class="carousel-control-prev-icon slide-btn-size"
+                aria-hidden="true"
+              ></span>
+              <span class="visually-hidden">Previous</span>
+            </button>
+            <button
+              class="carousel-control-next slide-next-outter-btn-size"
+              type="button"
+              data-bs-target="#carouselExample"
+              data-bs-slide="next"
+              id="next-btn"
+              onclick="nextBtn()"
+            >
+              <span
+                class="carousel-control-next-icon slide-btn-size"
+                aria-hidden="true"
+              ></span>
+              <span class="visually-hidden">Next</span>
+            </button>
+          </div>
+          <div
+            id="carouselGenre"
+            class="carousel slide chart-in"
+            data-interval="false"
+            style="width: 95%"
+          >
+            <div class="carousel-inner">
+              <div class="carousel-item genre active">
+                <div class="slide-div">
+                  <div>
+                    <div class="slide-inner-div">
+                      <div>
+                        <img src="../assets/img/I_love.jpg" alt="" />
+                      </div>
+                      <div><div>1</div></div>
+                      <div>
+                        <div>Nxde</div>
+                        <div>(여자)아이들</div>
+                      </div>
+                    </div>
+                    <div class="slide-inner-div">
+                      <div>
+                        <img src="../assets/img/After_LIKE.jpg" alt="" />
+                      </div>
+                      <div><div>2</div></div>
+                      <div>
+                        <div>After LIKE</div>
+                        <div>IVE(아이브)</div>
+                      </div>
+                    </div>
+                    <div class="slide-inner-div">
+                      <div>
+                        <img src="../assets/img/ANTIFRAGILE.jpg" alt="" />
+                      </div>
+                      <div><div>3</div></div>
+                      <div>
+                        <div>ANTIFRAGILE</div>
+                        <div>LE SSERAFIM (르세라핌)</div>
+                      </div>
+                    </div>
+                    <div class="slide-inner-div">
+                      <div>
+                        <img src="../assets/img/SMF_Vol3.jpg" alt="" />
+                      </div>
+                      <div><div>4</div></div>
+                      <div>
+                        <div>새삥 (Prod. ZICO) (Feat. 호미들)</div>
+                        <div>지코 (ZICO)</div>
+                      </div>
+                    </div>
+                    <div class="slide-inner-div">
+                      <div>
+                        <img src="../assets/img/newjeans_1st_ep.jpg" alt="" />
+                      </div>
+                      <div><div>5</div></div>
+                      <div>
+                        <div>Attention</div>
+                        <div>NewJeans</div>
+                      </div>
+                    </div>
+                  </div>
+                  <div>
+                    <div class="slide-inner-div">
+                      <div>
+                        <img src="../assets/img/newjeans_1st_ep.jpg" alt="" />
+                      </div>
+                      <div><div>6</div></div>
+                      <div>
+                        <div>Hype boy</div>
+                        <div>NewJeans</div>
+                      </div>
+                    </div>
+                    <div class="slide-inner-div">
+                      <div>
+                        <img src="../assets/img/younha_6th_album.jpg" alt="" />
+                      </div>
+                      <div><div>7</div></div>
+                      <div>
+                        <div>사건의 지평선</div>
+                        <div>윤하</div>
+                      </div>
+                    </div>
+                    <div class="slide-inner-div">
+                      <div>
+                        <img src="../assets/img/love_dive.jpg" alt="" />
+                      </div>
+                      <div><div>8</div></div>
+                      <div>
+                        <div>LOVE DIVE</div>
+                        <div>IVE(아이브)</div>
+                      </div>
+                    </div>
+                    <div class="slide-inner-div">
+                      <div>
+                        <img src="../assets/img/born_pink.jpg" alt="" />
+                      </div>
+                      <div><div>9</div></div>
+                      <div>
+                        <div>Shut Down</div>
+                        <div>BLACKPINK</div>
+                      </div>
+                    </div>
+                    <div class="slide-inner-div">
+                      <div>
+                        <img src="../assets/img/born_pink.jpg" alt="" />
+                      </div>
+                      <div><div>10</div></div>
+                      <div>
+                        <div>Pink Venom</div>
+                        <div>BLACKPINK</div>
+                      </div>
+                    </div>
+                  </div>
+                  <div>
+                    <div class="slide-inner-div">
+                      <div>
+                        <img src="../assets/img/rush_hour.jpg" alt="" />
+                      </div>
+                      <div><div>11</div></div>
+                      <div>
+                        <div>Rush Hour (Feat. j-hope of BTS)</div>
+                        <div>Crush</div>
+                      </div>
+                    </div>
+                    <div class="slide-inner-div">
+                      <div>
+                        <img src="../assets/img/monologuer.jpg" alt="" />
+                      </div>
+                      <div><div>12</div></div>
+                      <div>
+                        <div>Monologue</div>
+                        <div>테이</div>
+                      </div>
+                    </div>
+                    <div class="slide-inner-div">
+                      <div>
+                        <img src="../assets/img/wsg_1.jpg" alt="" />
+                      </div>
+                      <div><div>13</div></div>
+                      <div>
+                        <div>그때 그 순간 그대로 (그그그)</div>
+                        <div>WSG워너비(가야G)</div>
+                      </div>
+                    </div>
+                    <div class="slide-inner-div">
+                      <div>
+                        <img src="../assets/img/five_senses.jpg" alt="" />
+                      </div>
+                      <div><div>14</div></div>
+                      <div>
+                        <div>자격지심 (Feat. ZICO)</div>
+                        <div>BE'O(비오)</div>
+                      </div>
+                    </div>
+                    <div class="slide-inner-div">
+                      <div>
+                        <img src="../assets/img/to_x.jpg" alt="" />
+                      </div>
+                      <div><div>15</div></div>
+                      <div>
+                        <div>나의 X에게</div>
+                        <div>경서</div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="carousel-item genre">
+                <div class="slide-div">
+                  <div>
+                    <div class="slide-inner-div">
+                      <div>
+                        <img src="../assets/img/i_never_die.jpg" alt="" />
+                      </div>
+                      <div><div>16</div></div>
+                      <div>
+                        <div>TOMBOY</div>
+                        <div>(여자)아이들</div>
+                      </div>
+                    </div>
+                    <div class="slide-inner-div">
+                      <div>
+                        <img src="../assets/img/5_3.jpg" alt="" />
+                      </div>
+                      <div><div>17</div></div>
+                      <div>
+                        <div>그라데이션</div>
+                        <div>10CM</div>
+                      </div>
+                    </div>
+                    <div class="slide-inner-div">
+                      <div>
+                        <img src="../assets/img/from_to_star_ost.jpg" alt="" />
+                      </div>
+                      <div><div>18</div></div>
+                      jpg
+                      <div>
+                        <div>너의 모든 순간</div>
+                        <div>성시경</div>
+                      </div>
+                    </div>
+                    <div class="slide-inner-div">
+                      <div>
+                        <img src="../assets/img/fearless.jpg" alt="" />
+                      </div>
+                      <div><div>19</div></div>
+                      <div>
+                        <div>FEARLESS</div>
+                        <div>LE SSERAFIM (르세라핌)</div>
+                      </div>
+                    </div>
+                    <div class="slide-inner-div">
+                      <div>
+                        <img src="../assets/img/statue.jpg" alt="" />
+                      </div>
+                      <div><div>20</div></div>
+                      <div>
+                        <div>드라마</div>
+                        <div>아이유(IU)</div>
+                      </div>
+                    </div>
+                  </div>
+                  <div>
+                    <div class="slide-inner-div">
+                      <div>
+                        <img src="../assets/img/newjeans_1st_ep.jpg" alt="" />
+                      </div>
+                      <div><div>21</div></div>
+                      <div>
+                        <div>Cookie</div>
+                        <div>NewJeans</div>
+                      </div>
+                    </div>
+                    <div class="slide-inner-div">
+                      <div>
+                        <img src="../assets/img/eleven.jpg" alt="" />
+                      </div>
+                      <div><div>22</div></div>
+                      <div>
+                        <div>ELEVEN</div>
+                        <div>IVE(아이브)</div>
+                      </div>
+                    </div>
+                    <div class="slide-inner-div">
+                      <div>
+                        <img src="../assets/img/charlie.jpg" alt="" />
+                      </div>
+                      <div><div>23</div></div>
+                      <div>
+                        <div>That's Hilarious</div>
+                        <div>Charlie Puth</div>
+                      </div>
+                    </div>
+                    <div class="slide-inner-div">
+                      <div>
+                        <img src="../assets/img/SMF_Vol3.jpg" alt="" />
+                      </div>
+                      <div><div>24</div></div>
+                      <div>
+                        <div>LAW (Prod. Czaer)</div>
+                        <div>윤미래, 비비(BIBI)</div>
+                      </div>
+                    </div>
+                    <div class="slide-inner-div">
+                      <div>
+                        <img src="../assets/img/we_loved.jpg" alt="" />
+                      </div>
+                      <div><div>25</div></div>
+                      <div>
+                        <div>우린 그렇게 사랑해서</div>
+                        <div>강민경, 잔나비 최정훈</div>
+                      </div>
+                    </div>
+                  </div>
+                  <div>
+                    <div class="slide-inner-div">
+                      <div>
+                        <img
+                          src="../assets/img/forever_1_the_7th_album.jpg"
+                          alt=""
+                        />
+                      </div>
+                      <div><div>26</div></div>
+                      <div>
+                        <div>FOREVER 1</div>
+                        <div>소녀시대 (GIRLS' GENERATION)</div>
+                      </div>
+                    </div>
+                    <div class="slide-inner-div">
+                      <div>
+                        <img
+                          src="../assets/img/girls_the_2nd_album.jpg"
+                          alt=""
+                        />
+                      </div>
+                      <div><div>27</div></div>
+                      <div>
+                        <div>도깨비불 (Illusion)</div>
+                        <div>aespa</div>
+                      </div>
+                    </div>
+                    <div class="slide-inner-div">
+                      <div>
+                        <img src="../assets/img/only_10cm.jpg" alt="" />
+                      </div>
+                      <div><div>28</div></div>
+                      <div>
+                        <div>딱 10CM만</div>
+                        <div>10CM, BIG Naughty (서동현)</div>
+                      </div>
+                    </div>
+                    <div class="slide-inner-div">
+                      <div>
+                        <img src="../assets/img/wsg_1.jpg" alt="" />
+                      </div>
+                      <div><div>29</div></div>
+                      <div>
+                        <div>보고싶었어</div>
+                        <div>WSG워너비(4FIRE)</div>
+                      </div>
+                    </div>
+                    <div class="slide-inner-div">
+                      <div>
+                        <img src="../assets/img/checkmate.jpg" alt="" />
+                      </div>
+                      <div><div>30</div></div>
+                      <div>
+                        <div>SNEAKERS</div>
+                        <div>ITZY(있지)</div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="carousel-item genre">
+                <div class="slide-div">
+                  <div>
+                    <div class="slide-inner-div">
+                      <div>
+                        <img src="../assets/img/drunken.jpg" alt="" />
+                      </div>
+                      <div><div>31</div></div>
+                      <div>
+                        <div>취중고백</div>
+                        <div>김민석(멜로망스)</div>
+                      </div>
+                    </div>
+                    <div class="slide-inner-div">
+                      <div>
+                        <img src="../assets/img/sail.jpg" alt="" />
+                      </div>
+                      <div><div>32</div></div>
+                      <div>
+                        <div>어떻게 이별까지 사랑하겠어, 널 사랑하는 거지</div>
+                        <div>AKMU(악뮤)</div>
+                      </div>
+                    </div>
+                    <div class="slide-inner-div">
+                      <div>
+                        <img src="../assets/img/call_jung.jpg" alt="" />
+                      </div>
+                      <div><div>33</div></div>
+                      <div>
+                        <div>정이라고 하자 (Feat. 10CM)</div>
+                        <div>BIG Naughty (서동현)</div>
+                      </div>
+                    </div>
+                    <div class="slide-inner-div">
+                      <div>
+                        <img src="../assets/img/charlie.jpg" alt="" />
+                      </div>
+                      <div><div>34</div></div>
+                      <div>
+                        <div>I Don't Think That I Like Her</div>
+                        <div>Charlie Puth</div>
+                      </div>
+                    </div>
+                    <div class="slide-inner-div">
+                      <div>
+                        <img src="../assets/img/this_is_love.jpg" alt="" />
+                      </div>
+                      <div><div>35</div></div>
+                      <div>
+                        <div>사랑인가 봐</div>
+                        <div>멜로망스(Melomance)</div>
+                      </div>
+                    </div>
+                  </div>
+                  <div>
+                    <div class="slide-inner-div">
+                      <div>
+                        <img src="../assets/img/night_sky_star.jpg" alt="" />
+                      </div>
+                      <div><div>36</div></div>
+                      <div>
+                        <div>밤하늘의 별을 (2020)</div>
+                        <div>경서</div>
+                      </div>
+                    </div>
+                    <div class="slide-inner-div">
+                      <div>
+                        <img src="../assets/img/psy_9.jpg" alt="" />
+                      </div>
+                      <div><div>37</div></div>
+                      <div>
+                        <div>That That (prod. ＆ feat. SUGA of BTS)</div>
+                        <div>싸이 (PSY)</div>
+                      </div>
+                    </div>
+                    <div class="slide-inner-div">
+                      <div>
+                        <img src="../assets/img/im_nayeon.jpg" alt="" />
+                      </div>
+                      <div><div>38</div></div>
+                      <div>
+                        <div>POP!</div>
+                        <div>나연 (TWICE)</div>
+                      </div>
+                    </div>
+                    <div class="slide-inner-div">
+                      <div>
+                        <img src="../assets/img/im_hero.jpg" alt="" />
+                      </div>
+                      <div><div>39</div></div>
+                      <div>
+                        <div>우리들의 블루스</div>
+                        <div>임영웅</div>
+                      </div>
+                    </div>
+                    <div class="slide-inner-div">
+                      <div>
+                        <img src="../assets/img/night_letter.jpg" alt="" />
+                      </div>
+                      <div><div>40</div></div>
+                      <div>
+                        <div>밤편지</div>
+                        <div>아이유(IU)</div>
+                      </div>
+                    </div>
+                  </div>
+                  <div>
+                    <div class="slide-inner-div">
+                      <div>
+                        <img src="../assets/img/traffic_light.jpg" alt="" />
+                      </div>
+                      <div><div>41</div></div>
+                      <div>
+                        <div>신호등</div>
+                        <div>이무진</div>
+                      </div>
+                    </div>
+                    <div class="slide-inner-div">
+                      <div>
+                        <img src="../assets/img/real_mind_dumb.jpg" alt="" />
+                      </div>
+                      <div><div>42</div></div>
+                      <div>
+                        <div>진심이었던 사람만 바보가 돼</div>
+                        <div>권진아</div>
+                      </div>
+                    </div>
+                    <div class="slide-inner-div">
+                      <div>
+                        <img src="../assets/img/between_1&2.jpg" alt="" />
+                      </div>
+                      <div><div>43</div></div>
+                      <div>
+                        <div>Talk that Talk</div>
+                        <div>TWICE(트와이스)</div>
+                      </div>
+                    </div>
+                    <div class="slide-inner-div">
+                      <div>
+                        <img src="../assets/img/legend.jpg" alt="" />
+                      </div>
+                      <div><div>44</div></div>
+                      <div>
+                        <div>주저하는 연인들을 위해</div>
+                        <div>잔나비</div>
+                      </div>
+                    </div>
+                    <div class="slide-inner-div">
+                      <div>
+                        <img
+                          src="../assets/img/call_my_name_kindly.jpg"
+                          alt=""
+                        />
+                      </div>
+                      <div><div>45</div></div>
+                      <div>
+                        <div>다정히 내 이름을 부르면</div>
+                        <div>경서예지, 전건호</div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <button
+              class="carousel-control-prev slide-prev-outter-btn-size off"
+              type="button"
+              data-bs-target="#carouselGenre"
+              data-bs-slide="prev"
+              id="genre-prev-btn"
+              onclick="genrePrevBtn()"
+            >
+              <span
+                class="carousel-control-prev-icon slide-btn-size"
+                aria-hidden="true"
+              ></span>
+              <span class="visually-hidden">Previous</span>
+            </button>
+            <button
+              class="carousel-control-next slide-next-outter-btn-size"
+              type="button"
+              data-bs-target="#carouselGenre"
+              data-bs-slide="next"
+              id="genre-next-btn"
+              onclick="genreNextBtn()"
+            >
+              <span
+                class="carousel-control-next-icon slide-btn-size"
+                aria-hidden="true"
+              ></span>
+              <span class="visually-hidden">Next</span>
+            </button>
+          </div>
+          <div>
+            <h3>장르 바로가기</h3>
+            <div class="genre-div">
+              <div class="genre-inner-div">
+                <div class="v-line"></div>
+                <div>K-Pop</div>
+              </div>
+              <div class="genre-inner-div">
+                <div class="v-line"></div>
+                <div>국내 일렉트로닉</div>
+              </div>
+              <div class="genre-inner-div">
+                <div class="v-line"></div>
+                <div>국내 락/메탈</div>
+              </div>
+              <div class="genre-inner-div">
+                <div class="v-line"></div>
+                <div>국내 포크/어쿠스틱</div>
+              </div>
+              <div class="genre-inner-div">
+                <div class="v-line"></div>
+                <div>해외 댄스</div>
+              </div>
+              <div class="genre-inner-div">
+                <div class="v-line"></div>
+                <div>해외 알앤비/소울</div>
+              </div>
+              <div class="genre-inner-div">
+                <div class="v-line"></div>
+                <div>해외 인디</div>
+              </div>
+              <div class="genre-inner-div">
+                <div class="v-line"></div>
+                <div>클래식</div>
+              </div>
+              <div class="genre-inner-div">
+                <div class="v-line"></div>
+                <div>CCM</div>
+              </div>
+              <div class="genre-inner-div">
+                <div class="v-line"></div>
+                <div>국내 발라드</div>
+              </div>
+              <div class="genre-inner-div">
+                <div class="v-line"></div>
+                <div>국내 힙합</div>
+              </div>
+              <div class="genre-inner-div">
+                <div class="v-line"></div>
+                <div>국내 재즈</div>
+              </div>
+              <div class="genre-inner-div">
+                <div class="v-line"></div>
+                <div>트로트</div>
+              </div>
+              <div class="genre-inner-div">
+                <div class="v-line"></div>
+                <div>해외 일렉트로닉</div>
+              </div>
+              <div class="genre-inner-div">
+                <div class="v-line"></div>
+                <div>해외 락/메탈</div>
+              </div>
+              <div class="genre-inner-div">
+                <div class="v-line"></div>
+                <div>해외 포크/어쿠스틱</div>
+              </div>
+              <div class="genre-inner-div">
+                <div class="v-line"></div>
+                <div>뉴에이지/연주곡</div>
+              </div>
+              <div class="genre-inner-div">
+                <div class="v-line"></div>
+                <div>월드뮤직</div>
+              </div>
+              <div class="genre-inner-div">
+                <div class="v-line"></div>
+                <div>국내 댄스</div>
+              </div>
+              <div class="genre-inner-div">
+                <div class="v-line"></div>
+                <div>국내 알앤비/소울</div>
+              </div>
+              <div class="genre-inner-div">
+                <div class="v-line"></div>
+                <div>국내 인디</div>
+              </div>
+              <div class="genre-inner-div">
+                <div class="v-line"></div>
+                <div>Pop</div>
+              </div>
+              <div class="genre-inner-div">
+                <div class="v-line"></div>
+                <div>해외 힙합</div>
+              </div>
+              <div class="genre-inner-div">
+                <div class="v-line"></div>
+                <div>해외 재즈</div>
+              </div>
+              <div class="genre-inner-div">
+                <div class="v-line"></div>
+                <div>OST</div>
+              </div>
+              <div class="genre-inner-div">
+                <div class="v-line"></div>
+                <div>J-Pop</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <footer class="footer mt-auto py-3 bg-light">
+      <div class="container"></div>
+      <div class="container">
+        <button>
+          <img src="../assets/img/skip-start-btn-fill.svg" alt="" />
+        </button>
+        <button id="play-btn">
+          <img src="../assets/img/play-btn-fill.svg" alt="" />
+        </button>
+        <button id="stop-btn">
+          <img src="../assets/img/pause-btn-fill.svg" alt="" />
+        </button>
+        <button>
+          <img src="../assets/img/skip-end-btn-fill.svg" alt="" />
+        </button>
+      </div>
+      <div class="container">
+        <div><audio src="" id="play-controller"></audio></div>
+        <div>
+          <img src="../assets/img/megaphone-fill.svg" alt="" />
+          <input type="range" id="volume-control" min="1" max="10" />
+        </div>
+        <div>재생리스트</div>
+      </div>
+    </footer>
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-OERcA2EqjJCMA+/3y+gxIOqMEjwtxJY7qPCqsdltbNJuaOe923+mo//f6V8Qbsw3"
+      crossorigin="anonymous"
+    ></script>
+    <script src="../js/chart.js"></script>
+  </body>
+</html>

@@ -175,41 +175,49 @@
       <div class="upload-box">
         <div class="upload-area">
           <div class="upload-title">음원등록</div>
-          <div class="upload-body">
-            <div>
-              <div>제목 :</div>
-              <input type="text" id="music-title" />
-            </div>
-            <div>
-              <div>파일등록 :</div>
-              <input type="file" id="file-upload" required />
-            </div>
-            <div>
-              <div>이미지 :</div>
-              <img src="" alt="미리보기 없음" id="preview-img" />
-              <input
-                type="file"
-                id="img-upload"
-                accept=".jpg, .jpeg, .png"
-                required
-              />
-            </div>
-            <div>
-              <div>장르 :</div>
-              <select class="form-select">
-                <option selected>장르 선택</option>
-                <option value="1">발라드</option>
-                <option value="2">댄스</option>
-                <option value="3">힙합</option>
-              </select>
-            </div>
-            <div>
-              <div>아티스트 :</div>
-              <input type="text" id="singer-name" />
-            </div>
-            <div>
-              <div>앨범명 :</div>
-              <input type="text" id="album-title" />
+
+          <form id="upload-content" enctype="multipart/form-data">
+            <div class="upload-body">
+              <div>
+                <div>노래제목 :</div>
+                <input type="text" id="music-title" autocomplete="off" />
+              </div>
+              <div>
+                <div>음원등록 :</div>
+                <input
+                  type="file"
+                  id="file-upload"
+                  name="file"
+                  accept="audio/*"
+                />
+              </div>
+              <div>
+                <div>앨범이미지 :</div>
+                <img src="" alt="미리보기 없음" id="preview-img" />
+                <input
+                  type="file"
+                  id="img-upload"
+                  name="img"
+                  accept="image/*"
+                />
+              </div>
+              <div>
+                <div>장르 :</div>
+                <select class="form-select">
+                  <option selected>장르 선택</option>
+                  <option value="1">발라드</option>
+                  <option value="2">댄스</option>
+                  <option value="3">힙합</option>
+                </select>
+              </div>
+              <div>
+                <div>아티스트 :</div>
+                <input type="text" id="singer-name" autocomplete="off" />
+              </div>
+              <div>
+                <div>앨범명 :</div>
+                <input type="text" id="album-title" autocomplete="off" />
+              </div>
             </div>
             <div class="upload-footer">
               <input type="submit" id="submit" value="업로드" />
@@ -272,7 +280,12 @@
     </div>
     <footer class="footer mt-auto py-3 bg-light">
       <div class="container">
-        <span class="text-muted">space1</span>
+
+        <!-- <div>Img</div> -->
+        <!-- <div>
+          <div>music-title</div>
+          <div>singer-name</div>
+        </div> -->
       </div>
       <div class="container">
         <span class="text-muted">space1</span>

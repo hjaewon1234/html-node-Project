@@ -3,9 +3,8 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>U2 VIBE</title>
-    <link rel="stylesheet" href="../../css/addlist.css" />
-
+    <title>playlist-addedmusic</title>
+    <link rel="stylesheet" href="index.css" />
     <link
       rel="canonical"
       href="https://getbootstrap.kr/docs/5.2/examples/sticky-footer/"
@@ -16,36 +15,18 @@
     />
 
     <link href="../../assets/dist/css/bootstrap.min.css" rel="stylesheet" />
-    
-    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
-    <link href="../../u2vibe/css/main.css" rel="stylesheet" />
-
+    <link href="../../css/main.css" rel="stylesheet" />
   </head>
   <body>
     <div id="root">
       <main class="d-flex flex-nowrap">
         <div class="d-flex flex-column flex-shrink-0 p-3 text-bg-dark">
           <a
-            href="../../"
-
+            href="./"
             class="d-flex align-items-center mb-3 mb-md-0 me-md-auto text-white text-decoration-none"
           >
             <span class="fs-4">U2 VIBE</span>
           </a>
-          <div class="logout-box">
-            <div>
-              <img src="../../assets/img/person-circle.svg" alt="" />
-              <span id="userprofile-id"></span>
-            </div>
-            <div>
-              <button id="logout-btn">로그아웃</button>
-            </div>
-          </div>
-          <ul class="nav nav-pills flex-column mb-auto">
-            <li>
-              <a href="./" class="nav-link text-white"
-                ><img src="../../assets/img/music-note-list.svg" alt="" />
-                재생목록
           <div class="login-box">
             <a href="./signin/" class="text-white text-decoration-none">
               <svg
@@ -66,25 +47,11 @@
             >
           </div>
           <ul class="nav nav-pills flex-column mb-auto">
+            <li></li>
             <li>
-              <a href="#" class="nav-link text-white"
-                ><svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  width="16"
-                  height="16"
-                  fill="currentColor"
-                  class="bi bi-music-note"
-                  viewBox="0 0 16 16"
-                >
-                  <path
-                    d="M9 13c0 1.105-1.12 2-2.5 2S4 14.105 4 13s1.12-2 2.5-2 2.5.895 2.5 2z"
-                  />
-                  <path fill-rule="evenodd" d="M9 3v10H8V3h1z" />
-                  <path
-                    d="M8 2.82a1 1 0 0 1 .804-.98l3-.6A1 1 0 0 1 13 2.22V4L8 5V2.82z"
-                  />
-                </svg>
-                투데이
+              <a href="./" class="nav-link text-white"
+                ><img src="../../assets/img/music-note-list.svg" alt="" />
+                재생목록
               </a>
             </li>
             <li>
@@ -209,14 +176,13 @@
             <div class="list-post">
               <div class="list-click">
                 <div class="list-img">
-                  <img src="../../assets/img/imsimage.jpg" alt="imsi" />
+                  <img src="image/imsimage.jpg" alt="imsi" />
                   <a href="#"
                     ><div class="list-hidden">
                       <div class="icon-box">
-                        <img src="../../assets/img/playbtn.png" alt="play" />
+                        <img src="./image/playbtn.png" alt="play" />
                         <img
-                          src="../../assets/img/dotbtn.png"
-
+                          src="./image/dotbtn.png"
                           alt="dot"
                           onclick="dropdown()"
                         />
@@ -232,37 +198,17 @@
       </div>
       <footer class="footer mt-auto py-3 bg-light">
         <div class="container">
-          <!-- <div>Img</div>
-          <div>
-            <div>music-title</div>
-            <div>singer-name</div>
-          </div> -->
+          <span class="text-muted">space1</span>
         </div>
         <div class="container">
-          <button>
-            <img src="../../assets/img/skip-start-btn-fill.svg" alt="" />
-          </button>
-          <button id="play-btn">
-            <img src="../../assets/img/play-btn-fill.svg" alt="" />
-          </button>
-          <button id="stop-btn">
-            <img src="../../assets/img/pause-btn-fill.svg" alt="" />
-          </button>
-          <button>
-            <img src="../../assets/img/skip-end-btn-fill.svg" alt="" />
-          </button>
+          <span class="text-muted">space1</span>
         </div>
         <div class="container">
-          <div><audio src="" id="play-controller"></audio></div>
-          <div>
-            <img src="../../assets/img/megaphone-fill.svg" alt="" />
-            <input type="range" id="volume-control" min="1" max="10" />
-          </div>
-          <div>재생리스트</div>
+          <span class="text-muted">space1</span>
         </div>
       </footer>
     </div>
-    <script src="../../js/addlist.js"></script>
-
+    <script src="sidebars.js"></script>
+    <script src="index.js"></script>
   </body>
 </html>

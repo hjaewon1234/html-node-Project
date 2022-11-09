@@ -22,8 +22,8 @@ main > div {
 main .text-bg-dark {
   background-color: black !important;
 }
-main ul li:nth-child(7),
-main ul li:nth-child(9) {
+main ul li:nth-child(8),
+main ul li:nth-child(10) {
   margin-top: 50px;
 }
 .main-body-container {
@@ -103,6 +103,7 @@ main ul li:nth-child(9) {
   width: 40px;
   filter: invert(70%);
 }
+
 .footer .container:last-child img {
   width: 25px;
   padding-bottom: 10px;
@@ -197,7 +198,7 @@ main ul li:nth-child(9) {
   width: 50%;
 }
 .upload-body div div {
-  width: 100px;
+  width: 120px;
   display: inline-block;
   text-align: end;
   font-size: 1.2rem;
