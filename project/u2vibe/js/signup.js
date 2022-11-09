@@ -212,6 +212,7 @@ inputphone.addEventListener("focusout", (event) => {
 document.forms["signup-form"].onsubmit = async function (e) {
   let checkcount = signupcheck();
   e.preventDefault();
+  console.log(checkcount);
   if (checkcount != 1) {
     alert("정확한 정보를 입력해주세요");
   }
@@ -233,7 +234,7 @@ document.forms["signup-form"].onsubmit = async function (e) {
       warnid.classList.remove("green");
     }
 
-    if (data.data.signupcom == 1) {
+    if (checkcount == 1 && data.data.signupcom == 1) {
       alert("회원가입이 완료되었습니다. 로그인 화면으로 이동합니다.");
       location.href = "http://localhost:8080/signin";
     }
