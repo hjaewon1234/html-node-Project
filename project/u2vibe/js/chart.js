@@ -15,6 +15,14 @@ const playlisthide = document.getElementById("playlist-hide");
 const todayhide = document.getElementById("today-hide");
 const musicuploadthide = document.getElementById("musicUpload-hide");
 const momhide = document.getElementById("mom-hide");
+// let logincheck = document.cookie.split("=")[1].split(".")[1];
+// if (logincheck) {
+//   logoutbox.classList.remove("on");
+//   loginbox.classList.add("on");
+//   todayhide.classList.add("on");
+//   playlisthide.classList.remove("on");
+//   musicuploadthide.classList.remove("on");
+//   momhide.classList.add("on");
 
 const playController = document.getElementById("play-controller");
 const playBtn = document.getElementById("play-btn");
@@ -38,6 +46,10 @@ if (logincheck) {
 //   playlisthide.classList.remove("on");
 //   musicuploadthide.classList.remove("on");
 //   momhide.classList.add("on");
+
+//   const curuserName = JSON.parse(
+//     window.atob(document.cookie.split("=")[1].split(".")[1])
+//   ).id;
 
 //   const curuserName = JSON.parse(
 //     window.atob(document.cookie.split("=")[1].split(".")[1])
