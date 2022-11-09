@@ -3,6 +3,7 @@ const router = require("express").Router();
 const user = require("./user.js");
 const musicUpload = require("./musicUpload.js");
 const chart = require("./chart.js");
+const playlist = require("./playList.js");
 
 // router.use("/", (req, res, next) => {
 //   console.log(req.body, req.query);
@@ -11,5 +12,6 @@ const chart = require("./chart.js");
 router.use("/user", user);
 router.use("/upload", musicUpload);
 router.use("/chart", chart);
+router.use("/playlist", playlist);
 
 module.exports = router;
