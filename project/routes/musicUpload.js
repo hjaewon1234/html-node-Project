@@ -75,9 +75,9 @@ router.post(
         musicName: req.body.musicTitle,
         musicFile: req.files.file[0].filename,
         albumImg: req.files.img[0].filename,
-        singer: req.body.singerName,
+        singer: req.bodyt.singerName,
         albumName: req.body.albumTitle,
-        genre: req.body.formSelect,
+        genre: req.body.formSelec,
       });
     } catch (err) {
       console.log(err);
