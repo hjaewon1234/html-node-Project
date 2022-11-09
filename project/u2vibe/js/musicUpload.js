@@ -15,6 +15,28 @@ const volumeControl = document.getElementById("volume-control");
 const playBtn = document.getElementById("play-btn");
 const stopBtn = document.getElementById("stop-btn");
 
+let userprofileid = document.getElementById("userprofile-id");
+let logincheck = document.cookie.split("=")[1].split(".")[1];
+
+// 로그인 정보 불러오기
+if (logincheck) {
+  const curuserName = JSON.parse(
+    window.atob(document.cookie.split("=")[1].split(".")[1])
+  ).id;
+  userprofileid.innerText = curuserName;
+}
+
+// 로그아웃 버튼
+document.getElementById("logout-btn").onclick = async function (e) {
+  console.log("로그아웃");
+  try {
+    await axios.get("/api/user/logout");
+  } catch (error) {
+    console.error(error);
+  }
+  location.href = "http://localhost:8080/";
+};
+
 // 이미지 미리보기 함수
 function setImg(input) {
   if (input.files && input.files[0]) {
@@ -34,16 +56,16 @@ imgUpload.addEventListener("change", (e) => {
   setImg(e.target);
 });
 
-playBtn.onclick = () => {
-  playController.play();
-};
-stopBtn.onclick = () => {
-  playController.pause();
-};
+// playBtn.onclick = () => {
+//   playController.play();
+// };
+// stopBtn.onclick = () => {
+//   playController.pause();
+// };
 
-volumeControl.addEventListener("change", (e) => {
-  playController.volume = this.value / 10;
-});
+// volumeControl.addEventListener("change", (e) => {
+//   playController.volume = this.value / 10;
+// });
 
 uploadContent.onsubmit = async (e) => {
   e.preventDefault();

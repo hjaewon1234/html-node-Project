@@ -22,8 +22,8 @@ main > div {
 main .text-bg-dark {
   background-color: black !important;
 }
-main ul li:nth-child(8),
-main ul li:nth-child(10) {
+main ul li:nth-child(9),
+main ul li:nth-child(11) {
   margin-top: 50px;
 }
 .main-body-container {
