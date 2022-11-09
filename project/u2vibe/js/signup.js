@@ -175,3 +175,37 @@ inputphone.addEventListener("focusout", (event) => {
 });
 
 //////////////////// 회원가입 경고창 /////////////////////////
+
+document.forms["signup-form"].onsubmit = async function (e) {
+  let checkcount = signupcheck();
+  e.preventDefault();
+  console.log(checkcount);
+  if (checkcount != 1) {
+    alert("정확한 정보를 입력해주세요");
+  }
+  try {
+    const data = await axios.post("/api/user/regist", {
+      id: e.target["input-id"].value || null,
+      pw: e.target["input-pw"].value || null,
+      name: e.target["input-name"].value || null,
+      yyyy: e.target["input-yyyy"].value || null,
+      mm: e.target["sel-mm"].value || null,
+      dd: e.target["input-dd"].value || null,
+      gender: e.target["sel-gender"].value || null,
+      email: e.target["input-email"].value || null,
+      phone: e.target["input-phone"].value || null,
+    });
+    if (data.data.overlap == 1) {
+      warnid.innerText = "";
+      warnid.innerText = "이미 사용중이거나 탈퇴한 아이디입니다.";
+      warnid.classList.remove("green");
+    }
+
+    if (checkcount == 1 && data.data.signupcom == 1) {
+      alert("회원가입이 완료되었습니다. 로그인 화면으로 이동합니다.");
+      location.href = "http://localhost:8080/signin";
+    }
+  } catch (error) {
+    console.error(error);
+  }
+};

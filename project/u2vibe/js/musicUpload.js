@@ -147,5 +147,4 @@ uploadContent.onsubmit = async (e) => {
 //   console.log(result.data);
 //   console.log(result.list);
 // }
-
 // listUp();
