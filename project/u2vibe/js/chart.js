@@ -10,22 +10,22 @@ const genreNext = document.getElementById(`genre-next-btn`);
 let userprofileid = document.getElementById("userprofile-id");
 let loginbox = document.getElementById("login-box");
 let logoutbox = document.getElementById("logout-box");
-let logincheck = document.cookie.split("=")[1].split(".")[1];
+// let logincheck = document.cookie.split("=")[1].split(".")[1];
 const playlisthide = document.getElementById("playlist-hide");
 const todayhide = document.getElementById("today-hide");
 
-if (logincheck) {
-  logoutbox.classList.remove("on");
-  loginbox.classList.add("on");
-  todayhide.classList.add("on");
-  playlisthide.classList.remove("on");
+// if (logincheck) {
+//   logoutbox.classList.remove("on");
+//   loginbox.classList.add("on");
+//   todayhide.classList.add("on");
+//   playlisthide.classList.remove("on");
 
-  const curuserName = JSON.parse(
-    window.atob(document.cookie.split("=")[1].split(".")[1])
-  ).id;
+//   const curuserName = JSON.parse(
+//     window.atob(document.cookie.split("=")[1].split(".")[1])
+//   ).id;
 
-  userprofileid.innerText = curuserName;
-}
+//   userprofileid.innerText = curuserName;
+// }
 document.getElementById("logout-btn").onclick = async function (e) {
   console.log("로그아웃");
   try {
@@ -145,3 +145,48 @@ async function chartListUp() {
 }
 
 chartListUp();
+// const tempDb = [
+//   { idx: 1, tempFile: "I_love", music: "Nxde", singer: "(여자)아이들" },
+//   {
+//     idx: 2,
+//     tempFile: "After_LIKE",
+//     music: "After LIKE",
+//     singer: "IVE(아이브)",
+//   },
+// ];
+// console.log(tempDb);
+// console.log(tempDb[0].tempFile);
+async function chartOn() {
+  const data = (await axios.post("/api/chart/100chart")).data;
+
+  console.log(data.data.length);
+
+  console.log(data.data[0].tempFile);
+  const innerImg = document.getElementsByClassName(`inner-img`);
+  const innerTitle = document.getElementsByClassName(`slide-inner-title`);
+  const innerSinger = document.getElementsByClassName(`slide-inner-singer`);
+
+  for (let i = 0; i < data.data.length; i++) {
+    innerImg[i].src = `/assets/img/${data.data[i].tempFile}.jpg`;
+    innerTitle[i].innerText = data.data[i].music;
+    innerSinger[i].innerText = data.data[i].singer;
+    console.log(`${i}번 돌앗어`);
+  }
+  console.log(document.getElementsByClassName(`inner-img`)[0]);
+}
+chartOn();
+
+function musicOn() {
+  const container = document.getElementsByClassName(`container`)[0];
+
+  container.innerHTML =
+    document.getElementsByClassName(`slide-inner-img`)[0].innerHTML +
+    document.getElementsByClassName("slide-music-info")[0].innerHTML;
+  // document.getElementsByClassName(`slid-inner-title`)[0].value +
+  // document.getElementsByClassName(`slid-inner-singer`)[0].value;
+  console.log(
+    document.getElementsByClassName("slide-music-info")[0],
+    document.getElementsByClassName(`slide-inner-singer`)[0]
+  );
+  console.log(`나 눌렷어 `);
+}
