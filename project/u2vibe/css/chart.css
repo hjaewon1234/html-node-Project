@@ -53,6 +53,7 @@
   height: 50px;
   position: absolute;
   cursor: pointer;
+  z-index: -1;
 }
 
 .slide-inner-div div:nth-child(3) div:nth-child(2) {

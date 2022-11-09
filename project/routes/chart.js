@@ -7,7 +7,7 @@ router.get("/list", async (req, res) => {
     console.log("data : ", data);
     res.send({ data: data });
   });
-
+});
 const tempFile = [`I_love`, `After_LIKE`, `ANTIFRAGILE`];
 const musicName = [`Nxde`, `After LIKE`, `ANTIFRAGILE`];
 const singerName = [`(여자)아이들`, `IVE(아이브)`, `LE SSERAFIM (르세라핌)`];
