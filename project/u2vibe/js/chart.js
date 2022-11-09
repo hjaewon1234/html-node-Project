@@ -14,6 +14,13 @@ let logincheck = document.cookie.split("=")[1].split(".")[1];
 const playlisthide = document.getElementById("playlist-hide");
 const todayhide = document.getElementById("today-hide");
 
+const playController = document.getElementById("play-controller");
+const playBtn = document.getElementById("play-btn");
+const stopBtn = document.getElementById("stop-btn");
+const volumeControl = document.getElementById("volume-control");
+
+let checkNum = 0;
+
 if (logincheck) {
   logoutbox.classList.remove("on");
   loginbox.classList.add("on");
@@ -89,6 +96,36 @@ window.onload = () => {
   musicMove();
 };
 
+let musicList = [];
+
+async function listUp() {
+  const result = (await axios.get("/api/chart/list")).data;
+  result?.data?.forEach((item) => {
+    let typeCheck = /mp3|ogg|wma|wav|au|rm|mid/.test(item);
+    if (typeCheck) musicList.push(item);
+  });
+  console.log(musicList);
+}
+listUp();
+
+function musicPlay(idx) {
+  playController.src = `../upload/${musicList[idx]}`;
+  playController.play();
+}
+
+playBtn.onclick = () => {
+  playController.play();
+};
+stopBtn.onclick = () => {
+  playController.pause();
+};
+
+volumeControl.addEventListener("change", (e) => {
+  playController.volume = this.value / 10;
+});
+
+// musicPlay();
+
 const slideInnerImg = document.getElementsByClassName("slide-inner-img");
 const slideInnerId = document.getElementsByClassName("slide-inner-id");
 const slideInnerTitle = document.getElementsByClassName("slide-inner-title");
@@ -113,12 +150,18 @@ async function chartListUp() {
     [...slideInnerDiv].forEach((elem, idx) => {
       // console.log(elem);
       elem.onclick = (e) => {
+        checkNum++;
+        if (checkNum > 1) {
+          musicPlay(idx);
+          return;
+        }
         // item = data.list
         // item.id = data.list.id
         // item[idx].musicName
         // item[idx].singer
         // console.log("ASd");
         console.log(e.target);
+        console.log(idx);
         const imgDiv = document.createElement("div");
         const tempDiv = document.createElement("div");
         const tempImg = document.createElement("img");
@@ -128,6 +171,8 @@ async function chartListUp() {
 
         tempImg.src = `../upload/${item.albumImg}`;
         tempImg.setAttribute("filter", "none");
+
+        musicPlay(idx);
 
         innerDiv.innerText = item.musicName;
         innerSecondDiv.innerText = item.singer;
