@@ -10,7 +10,7 @@ const genreNext = document.getElementById(`genre-next-btn`);
 let userprofileid = document.getElementById("userprofile-id");
 let loginbox = document.getElementById("login-box");
 let logoutbox = document.getElementById("logout-box");
-let logincheck = document.cookie.split("=")[1].split(".")[1];
+// let logincheck = document.cookie.split("=")[1].split(".")[1];
 const playlisthide = document.getElementById("playlist-hide");
 const todayhide = document.getElementById("today-hide");
 const musicuploadthide = document.getElementById("musicUpload-hide");
@@ -36,13 +36,20 @@ if (logincheck) {
   //   playlisthide.classList.remove("on");
   //   musicuploadthide.classList.remove("on");
   //   momhide.classList.add("on");
+  musicuploadthide.classList.remove("on");
+  momhide.classList.add("on");
+// if (logincheck) {
+//   logoutbox.classList.remove("on");
+//   loginbox.classList.add("on");
+//   todayhide.classList.add("on");
+//   playlisthide.classList.remove("on");
 
-  const curuserName = JSON.parse(
-    window.atob(document.cookie.split("=")[1].split(".")[1])
-  ).id;
+//   const curuserName = JSON.parse(
+//     window.atob(document.cookie.split("=")[1].split(".")[1])
+//   ).id;
 
-  userprofileid.innerText = curuserName;
-}
+//   userprofileid.innerText = curuserName;
+// }
 document.getElementById("logout-btn").onclick = async function (e) {
   console.log("로그아웃");
   try {
