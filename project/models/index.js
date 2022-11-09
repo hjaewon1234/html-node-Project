@@ -22,7 +22,6 @@ let sequelize = new Sequelize(
 Chart.init(sequelize);
 PlayList.init(sequelize);
 MusicList.init(sequelize);
-MusicUpload.init(sequelize);
 User.init(sequelize);
 MusicUpload.init(sequelize);
 

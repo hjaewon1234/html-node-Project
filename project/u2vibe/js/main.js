@@ -35,12 +35,6 @@ volumeControl.addEventListener("change", (e) => {
   playController.volume = this.value / 10;
 });
 
-const curuserName = JSON.parse(
-  window.atob(document.cookie.split("=")[1].split(".")[1])
-).id;
-
-userprofileid.innerText = curuserName;
-
 document.getElementById("logout-btn").onclick = async function (e) {
   console.log("로그아웃");
   try {

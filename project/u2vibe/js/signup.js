@@ -22,12 +22,7 @@ inputid.addEventListener("focusout", (event) => {
   if (idresult) {
     warnid.classList.add("green");
     warnid.innerText = "멋진 아이디네요!";
-  }
-  // else if(중복 id){
-  //   warnid.innerText = "이미 사용중이거나 탈퇴한 아이디입니다.";
-  //   warnid.classList.remove("green");
-  // }
-  else {
+  } else {
     warnid.classList.remove("green");
     warnid.innerText =
       "5~20자의 영문 소문자, 숫자와 특수기호(_),(-)만 사용 가능합니다.";
