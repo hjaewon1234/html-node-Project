@@ -1,0 +1,82 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  text-align: center;
+}
+
+#root {
+  width: 500px;
+  margin: auto;
+  background-color: #222222;
+  border-radius: 5px;
+}
+
+#title {
+  color: white;
+  font-size: 24px;
+  font-weight: 900;
+  padding: 40px;
+}
+
+#list-album {
+  padding-bottom: 40px;
+}
+
+#list-album img {
+  width: 132px;
+  height: 132px;
+}
+
+#input-title,
+#input-contents {
+  border: none;
+  border-radius: 5px;
+  width: 90%;
+  background-color: #2a2a2a;
+  padding: 10px;
+  margin-bottom: 15px;
+  text-align: left;
+  color: white;
+  resize: none;
+}
+
+#input-title {
+  height: 46px;
+}
+
+#input-contents {
+  height: 76px;
+}
+
+#btn-box {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding-bottom: 50px;
+  padding-top: 50px;
+}
+
+#cancle-btn,
+#add-btn {
+  margin: 4px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 5px;
+  width: 132px;
+  height: 46px;
+  background-color: #2a2a2a;
+}
+
+#cancle-btn {
+  color: white;
+}
+#add-btn {
+  color: #444444;
+}
+
+#add-btn.on {
+  background-color: #ff0050;
+  color: white;
+}
