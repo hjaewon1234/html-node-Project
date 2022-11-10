@@ -10,15 +10,27 @@ const genreNext = document.getElementById(`genre-next-btn`);
 let userprofileid = document.getElementById("userprofile-id");
 let loginbox = document.getElementById("login-box");
 let logoutbox = document.getElementById("logout-box");
-let logincheck = document.cookie.split("=")[1].split(".")[1];
+
 const playlisthide = document.getElementById("playlist-hide");
 const todayhide = document.getElementById("today-hide");
+const musicuploadthide = document.getElementById("musicUpload-hide");
+const momhide = document.getElementById("mom-hide");
 
+const playController = document.getElementById("play-controller");
+const playBtn = document.getElementById("play-btn");
+const stopBtn = document.getElementById("stop-btn");
+const volumeControl = document.getElementById("volume-control");
+
+let checkNum = 0;
+
+let logincheck = document.cookie.split("=")[1].split(".")[1];
 if (logincheck) {
   logoutbox.classList.remove("on");
   loginbox.classList.add("on");
   todayhide.classList.add("on");
   playlisthide.classList.remove("on");
+  musicuploadthide.classList.remove("on");
+  momhide.classList.add("on");
 
   const curuserName = JSON.parse(
     window.atob(document.cookie.split("=")[1].split(".")[1])
@@ -89,6 +101,36 @@ window.onload = () => {
   musicMove();
 };
 
+let musicList = [];
+
+async function listUp() {
+  const result = (await axios.get("/api/chart/list")).data;
+  result?.data?.forEach((item) => {
+    let typeCheck = /mp3|ogg|wma|wav|au|rm|mid/.test(item);
+    if (typeCheck) musicList.push(item);
+  });
+  console.log(musicList);
+}
+listUp();
+
+function musicPlay(idx) {
+  playController.src = `../upload/${musicList[idx]}`;
+  playController.play();
+}
+
+playBtn.onclick = () => {
+  playController.play();
+};
+stopBtn.onclick = () => {
+  playController.pause();
+};
+
+volumeControl.addEventListener("change", (e) => {
+  playController.volume = this.value / 10;
+});
+
+// musicPlay();
+
 const slideInnerImg = document.getElementsByClassName("slide-inner-img");
 const slideInnerId = document.getElementsByClassName("slide-inner-id");
 const slideInnerTitle = document.getElementsByClassName("slide-inner-title");
@@ -113,6 +155,11 @@ async function chartListUp() {
     [...slideInnerDiv].forEach((elem, idx) => {
       // console.log(elem);
       elem.onclick = (e) => {
+        checkNum++;
+        if (checkNum > 1) {
+          musicPlay(idx);
+          return;
+        }
         // item = data.list
         // item.id = data.list.id
         // item[idx].musicName
@@ -128,6 +175,8 @@ async function chartListUp() {
 
         tempImg.src = `../upload/${item.albumImg}`;
         tempImg.setAttribute("filter", "none");
+
+        musicPlay(idx);
 
         innerDiv.innerText = item.musicName;
         innerSecondDiv.innerText = item.singer;
@@ -145,3 +194,53 @@ async function chartListUp() {
 }
 
 chartListUp();
+// const tempDb = [
+//   { idx: 1, tempFile: "I_love", music: "Nxde", singer: "(여자)아이들" },
+//   {
+//     idx: 2,
+//     tempFile: "After_LIKE",
+//     music: "After LIKE",
+//     singer: "IVE(아이브)",
+//   },
+// ];
+// console.log(tempDb);
+// console.log(tempDb[0].tempFile);
+async function chartOn() {
+  const data = (await axios.post("/api/chart/list")).data;
+
+  console.log(data.data.length);
+
+  console.log(data.data[0].tempFile);
+  const innerImg = document.getElementsByClassName(`slide-inner-img`);
+  const innerTitle = document.getElementsByClassName(`slide-inner-title`);
+  const innerSinger = document.getElementsByClassName(`slide-inner-singer`);
+  const innerIdx = document.getElementsByClassName(`slide-inner-id`);
+
+  for (let i = 0; i < data.data.length; i++) {
+    innerImg[
+      i
+    ].innerHTML = `<img src="/assets/img/${data.data[i].albumImg}" alt="" class="inner-img" />`;
+    innerTitle[i].innerText = data.data[i].musicName;
+    innerSinger[i].innerText = data.data[i].singer;
+    innerIdx[i].innerText = data.data[i].id;
+    console.log(`${i}번 돌앗어`);
+  }
+
+  console.log(document.getElementsByClassName(`inner-img`)[0]);
+}
+chartOn();
+
+// function musicOn() {
+//   const container = document.getElementsByClassName(`container`)[0];
+
+//   container.innerHTML =
+//     document.getElementsByClassName(`slide-inner-img`)[0].innerHTML +
+//     document.getElementsByClassName("slide-music-info")[0].innerHTML;
+//   // document.getElementsByClassName(`slid-inner-title`)[0].value +
+//   // document.getElementsByClassName(`slid-inner-singer`)[0].value;
+//   console.log(
+//     document.getElementsByClassName("slide-music-info")[0],
+//     document.getElementsByClassName(`slide-inner-singer`)[0]
+//   );
+//   console.log(`나 눌렷어 `);
+// }

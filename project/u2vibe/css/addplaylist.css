@@ -5,31 +5,31 @@
   text-align: center;
 }
 
-#root {
+#mordal-root {
   width: 500px;
   margin: auto;
   background-color: #222222;
   border-radius: 5px;
 }
 
-#title {
+#mordal-title {
   color: white;
   font-size: 24px;
   font-weight: 900;
   padding: 40px;
 }
 
-#list-album {
+#mordal-list-album {
   padding-bottom: 40px;
 }
 
-#list-album img {
+#mordal-list-album img {
   width: 132px;
   height: 132px;
 }
 
-#input-title,
-#input-contents {
+#mordal-input-title,
+#mordal-input-contents {
   border: none;
   border-radius: 5px;
   width: 90%;
@@ -41,15 +41,15 @@
   resize: none;
 }
 
-#input-title {
+#mordal-input-title {
   height: 46px;
 }
 
-#input-contents {
+#mordal-input-contents {
   height: 76px;
 }
 
-#btn-box {
+#mordal-btn-box {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -57,8 +57,8 @@
   padding-top: 50px;
 }
 
-#cancle-btn,
-#add-btn {
+#mordal-cancle-btn,
+#mordal-add-btn {
   margin: 4px;
   display: flex;
   justify-content: center;
@@ -69,14 +69,14 @@
   background-color: #2a2a2a;
 }
 
-#cancle-btn {
+#mordal-cancle-btn {
   color: white;
 }
-#add-btn {
+#mordal-add-btn {
   color: #444444;
 }
 
-#add-btn.on {
+#mordal-add-btn.on {
   background-color: #ff0050;
   color: white;
 }

@@ -38,14 +38,16 @@
             </div>
           </div>
           <ul class="nav nav-pills flex-column mb-auto">
+            <li></li>
+            <li></li>
             <li>
-              <a href="./" class="nav-link text-white"
+              <a href="../playlist-playlist/" class="nav-link text-white"
                 ><img src="../../assets/img/music-note-list.svg" alt="" />
                 재생목록
               </a>
             </li>
             <li>
-              <a href="#" class="nav-link text-white">
+              <a href="../../chart/" class="nav-link text-white">
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
                   width="16"
@@ -115,8 +117,8 @@
                 VIBE MAG
               </a>
             </li>
-            <li>
-              <a href="#" class="nav-link text-white">
+            <li id="musicUpload-hide" class="on">
+              <a href="../../musicUpload/" class="nav-link text-white">
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
                   width="16"
@@ -132,9 +134,10 @@
                     d="M14 14V4.5L9.5 0H4a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h8a2 2 0 0 0 2-2zM9.5 3A1.5 1.5 0 0 0 11 4.5h2V14a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1h5.5v2z"
                   />
                 </svg>
-                이달의 노래
+                음악 업로드
               </a>
             </li>
+
             <li>
               <a href="#" class="nav-link text-white"> #내돈내산 </a>
             </li>
@@ -160,28 +163,14 @@
               </div>
               <div class="Titlemenu">내가 등록한 음원</div>
             </div>
-            <div id="title-colorline"></div>
           </div>
           <div id="list-board">
             <div class="list-post">
               <div class="list-click">
-                <div class="list-img">
-                  <img src="../../assets/img/imsimage.jpg" alt="imsi" />
-                  <a href="#"
-                    ><div class="list-hidden">
-                      <div class="icon-box">
-                        <img src="../../assets/img/playbtn.png" alt="play" />
-                        <img
-                          src="../../assets/img/dotbtn.png"
-                          alt="dot"
-                          onclick="dropdown()"
-                        />
-                      </div></div
-                  ></a>
-                </div>
-                <div class="list-title">노래 제목</div>
+                <div id="list-img" class="list-img"></div>
+                <div id="list-title" class="list-title"></div>
               </div>
-              <div class="list-contents">가수</div>
+              <div id="list-contents" class="list-contents"></div>
             </div>
           </div>
         </div>

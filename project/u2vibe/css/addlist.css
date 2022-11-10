@@ -110,3 +110,105 @@
   display: flex;
   justify-content: space-around;
 }
+
+#mordal-root {
+  width: 500px;
+  background-color: #222222;
+  border-radius: 5px;
+  position: fixed;
+  margin: 0 auto;
+  left: 0;
+  right: 0;
+  top: 120px;
+  bottom: 120px;
+  display: block;
+  /* box-shadow: rgba(0, 0, 0, 0.56) 0px 22px 70px 4px; */
+  box-shadow: 0 0 100px 1000px rgba(0, 0, 0, 0.8);
+}
+
+#mordal-root.on {
+  display: none;
+}
+
+#mordal-title {
+  color: white;
+  font-size: 24px;
+  font-weight: 900;
+  padding: 40px;
+  text-align: center;
+}
+
+#mordal-list-album {
+  display: flex;
+  justify-content: center;
+  padding-bottom: 40px;
+}
+
+#mordal-list-album img {
+  width: 132px;
+  height: 132px;
+}
+
+#mordal-list-title,
+#mordal-list-contents {
+  display: flex;
+  justify-content: center;
+}
+
+#mordal-input-title,
+#mordal-input-contents {
+  border: none;
+  border-radius: 5px;
+  width: 90%;
+  background-color: #2a2a2a;
+  padding: 10px;
+  margin-bottom: 15px;
+  text-align: left;
+  color: white;
+  resize: none;
+}
+
+#mordal-input-title {
+  height: 46px;
+}
+
+#mordal-input-contents {
+  height: 76px;
+}
+
+#mordal-btn-box {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding-bottom: 50px;
+  padding-top: 50px;
+}
+
+#mordal-cancle-btn {
+  cursor: pointer;
+}
+
+#mordal-cancle-btn,
+#mordal-add-btn {
+  margin: 4px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 5px;
+  width: 132px;
+  height: 46px;
+  background-color: #2a2a2a;
+}
+
+#mordal-cancle-btn {
+  color: white;
+}
+#mordal-add-btn {
+  color: #444444;
+}
+
+#mordal-add-btn.on {
+  background-color: #ff0050;
+  color: white;
+  cursor: pointer;
+}

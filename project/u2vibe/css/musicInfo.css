@@ -224,7 +224,7 @@ h2 {
 .album-list {
   display: flex;
   flex-direction: row;
-  /* overflow: hidden; */
+  overflow: hidden;
   align-items: center;
   position: relative;
 }
@@ -262,7 +262,7 @@ h2 {
 .playList-line {
   display: flex;
   flex-direction: row;
-  /* overflow: hidden; */
+  overflow: hidden;
 }
 
 .playList-line-img {

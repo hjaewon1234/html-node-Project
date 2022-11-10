@@ -59,7 +59,6 @@ playrightBtn.onclick = () => {
 playleftBtn.onclick = () => {
   playList[0].style.transform = "translateX(0vw)";
 };
-
 //
 async function listUp() {
   const result = (await axios.get("/api/musicInfo/play")).data;

@@ -2,6 +2,9 @@ const router = require("express").Router();
 const jwt = require("jsonwebtoken");
 const Cryptojs = require("crypto-js");
 
+// const fs = require("fs");
+// const multer = require("multer");
+
 const { User } = require("../models/index.js");
 // DataBase에 User테이블 연동, 연결
 
@@ -84,5 +87,4 @@ router.get("/logout", (req, res) => {
   res.clearCookie("login");
   res.end();
 });
-
 module.exports = router;

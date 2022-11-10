@@ -22,8 +22,8 @@ main > div {
 main .text-bg-dark {
   background-color: black !important;
 }
-main ul li:nth-child(7),
-main ul li:nth-child(9) {
+main ul li:nth-child(9),
+main ul li:nth-child(11) {
   margin-top: 50px;
 }
 .main-body-container {
@@ -74,6 +74,32 @@ main ul li:nth-child(9) {
 .footer .container:first-child > div img {
   filter: none;
 }
+.footer .container:last-child img {
+  width: 25px;
+  padding-bottom: 10px;
+}
+.footer .container {
+  text-align: center;
+  width: 33%;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.footer .container div {
+  padding: 0 10px;
+}
+
+.footer .container button {
+  background-color: transparent;
+  margin: 0 10px;
+}
+.footer .container img {
+  width: 40px;
+  filter: invert(70%);
+}
+
 .footer .container:last-child img {
   width: 25px;
   padding-bottom: 10px;

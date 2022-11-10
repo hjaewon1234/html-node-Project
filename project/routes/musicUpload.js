@@ -39,6 +39,7 @@ router.get("/upload", async (req, res) => {
 //   console.log(req.body);
 //   res.send("gdgd")
 // });
+
 router.post(
   "/upload",
   uploader.fields([{ name: "file" }, { name: "img" }]),
@@ -46,7 +47,6 @@ router.post(
     try {
       // console.log(req.files);
       // console.log(req.body);
-
       console.log("jj");
       console.log(req.body.musicTitle);
       console.log(req.body.formSelect);
@@ -61,7 +61,7 @@ router.post(
       // imgPath.push(req.files.img[0].path);
 
       const tempUpload = await MusicUpload.create({
-        userId: "lkw",
+        userId: req.body.id,
         musicName: req.body.musicTitle,
         musicFile: req.files.file[0].filename,
         albumImg: req.files.img[0].filename,
@@ -71,17 +71,26 @@ router.post(
       });
       console.log(tempUpload);
       res.send({
-        userId: "qqq",
+        userId: "jjh",
         musicName: req.body.musicTitle,
         musicFile: req.files.file[0].filename,
         albumImg: req.files.img[0].filename,
-        singer: req.body.singerName,
+        singer: req.bodyt.singerName,
         albumName: req.body.albumTitle,
-        genre: req.body.formSelect,
+        genre: req.body.formSelec,
       });
     } catch (err) {
       console.log(err);
     }
   }
 );
+
+router.post("/addedlist", async (req, res) => {
+  try {
+    const tempUpload = await MusicUpload.findOne({
+      where: { userId: req.body.id },
+    });
+    res.send({ info: tempUpload });
+  } catch (error) {}
+});
 module.exports = router;

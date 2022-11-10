@@ -20,7 +20,7 @@
     <main class="d-flex flex-nowrap">
       <div class="d-flex flex-column flex-shrink-0 p-3 text-bg-dark">
         <a
-          href="./"
+          href="../"
           class="d-flex align-items-center mb-3 mb-md-0 me-md-auto text-white text-decoration-none"
         >
           <span class="fs-4">U2 VIBE</span>
@@ -68,6 +68,26 @@
           </li>
           <li>
             <a href="#" class="nav-link text-white">
+        <div class="logout-box">
+          <div>
+            <img src="../assets/img/person-circle.svg" alt="" />
+            <span id="userprofile-id"></span>
+          </div>
+          <div>
+            <button id="logout-btn">로그아웃</button>
+          </div>
+        </div>
+        <ul class="nav nav-pills flex-column mb-auto">
+          <li></li>
+          <li></li>
+          <li>
+            <a href="../playlist/playlist-playlist/" class="nav-link text-white"
+              ><img src="../assets/img/music-note-list.svg" alt="" />
+              재생목록
+            </a>
+          </li>
+          <li>
+            <a href="../../chart/" class="nav-link text-white">
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 width="16"
@@ -137,8 +157,8 @@
               VIBE MAG
             </a>
           </li>
-          <li>
-            <a href="#" class="nav-link text-white">
+          <li id="musicUpload-hide" class="on">
+            <a href="../../musicUpload/" class="nav-link text-white">
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 width="16"
@@ -154,7 +174,7 @@
                   d="M14 14V4.5L9.5 0H4a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h8a2 2 0 0 0 2-2zM9.5 3A1.5 1.5 0 0 0 11 4.5h2V14a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1h5.5v2z"
                 />
               </svg>
-              이달의 노래
+              음악 업로드
             </a>
           </li>
           <li>
@@ -226,49 +246,49 @@
           </form>
         </div>
       </div>
-      <!-- 테스트용 객체 생성 영역 -->
-      <div class="footer-box">
-        <div class="footer-area">
-          <div class="footer-first">
-            <div class="first-item">공지사항</div>
-            <div class="first-item">아뇽하세요 유2팀 입니다</div>
-            <div class="img-container first-item">
-              <div class="img-container-item">
-                <img src="../../assets/img/facebook.svg" alt="" />
-              </div>
-              <div class="img-container-item">
-                <img src="../../assets/img/instagram.svg" alt="" />
-              </div>
-              <div class="img-container-item">
-                <img src="../../assets/img/house-heart.svg" alt="" />
-              </div>
+    </div>
+
+    <div class="footer-box">
+      <div class="footer-area">
+        <div class="footer-first">
+          <div class="first-item">공지사항</div>
+          <div class="first-item">아뇽하세요 유2팀 입니다</div>
+          <div class="img-container first-item">
+            <div class="img-container-item">
+              <img src="../assets/img/facebook.svg" alt="" />
+            </div>
+            <div class="img-container-item">
+              <img src="../assets/img/instagram.svg" alt="" />
+            </div>
+            <div class="img-container-item">
+              <img src="../assets/img/house-heart.svg" alt="" />
             </div>
           </div>
-          <div class="footer-second">
-            <div>
-              <span>대표이사 : 최수연</span>
-              <span>사업자 등록번호 : 220-81-62517</span>
-              <span>통신판매업신고번호 : 제2006-경기성남-0692호</span>
-            </div>
-            <div>
-              <span>주소 : 경기도 성남 분당 정자일로 네이버</span>
-              <span>대표전화 : 1588-1234</span>
-              <span>이메일 : wkdwjdgus@naver.com</span>
-              <span>호스팅 서비스 제공 : NAVER.Cloud</span>
-            </div>
+        </div>
+        <div class="footer-second">
+          <div>
+            <span>대표이사 : 최수연</span>
+            <span>사업자 등록번호 : 220-81-62517</span>
+            <span>통신판매업신고번호 : 제2006-경기성남-0692호</span>
           </div>
-          <div class="footer-third">
-            <div>
-              <a href="./">개인정보처리방침</a>
-              <a href="./">네이버 이용약관</a>
-              <a href="./">VIBE 이용약관</a>
-              <a href="./">고객센터</a>
-              <a href="./">결제/환불 안내</a>
-              <a href="./">VIBE 스마트봇</a>
-              <a href="./">목록상담</a>
-              <a href="./">사업자정보 확인</a>
-              <a href="./">@NAVER Corp</a>
-            </div>
+          <div>
+            <span>주소 : 경기도 성남 분당 정자일로 네이버</span>
+            <span>대표전화 : 1588-1234</span>
+            <span>이메일 : wkdwjdgus@naver.com</span>
+            <span>호스팅 서비스 제공 : NAVER.Cloud</span>
+          </div>
+        </div>
+        <div class="footer-third">
+          <div>
+            <a href="./">개인정보처리방침</a>
+            <a href="./">네이버 이용약관</a>
+            <a href="./">VIBE 이용약관</a>
+            <a href="./">고객센터</a>
+            <a href="./">결제/환불 안내</a>
+            <a href="./">VIBE 스마트봇</a>
+            <a href="./">목록상담</a>
+            <a href="./">사업자정보 확인</a>
+            <a href="./">@NAVER Corp</a>
           </div>
         </div>
       </div>
