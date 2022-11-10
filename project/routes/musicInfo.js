@@ -19,11 +19,15 @@ router.post("/comment", (req, res) => {
   MusicInfo.create({
     userId: req.body.userId,
     userComment: req.body.comment,
-    album_img: "savage.jpg",
-    music_name: "savage",
-    singer: "aespa",
   });
   res.send("정상적으로 받아서 보냈음");
+});
+
+router.get("/", async (req, res) => {
+  const tempBoard = await MusicInfo.findAll({
+    order: [["id", "DESC"]], // 정렬
+  });
+  res.send({ list: tempBoard });
 });
 
 // router.delete("/delete", async (req, res) => {
