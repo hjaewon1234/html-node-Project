@@ -23,7 +23,6 @@ if (logincheck) {
 
   userprofileid.innerText = curuserName;
 }
-
 playBtn.onclick = () => {
   playController.play();
 };

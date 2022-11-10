@@ -57,16 +57,16 @@ imgUpload.addEventListener("change", (e) => {
   setImg(e.target);
 });
 
-// playBtn.onclick = () => {
-//   playController.play();
-// };
-// stopBtn.onclick = () => {
-//   playController.pause();
-// };
+playBtn.onclick = () => {
+  playController.play();
+};
+stopBtn.onclick = () => {
+  playController.pause();
+};
 
-// volumeControl.addEventListener("change", (e) => {
-//   playController.volume = this.value / 10;
-// });
+volumeControl.addEventListener("change", (e) => {
+  playController.volume = this.value / 10;
+});
 
 uploadContent.onsubmit = async (e) => {
   e.preventDefault();
@@ -94,7 +94,14 @@ uploadContent.onsubmit = async (e) => {
     formData.append("singerName", singerName.value);
     formData.append("albumTitle", albumTitle.value);
 
-    const data = await axios.post("/api/upload/upload", formData);
+    const data = await axios.post("/api/musicUpload/upload", formData);
+    alert(
+      "선택하신" +
+        data.data.fileName +
+        " & " +
+        data.data.imgName +
+        "가 업로드 되었습니다."
+    );
   } catch (err) {
     console.error(err);
   }

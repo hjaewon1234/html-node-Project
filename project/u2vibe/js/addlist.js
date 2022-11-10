@@ -1,17 +1,16 @@
-let userprofileid = document.getElementById("userprofile-id");
-let logincheck = document.cookie.split("=")[1].split(".")[1];
-let listtitle = document.getElementById("list-title");
-let listcontents = document.getElementById("list-contents");
-let listimg = document.getElementById("list-img");
-const listpost = document.getElementById("list-post");
-const mordalinputtitle = document.getElementById("mordal-input-title");
-const mordalinputcontents = document.getElementById("mordal-input-contents");
+let addplaylist = document.getElementById("add-playlist");
+let inputtitle = document.getElementById("input-title");
+let inputcontents = document.getElementById("input-contents");
+const addbtn = document.getElementById("add-btn");
 
-const curuserName = JSON.parse(
-  window.atob(document.cookie.split("=")[1].split(".")[1])
-).id;
+let userprofileid = document.getElementById("userprofile-id");
+
+let logincheck = document.cookie.split("=")[1].split(".")[1];
 
 if (logincheck) {
+  const curuserName = JSON.parse(
+    window.atob(document.cookie.split("=")[1].split(".")[1])
+  ).id;
   userprofileid.innerText = curuserName;
 }
 document.getElementById("logout-btn").onclick = async function (e) {
@@ -71,3 +70,7 @@ function makePlaylist() {
   <div class="list-contents">0곡</div>
 `;
 }
+inputtitle.oninput = function () {
+  addbtn.classList.add("on");
+  if (inputtitle.value == "") addbtn.classList.remove("on");
+};

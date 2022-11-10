@@ -14,8 +14,8 @@ let inputemail = document.getElementById("input-email");
 let warnemail = document.getElementById("warn-email");
 let inputphone = document.getElementById("input-phone");
 let warnphone = document.getElementById("warn-phone");
-let selgender = document.getElementById("sel-gender");
 let inputname = document.getElementById("input-name");
+let selgender = document.getElementById("sel-gender");
 
 function signupcheck() {
   const idcheck = /^[a-z0-9_-]{5,20}$/g;

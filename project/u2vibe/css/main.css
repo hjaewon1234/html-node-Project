@@ -195,7 +195,6 @@ main ul li:nth-child(11) {
 }
 .upload-body div div {
   width: 120px;
-
   display: inline-block;
   text-align: end;
   font-size: 1.2rem;
@@ -215,7 +214,6 @@ main ul li:nth-child(11) {
   width: 83%;
   position: absolute;
   bottom: 9%;
-
   left: 15%;
 }
 .footer-area {

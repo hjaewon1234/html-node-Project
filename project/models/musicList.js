@@ -4,6 +4,12 @@ module.exports = class MusicList extends Sequelize.Model {
   static init(sequelize) {
     return super.init(
       {
+        userId: {
+          type: Sequelize.STRING(100),
+        },
+        playList: {
+          type: Sequelize.STRING(255),
+        },
         albumImg: {
           type: Sequelize.STRING(100),
         },

@@ -27,6 +27,7 @@
       href="../assets/img/favicon.png"
     />
     <link rel="stylesheet" href="../css/musicInfo.css" />
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
   </head>
   <body>
     <main class="d-flex flex-nowrap">
@@ -204,7 +205,7 @@
               </div>
               <div class="music-info">편곡 Jia Lih, 유영진</div>
               <div class="header-btn-box">
-                <button class="header-btn">▶ 재생</button>
+                <button class="header-btn" id="musicplay-btn">▶ 재생</button>
                 <button class="header-btn">MP3 구매</button>
                 <button>
                   <img
@@ -429,9 +430,9 @@
             </div>
             <div class="artist-album">
               <h2 style="margin-top: 0">관련 아티스트 앨범</h2>
+              <button id="left-btn">◀</button>
+              <button id="right-btn">▶</button>
               <div class="album-list">
-                <button id="left-btn">◀</button>
-                <button id="right-btn">▶</button>
                 <div class="album-img-box">
                   <img
                     class="album-list-img"
@@ -606,6 +607,8 @@
             </div>
             <div class="playList">
               <h2 style="margin-top: 0">관련 플레이리스트</h2>
+              <button id="playleft-btn">◀</button>
+              <button id="playright-btn">▶</button>
               <div class="playList-line">
                 <div class="album-img-box">
                   <img
@@ -873,6 +876,7 @@
             </div>
             <h2 style="margin-top: 0">9개의 감상평</h2>
             <div class="comment">
+              <div id="user-name"></div>
               <!-- <div>나중에 유저 아이디 들어갈 곳</div> -->
               <div class="comment-box">
                 <textarea
@@ -890,6 +894,7 @@
                 </div>
               </div>
             </div>
+            <div id="comment-list"></div>
           </div>
         </div>
       </div>
@@ -904,22 +909,22 @@
       </div>
       <div class="container">
         <button>
-          <img src="../../assets/img/skip-start-btn-fill.svg" alt="" />
+          <img src="../assets/img/skip-start-btn-fill.svg" alt="" />
         </button>
         <button id="play-btn">
-          <img src="../../assets/img/play-btn-fill.svg" alt="" />
+          <img src="../assets/img/play-btn-fill.svg" alt="" />
         </button>
         <button id="stop-btn">
-          <img src="../../assets/img/pause-btn-fill.svg" alt="" />
+          <img src="../assets/img/pause-btn-fill.svg" alt="" />
         </button>
         <button>
-          <img src="../../assets/img/skip-end-btn-fill.svg" alt="" />
+          <img src="../assets/img/skip-end-btn-fill.svg" alt="" />
         </button>
       </div>
       <div class="container">
         <div><audio src="" id="play-controller"></audio></div>
         <div>
-          <img src="../../assets/img/megaphone-fill.svg" alt="" />
+          <img src="../assets/img/megaphone-fill.svg" alt="" />
           <input type="range" id="volume-control" min="1" max="10" />
         </div>
         <div>재생리스트</div>

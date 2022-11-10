@@ -7,10 +7,11 @@ const PlayList = require("./playList.js");
 const MusicList = require("./musicList.js");
 const User = require("./user.js");
 const MusicUpload = require("./musicUpload.js");
+const MusicInfo = require("./musicInfo.js");
 
 const env = process.env.NODE_ENV || "development";
 const config = require(__dirname + "/../config/config.json")[env];
-const db = { User, MusicUpload, Chart, PlayList, MusicList };
+const db = { User, MusicUpload, Chart, PlayList, MusicList, MusicInfo };
 
 let sequelize = new Sequelize(
   config.database,
@@ -24,6 +25,7 @@ PlayList.init(sequelize);
 MusicList.init(sequelize);
 User.init(sequelize);
 MusicUpload.init(sequelize);
+MusicInfo.init(sequelize);
 
 Object.keys(db).forEach((modelName) => {
   if (db[modelName].associate) {
