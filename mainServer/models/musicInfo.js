@@ -6,19 +6,9 @@ module.exports = class MusicInfo extends Sequelize.Model {
       {
         userId: {
           type: Sequelize.STRING(100),
-          unique: true,
         },
         userComment: {
           type: Sequelize.TEXT,
-        },
-        albumImg: {
-          type: Sequelize.STRING(100),
-        },
-        musicName: {
-          type: Sequelize.STRING(100),
-        },
-        singer: {
-          type: Sequelize.STRING(100),
         },
       },
       {

@@ -6,7 +6,6 @@ module.exports = class MusicUpload extends Sequelize.Model {
       {
         userId: {
           type: Sequelize.STRING(100),
-          unique: true,
         },
         musicName: {
           type: Sequelize.STRING(100),

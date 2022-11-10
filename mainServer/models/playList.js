@@ -6,7 +6,6 @@ module.exports = class PlayList extends Sequelize.Model {
       {
         userId: {
           type: Sequelize.STRING(100),
-          unique: true,
         },
         playlistName: {
           type: Sequelize.STRING(100),
