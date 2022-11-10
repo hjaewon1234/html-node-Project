@@ -49,6 +49,7 @@
   padding-top: 30px;
   display: flex;
   justify-content: flex-start;
+  align-items: center;
   flex-flow: row wrap;
 }
 
@@ -56,27 +57,43 @@
   cursor: pointer;
 }
 
-.list-post {
+.list-post,
+.addedlist-post {
   width: 13.5%;
   padding-bottom: 45px;
   position: relative;
 }
-.list-post:first-child {
-  margin: 0;
+.flex-item {
+  width: 50%;
 }
-.list-post:nth-child(n + 1) {
+/* .list-post:first-child,
+.addedlist-post:first-child {
+  margin: 0;
+} */
+.list-post:nth-child(n + 1),
+.addedlist-post:nth-child(n + 1) {
   margin: 5px;
 }
-.list-click {
+.list-click,
+.addedlist-click {
   cursor: pointer;
 }
 
+.addedlist-img,
+.list-img {
+  width: 200px;
+  height: 200px;
+}
+
 /* 반응형 일정 너비 이하가 되면 마진px이 줄어드는거 확인 */
-.list-img img {
+.list-img img,
+.addedlist-img img {
   width: 100%;
-  /* object-fit: contain; */
+  height: 100%;
+  /* object-fit: inherit; */
   padding-bottom: 5px;
 }
+
 .list-title {
   padding-bottom: 5px;
 }
@@ -87,6 +104,11 @@
 
 .list-contents {
   color: #737373;
+  font-size: 15px;
+}
+
+.list-contents-imsi {
+  color: #000000;
   font-size: 15px;
 }
 

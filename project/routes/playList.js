@@ -21,4 +21,38 @@ router.post(`/list`, async (req, res) => {
   res.send(playlistData);
 });
 
+router.post("/addplaylist", async (req, res) => {
+  try {
+    const tempPlaylist = await PlayList.findOne({
+      where: { playlistName: req.body.name },
+    });
+    if (tempPlaylist) {
+      res.send({ overlap: 1 });
+      res.status(501);
+      return;
+    }
+    await PlayList.create({
+      userId: req.body.id,
+      playlistName: req.body.name,
+      playlistInfo: req.body.info,
+    });
+    res.send({ addplaylistcom: 1 });
+  } catch (error) {
+    res.status(500);
+    res.send(error);
+  }
+});
+
+router.post("/myplaylist", async (req, res) => {
+  try {
+    const tempUserid = await PlayList.findAll({
+      where: { userId: req.body.id },
+    });
+    res.send({ info: tempUserid });
+  } catch (error) {
+    res.status(502);
+    res.send(error);
+  }
+});
+
 module.exports = router;

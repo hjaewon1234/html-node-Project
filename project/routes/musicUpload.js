@@ -75,7 +75,7 @@ router.post(
         musicName: req.body.musicTitle,
         musicFile: req.files.file[0].filename,
         albumImg: req.files.img[0].filename,
-        singer: req.bodyt.singerName,
+        singerName: req.body.singerName,
         albumName: req.body.albumTitle,
         genre: req.body.formSelec,
       });
@@ -87,10 +87,12 @@ router.post(
 
 router.post("/addedlist", async (req, res) => {
   try {
-    const tempUpload = await MusicUpload.findOne({
+    const tempUpload = await MusicUpload.findAll({
       where: { userId: req.body.id },
     });
     res.send({ info: tempUpload });
-  } catch (error) {}
+  } catch (error) {
+    console.log(err);
+  }
 });
 module.exports = router;

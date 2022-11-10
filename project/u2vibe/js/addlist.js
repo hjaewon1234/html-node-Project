@@ -10,6 +10,7 @@ const addbtn = document.getElementById("add-btn");
 const listimg = document.getElementById("list-img");
 const listtitle = document.getElementById("list-title");
 const listcontents = document.getElementById("list-contents");
+const listboard = document.getElementById("list-board");
 
 if (document.cookie) {
   if (logincheck) {
@@ -34,45 +35,27 @@ function removelist() {
   console.log("dot작동");
 }
 
-async function addedlist() {
-  const data = await axios.post("/api/upload/addedlist", {
+async function makeaddedlist() {
+  const data = await axios.post("/api/musicUpload/addedlist", {
     id: curuserName,
   });
-  console.log(data.data.info);
-  console.log(data.data.info.musicName);
 
-  listtitle.innerHTML = data.data.info.musicName;
-  listcontents.innerHTML = data.data.info.singer;
-  listimg.innerHTML = `
-  <img src="../../../upload/${data.data.info.albumImg}" alt="imsi" id="list-img" />
-  `;
+  for (let i = 0; i < data.data.info.length; i++) {
+    const tempElem = document.createElement("div");
+    tempElem.classList.add("addedlist-post");
+    tempElem.innerHTML = `
+    <div class="addedlist-click">
+                <div class="addedlist-img">
+                <img src="../../../upload/${data.data.info[i].albumImg}" alt="imsi"/>
+                </div>
+                <div class="addedlist-title">${data.data.info[i].musicName}</div>
+              </div>
+              <div class="addedlist-contents">${data.data.info[i].singer}</div>`;
+    listboard.append(tempElem);
+  }
 }
 
-addedlist();
-
-function makePlaylist() {
-  listpost.innerHTML = `
-   <div class="list-click">
-    <div class="list-img">
-      <img src="../../assets/img/newplaylist.png" alt="newplaylist" />
-      <a href="#">
-        <div class="list-hidden">
-          <div class="icon-box">
-            <img src="../../assets/img/playbtn.png" alt="play" />
-            <img
-              src="../../assets/img/delbtn.png"
-              alt="dot"
-              onclick="removelist()"
-            />
-          </div>
-        </div>
-      </a>
-    </div>
-    <div class="list-title">${mordalinputtitle.value}</div>
-  </div>
-  <div class="list-contents">0곡</div>
-`;
-}
+makeaddedlist();
 
 inputtitle.oninput = function () {
   addbtn.classList.add("on");

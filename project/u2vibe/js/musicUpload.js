@@ -97,9 +97,9 @@ uploadContent.onsubmit = async (e) => {
     const data = await axios.post("/api/musicUpload/upload", formData);
     alert(
       "선택하신" +
-        data.data.fileName +
+        data.data.singerName +
         " & " +
-        data.data.imgName +
+        data.data.albumName +
         "가 업로드 되었습니다."
     );
   } catch (err) {
