@@ -1,13 +1,16 @@
 "use strict";
 
 const Sequelize = require("sequelize");
-const Chart = require("./chart");
-const PlayList = require("./playList");
-const MusicList = require("./musicList");
-const MusicUpload = require("./musicUpload");
+
+const Chart = require("./chart.js");
+const PlayList = require("./playList.js");
+const MusicList = require("./musicList.js");
+const User = require("./user.js");
+const MusicUpload = require("./musicUpload.js");
+
 const env = process.env.NODE_ENV || "development";
 const config = require(__dirname + "/../config/config.json")[env];
-const db = { Chart, PlayList, MusicList, MusicUpload };
+const db = { User, MusicUpload, Chart, PlayList, MusicList };
 
 let sequelize = new Sequelize(
   config.database,
@@ -19,6 +22,7 @@ let sequelize = new Sequelize(
 Chart.init(sequelize);
 PlayList.init(sequelize);
 MusicList.init(sequelize);
+User.init(sequelize);
 MusicUpload.init(sequelize);
 
 Object.keys(db).forEach((modelName) => {

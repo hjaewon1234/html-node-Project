@@ -10,22 +10,11 @@ const genreNext = document.getElementById(`genre-next-btn`);
 let userprofileid = document.getElementById("userprofile-id");
 let loginbox = document.getElementById("login-box");
 let logoutbox = document.getElementById("logout-box");
-let logincheck = document.cookie.split("=")[1].split(".")[1];
 
-
-// let logincheck = document.cookie.split("=")[1].split(".")[1];
 const playlisthide = document.getElementById("playlist-hide");
 const todayhide = document.getElementById("today-hide");
 const musicuploadthide = document.getElementById("musicUpload-hide");
 const momhide = document.getElementById("mom-hide");
-// let logincheck = document.cookie.split("=")[1].split(".")[1];
-// if (logincheck) {
-//   logoutbox.classList.remove("on");
-//   loginbox.classList.add("on");
-//   todayhide.classList.add("on");
-//   playlisthide.classList.remove("on");
-//   musicuploadthide.classList.remove("on");
-//   momhide.classList.add("on");
 
 const playController = document.getElementById("play-controller");
 const playBtn = document.getElementById("play-btn");
@@ -33,51 +22,33 @@ const stopBtn = document.getElementById("stop-btn");
 const volumeControl = document.getElementById("volume-control");
 
 let checkNum = 0;
+if (document.cookie) {
+  let logincheck = document.cookie.split("=")[1].split(".")[1];
 
-if (logincheck) {
-  logoutbox.classList.remove("on");
-  loginbox.classList.add("on");
-  todayhide.classList.add("on");
-  playlisthide.classList.remove("on");
-  // let logincheck = document.cookie.split("=")[1].split(".")[1];
-  // if (logincheck) {
-  //   logoutbox.classList.remove("on");
-  //   loginbox.classList.add("on");
-  //   todayhide.classList.add("on");
-  //   playlisthide.classList.remove("on");
-  //   musicuploadthide.classList.remove("on");
-  //   momhide.classList.add("on");
-  musicuploadthide.classList.remove("on");
-  momhide.classList.add("on");
-// let logincheck = document.cookie.split("=")[1].split(".")[1];
-// if (logincheck) {
-//   logoutbox.classList.remove("on");
-//   loginbox.classList.add("on");
-//   todayhide.classList.add("on");
-//   playlisthide.classList.remove("on");
-//   musicuploadthide.classList.remove("on");
-//   momhide.classList.add("on");
+  if (logincheck) {
+    logoutbox.classList.remove("on");
+    loginbox.classList.add("on");
+    todayhide.classList.add("on");
+    playlisthide.classList.remove("on");
+    musicuploadthide.classList.remove("on");
+    momhide.classList.add("on");
 
-//   const curuserName = JSON.parse(
-//     window.atob(document.cookie.split("=")[1].split(".")[1])
-//   ).id;
+    const curuserName = JSON.parse(
+      window.atob(document.cookie.split("=")[1].split(".")[1])
+    ).id;
 
-//   const curuserName = JSON.parse(
-//     window.atob(document.cookie.split("=")[1].split(".")[1])
-//   ).id;
-
-//   userprofileid.innerText = curuserName;
-// }
-document.getElementById("logout-btn").onclick = async function (e) {
-  console.log("로그아웃");
-  try {
-    await axios.get("/api/user/logout");
-  } catch (error) {
-    console.error(error);
+    userprofileid.innerText = curuserName;
   }
-  location.href = "http://localhost:8080/";
-};
-
+  document.getElementById("logout-btn").onclick = async function (e) {
+    console.log("로그아웃");
+    try {
+      await axios.get("/api/user/logout");
+    } catch (error) {
+      console.error(error);
+    }
+    location.href = "http://localhost:8080/";
+  };
+}
 function prevBtn() {
   if (nextElem.classList.value == `carousel-item`) {
     prev.classList.toggle(`off`);
@@ -223,19 +194,7 @@ async function chartListUp() {
     });
   });
 }
-
 chartListUp();
-// const tempDb = [
-//   { idx: 1, tempFile: "I_love", music: "Nxde", singer: "(여자)아이들" },
-//   {
-//     idx: 2,
-//     tempFile: "After_LIKE",
-//     music: "After LIKE",
-//     singer: "IVE(아이브)",
-//   },
-// ];
-// console.log(tempDb);
-// console.log(tempDb[0].tempFile);
 async function chartOn() {
   const data = (await axios.post("/api/chart/list")).data;
 
@@ -260,18 +219,3 @@ async function chartOn() {
   console.log(document.getElementsByClassName(`inner-img`)[0]);
 }
 chartOn();
-
-// function musicOn() {
-//   const container = document.getElementsByClassName(`container`)[0];
-
-//   container.innerHTML =
-//     document.getElementsByClassName(`slide-inner-img`)[0].innerHTML +
-//     document.getElementsByClassName("slide-music-info")[0].innerHTML;
-//   // document.getElementsByClassName(`slid-inner-title`)[0].value +
-//   // document.getElementsByClassName(`slid-inner-singer`)[0].value;
-//   console.log(
-//     document.getElementsByClassName("slide-music-info")[0],
-//     document.getElementsByClassName(`slide-inner-singer`)[0]
-//   );
-//   console.log(`나 눌렷어 `);
-// }
