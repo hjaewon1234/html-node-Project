@@ -7,14 +7,18 @@ const prevGenre = document.getElementsByClassName(`genre`)[0];
 const genrePrev = document.getElementById(`genre-prev-btn`);
 const genreNext = document.getElementById(`genre-next-btn`);
 
-let userprofileid = document.getElementById("userprofile-id");
-let loginbox = document.getElementById("login-box");
-let logoutbox = document.getElementById("logout-box");
+const userprofileid = document.getElementById("userprofile-id");
+const loginbox = document.getElementById("login-box");
+const logoutbox = document.getElementById("logout-box");
+// const logincheck = document.cookie.split("=")[1].split(".")[1];
 
 const playlisthide = document.getElementById("playlist-hide");
 const todayhide = document.getElementById("today-hide");
 const musicuploadthide = document.getElementById("musicUpload-hide");
 const momhide = document.getElementById("mom-hide");
+// const curuserName = JSON.parse(
+//   window.atob(document.cookie.split("=")[1].split(".")[1])
+// ).id;
 
 const playController = document.getElementById("play-controller");
 const playBtn = document.getElementById("play-btn");
@@ -35,8 +39,9 @@ if (logincheck) {
   playlisthide.classList.remove("on");
   musicuploadthide.classList.remove("on");
   momhide.classList.add("on");
+
+  userprofileid.innerText = curuserName;
 }
-userprofileid.innerText = curuserName;
 
 document.getElementById("logout-btn").onclick = async function (e) {
   console.log("로그아웃");
@@ -48,13 +53,13 @@ document.getElementById("logout-btn").onclick = async function (e) {
   location.href = "http://localhost:8080/";
 };
 
-function prevBtn() {
-  if (nextElem.classList.value == `carousel-item`) {
-    prev.classList.toggle(`off`);
-  } else {
-    next.classList.toggle(`off`);
-  }
-}
+// function prevBtn() {\chart\
+//   if (nextElem.classList.value == `carousel-item`) {
+//     prev.classList.toggle(`off`);
+//   } else {
+//     next.classList.toggle(`off`);
+//   }
+// }
 
 function nextBtn() {
   if (prevElem.classList.value == `carousel-item`) {
