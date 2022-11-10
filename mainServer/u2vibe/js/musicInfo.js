@@ -144,16 +144,16 @@ async function commentlist() {
 
       commentText.value = "";
 
-      deleteBtn.onclick = async function () {
-        try {
-          await axios.delete("/api/musicInfo/delete", {
-            userId: "lkw",
-          });
-          commentlist();
-        } catch (err) {
-          console.error(err);
-        }
-      };
+      // deleteBtn.onclick = async function () {
+      //   try {
+      //     await axios.delete("/api/musicInfo/delete", {
+      //       userId: "lkw",
+      //     });
+      //     commentlist();
+      //   } catch (err) {
+      //     console.error(err);
+      //   }
+      // };
     } catch (err) {
       console.error(err);
     }

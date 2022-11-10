@@ -1,6 +1,5 @@
 const router = require("express").Router();
 const fs = require("fs");
-const { findOne } = require("../models/chart.js");
 
 const { MusicUpload, MusicInfo } = require("../models/index.js");
 
@@ -26,20 +25,20 @@ router.post("/comment", (req, res) => {
   res.send("정상적으로 받아서 보냈음");
 });
 
-router.delete("/delete", async (req, res) => {
-  const tempInfo = await MusicInfo.findOne({
-    where: {
-      user_id: req.body.userId,
-    },
-  });
-  if (tempInfo.user_id === global.userId) {
-    await MusicInfo.destroy({
-      where: {
-        user_id: req.body.userId,
-      },
-    });
-  }
-  res.end();
-});
+// router.delete("/delete", async (req, res) => {
+//   const tempInfo = await MusicInfo.findOne({
+//     where: {
+//       user_id: req.body.userId,
+//     },
+//   });
+//   if (tempInfo.user_id === global.userId) {
+//     await MusicInfo.destroy({
+//       where: {
+//         user_id: req.body.userId,
+//       },
+//     });
+//   }
+//   res.end();
+// });
 
 module.exports = router;
