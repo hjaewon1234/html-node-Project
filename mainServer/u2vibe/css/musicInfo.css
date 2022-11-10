@@ -277,7 +277,11 @@ h2 {
 }
 
 .comment {
+<<<<<<< HEAD
   padding-top: 60px;
+=======
+  padding-top: 40px;
+>>>>>>> 5a2a81ff9220ae8926bf6cc68dd5743b1504b3d4
   padding-bottom: 30px;
   background-color: rgb(32, 32, 32);
   border-radius: 10px;

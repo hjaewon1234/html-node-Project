@@ -71,6 +71,12 @@ main ul li:nth-child(9) {
   width: 40px;
   filter: invert(70%);
 }
+<<<<<<< HEAD
+=======
+.footer .container:first-child > div img {
+  filter: none;
+}
+>>>>>>> 5a2a81ff9220ae8926bf6cc68dd5743b1504b3d4
 .footer .container:last-child img {
   width: 25px;
   padding-bottom: 10px;
@@ -78,6 +84,10 @@ main ul li:nth-child(9) {
 .footer .text-muted {
   color: white;
 }
+<<<<<<< HEAD
+=======
+
+>>>>>>> 5a2a81ff9220ae8926bf6cc68dd5743b1504b3d4
 .login-box {
   margin: 15% 0;
 }
@@ -164,7 +174,11 @@ main ul li:nth-child(9) {
   width: 50%;
 }
 .upload-body div div {
+<<<<<<< HEAD
   width: 100px;
+=======
+  width: 120px;
+>>>>>>> 5a2a81ff9220ae8926bf6cc68dd5743b1504b3d4
   display: inline-block;
   text-align: end;
   font-size: 1.2rem;

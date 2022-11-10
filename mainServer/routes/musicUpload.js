@@ -1,8 +1,14 @@
 const router = require("express").Router();
 const multer = require("multer");
+<<<<<<< HEAD
 const { MusicUpload } = require("../models");
 
 // const { Upload } = require("../models/index.js");
+=======
+const fs = require("fs");
+
+const { MusicUpload } = require("../models/index.js");
+>>>>>>> 5a2a81ff9220ae8926bf6cc68dd5743b1504b3d4
 
 const storage = multer.diskStorage({
   destination: (req, file, cb) => {
@@ -13,10 +19,23 @@ const storage = multer.diskStorage({
   },
 });
 const uploader = multer({ storage: storage });
+<<<<<<< HEAD
 router.get("/upload", (req, res) => {
   console.log("get");
 
   res.send("get으로 옴");
+=======
+
+router.get("/upload", async (req, res) => {
+  const listUp = await MusicUpload.findAll();
+  console.log("listUp");
+  console.log(listUp);
+
+  fs.readdir("./upload", (err, data) => {
+    console.log("data : ", data);
+    res.send({ list: listUp, data: data });
+  });
+>>>>>>> 5a2a81ff9220ae8926bf6cc68dd5743b1504b3d4
 });
 
 // multer로 한개의 파일만 업로드 할 때
@@ -29,6 +48,7 @@ router.get("/upload", (req, res) => {
 // });
 
 // multer로 서로 다른 name input객체의 파일을 업로드할 때
+<<<<<<< HEAD
 router.post(
   "/upload",
   uploader.fields([{ name: "file" }, { name: "img" }]),
@@ -48,6 +68,55 @@ router.post(
       fileName: req.files.file[0].filename,
       imgName: req.files.img[0].filename,
     });
+=======
+// router.post("/input", (req, res) => {
+//   console.log(req.body);
+//   res.send("gdgd")
+// });
+router.post(
+  "/upload",
+  uploader.fields([{ name: "file" }, { name: "img" }]),
+  async (req, res) => {
+    try {
+      // console.log(req.files);
+      // console.log(req.body);
+
+      console.log("jj");
+      console.log(req.body.musicTitle);
+      console.log(req.body.formSelect);
+      console.log(req.body.singerName);
+      console.log(req.body.albumTitle);
+      console.log("노래제목, 장르, 가수이름, 앨범명");
+
+      console.log(req.files.file[0].filename);
+      console.log(req.files.img[0].filename);
+      console.log("음원파일, 앨범이미지");
+      // let imgPath = [];
+      // imgPath.push(req.files.img[0].path);
+
+      const tempUpload = await MusicUpload.create({
+        userId: "lkw",
+        musicName: req.body.musicTitle,
+        musicFile: req.files.file[0].filename,
+        albumImg: req.files.img[0].filename,
+        singer: req.body.singerName,
+        albumName: req.body.albumTitle,
+        genre: req.body.formSelect,
+      });
+      console.log(tempUpload);
+      res.send({
+        userId: "qqq",
+        musicName: req.body.musicTitle,
+        musicFile: req.files.file[0].filename,
+        albumImg: req.files.img[0].filename,
+        singer: req.body.singerName,
+        albumName: req.body.albumTitle,
+        genre: req.body.formSelect,
+      });
+    } catch (err) {
+      console.log(err);
+    }
+>>>>>>> 5a2a81ff9220ae8926bf6cc68dd5743b1504b3d4
   }
 );
 module.exports = router;

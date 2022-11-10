@@ -1,0 +1,211 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.root {
+  text-align: center;
+}
+
+.logo h2 {
+  font-size: 60px;
+}
+
+.logo a {
+  text-decoration: none;
+  color: #03c75a;
+}
+
+.login-wrap {
+  width: 460px;
+  margin: auto;
+  border: 1px solid #999999;
+  border-radius: 5px;
+}
+
+.login-box {
+  padding: 40px 0;
+}
+
+#warn-msg {
+  color: red;
+  width: 85%;
+  text-align: left;
+  margin-left: 33px;
+  margin-top: 20px;
+  height: 42px;
+}
+
+.inputid-wrap {
+  width: 85%;
+  border: 1px solid #999999;
+  height: 50px;
+  padding: 0 10px;
+  margin: auto;
+  border-top-left-radius: 5px;
+  border-top-right-radius: 5px;
+}
+
+.inputpw-wrap {
+  position: relative;
+  width: 85%;
+  border: 1px solid #999999;
+  height: 50px;
+  padding: 0 10px;
+  margin: auto;
+  border-bottom-left-radius: 5px;
+  border-bottom-right-radius: 5px;
+}
+
+.x-btn {
+  border: 1px solid gray;
+  border-radius: 100%;
+  background-color: gray;
+  width: 17px;
+  cursor: pointer;
+}
+
+.inputid-contents,
+.inputpw-contents {
+  margin-top: 13px;
+  display: flex;
+  justify-content: space-around;
+}
+
+.x-btn img {
+  width: 13px;
+}
+
+.userimg,
+.pwimg {
+  width: 15px;
+}
+
+#signup-atag,
+#login-atag {
+  text-decoration: none;
+}
+
+#login-input-id,
+#login-input-pw {
+  outline: none;
+  border: none;
+  width: 80%;
+  font-size: 15px;
+}
+
+#login-btn {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 85%;
+  height: 50px;
+  margin: auto;
+  background-color: #03c75a;
+  color: white;
+  font-weight: 700;
+  border-radius: 5px;
+  margin-top: 25px;
+  margin-bottom: 5px;
+  border: 1px solid #167e4ae5;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+#signup-btn {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 85%;
+  height: 50px;
+  margin: auto;
+  background-color: #999999;
+  color: white;
+  font-weight: 700;
+  border-radius: 5px;
+  margin-bottom: 10px;
+  border: 1px solid #2b000041;
+}
+
+#serviceinfo {
+  display: flex;
+  font-size: 13px;
+  justify-content: center;
+  line-height: 2px;
+}
+
+#serviceinfo a {
+  text-decoration: none;
+  color: #888888;
+}
+
+#serviceinfo a:hover {
+  color: #00c850;
+  text-decoration: underline;
+}
+
+#serviceinfo div {
+  padding: 5px;
+  border-right: 1px solid #cfcfcf;
+}
+
+#serviceinfo div:last-child {
+  border-right: none;
+}
+
+#enterinfo {
+  margin-top: 5px;
+  display: flex;
+  justify-content: center;
+}
+
+#enterinfo a {
+  text-decoration: none;
+}
+
+#footer {
+  margin-top: 50px;
+}
+
+#footer-logo {
+  font-weight: bolder;
+  margin-right: 10px;
+}
+
+#footer-logo a {
+  color: #00c850;
+}
+
+#footer-copyright1 {
+  color: #888888;
+  margin-right: 5px;
+}
+
+#footer-copyright2 {
+  font-weight: bold;
+}
+
+#footer-copyright2 a {
+  color: black;
+}
+
+#footer-copyright2 a:hover {
+  color: #00c850;
+  text-decoration: underline;
+}
+
+#footer-copyright3 {
+  color: #888888;
+  margin-left: 3px;
+}
+
+#footer-copy {
+  display: flex;
+  font-size: 8px;
+  padding-top: 4px;
+}
+
+#footer-serviceinfo2 {
+  font-weight: bolder;
+}

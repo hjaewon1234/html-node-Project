@@ -1,0 +1,119 @@
+.play-list-page {
+  width: 100%;
+  background-color: black;
+  color: white;
+  overflow: hidden;
+}
+
+.play-list-header {
+  display: flex;
+  align-items: center;
+  margin-top: 30px;
+  margin-left: 40px;
+}
+
+.play-list-info {
+  height: 240px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  margin-left: 40px;
+}
+.play-list-info h4 {
+  color: gray;
+}
+.play-list-contents {
+  margin-top: 50px;
+  margin-left: 40px;
+  display: flex;
+  height: 70px;
+
+  justify-content: space-between;
+  align-items: center;
+}
+
+.play-list-contents img {
+  width: 50px;
+}
+
+.play-list-inner-contents {
+  display: flex;
+  align-items: center;
+  width: 150px;
+  justify-content: space-between;
+}
+
+.play-list-contents img:nth-child(2):hover {
+  opacity: 0.5;
+}
+.play-list-inner-contents div:nth-child(3):hover {
+  text-decoration: underline;
+  cursor: pointer;
+}
+.play-list-contents-outter:hover
+  .play-list-inner-contents
+  div:nth-child(2):before {
+  content: "";
+  background-image: url(../assets/img/play.png);
+  background-size: 50px 50px;
+  width: 50px;
+  height: 50px;
+  position: absolute;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  background-repeat: no-repeat;
+}
+.del-btn {
+  margin-right: 150px;
+}
+.singer-name {
+  color: gray;
+}
+.singer-name:hover {
+  text-decoration: underline;
+  cursor: pointer;
+}
+.album-name {
+  color: gray;
+}
+.album-name:hover {
+  text-decoration: underline;
+  cursor: pointer;
+}
+.play-list-contents-add {
+  margin-left: 40px;
+  margin-top: 10px;
+  height: 70px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.play-list-contents-add img {
+  width: 50px;
+}
+
+.play-list-contents-outter {
+  display: block;
+  height: 70px;
+  text-align: center;
+}
+.play-list-contents-outter:hover {
+  background-color: #2a2a2a;
+}
+.start-btn {
+  width: 150px;
+  height: 50px;
+  border-radius: 10%;
+  background-color: #ff0050;
+  color: white;
+}
+.random-start-btn {
+  width: 150px;
+  height: 50px;
+  border-radius: 10%;
+  background-color: #2a2a2a;
+  color: white;
+}

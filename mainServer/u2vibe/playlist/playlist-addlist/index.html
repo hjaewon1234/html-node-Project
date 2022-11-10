@@ -1,0 +1,42 @@
+<html lang="kr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>U2 VIBE</title>
+    <link rel="stylesheet" href="../../css/addplaylist.css" />
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+  </head>
+  <body>
+    <div id="root">
+      <div id="title">새 플레이리스트</div>
+      <div id="list-album">
+        <img src="../../assets/img/After_LIKE.jpg" alt="imsi" />
+      </div>
+      <div id="list-title">
+        <input
+          id="input-title"
+          type="text"
+          placeholder="플레이리스트 제목 (최대 30자)"
+          maxlength="30"
+        />
+      </div>
+      <div id="list-contents">
+        <textarea
+          name="textarea"
+          id="input-contents"
+          cols="30"
+          rows="10"
+          maxlength="40"
+          placeholder="플레이리스트 설명을 입력해주세요. (최대 40자)"
+        ></textarea>
+      </div>
+      <div id="btn-box">
+        <div id="cancle-btn">취소</div>
+        <div id="add-btn">추가</div>
+      </div>
+    </div>
+
+    <script src="../../js/addlist.js"></script>
+  </body>
+</html>

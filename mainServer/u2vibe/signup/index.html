@@ -1,0 +1,142 @@
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>U2 VIBE</title>
+    <link rel="stylesheet" href="../css/signup.css" />
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+  </head>
+  <body>
+    <div id="root">
+      <div id="wrapper">
+        <div id="logo"><a href="#">U2</a></div>
+
+        <form id="signup-form">
+          <div id="user-id">
+            <div class="input-title">아이디</div>
+            <input
+              type="text"
+              id="input-id"
+              class="input-board"
+              placeholder="@U2.com"
+              autocomplete="off"
+            />
+            <div id="warn-id" class="input-warning"></div>
+          </div>
+          <div id="user-pw">
+            <div class="input-title">비밀번호</div>
+            <input type="password" id="input-pw" class="input-board" />
+            <div id="warn-pw" class="input-warning"></div>
+          </div>
+          <div id="user-pwrepeat">
+            <div class="input-title">비밀번호 재확인</div>
+            <input type="password" id="input-pwrepeat" class="input-board" />
+            <div id="warn-pwrepeat" class="input-warning"></div>
+          </div>
+          <div id="user-name">
+            <div class="input-title">이름</div>
+            <input
+              type="text"
+              id="input-name"
+              class="input-board"
+              autocomplete="off"
+            />
+            <div class="input-warning"></div>
+          </div>
+          <div id="user-birthday">
+            <div class="input-title">생년월일</div>
+            <div id="birthday-board">
+              <input
+                type="text"
+                id="input-yyyy"
+                class="input-board"
+                placeholder="년(4자)"
+                maxlength="4"
+                autocomplete="off"
+              />
+              <select id="sel-mm" class="input-board" onchange="change()">
+                <option value="0">월</option>
+                <option value="1">1</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+                <option value="4">4</option>
+                <option value="5">5</option>
+                <option value="6">6</option>
+                <option value="7">7</option>
+                <option value="8">8</option>
+                <option value="9">9</option>
+                <option value="10">10</option>
+                <option value="11">11</option>
+                <option value="12">12</option>
+              </select>
+              <input
+                type="text"
+                id="input-dd"
+                class="input-board"
+                placeholder="일"
+                maxlength="2"
+                autocomplete="off"
+              />
+            </div>
+            <div id="warn-birthday" class="input-warning"></div>
+            <div class="input-warning"></div>
+          </div>
+          <div id="user-gender">
+            <div class="input-title">성별</div>
+            <select id="sel-gender" class="input-board">
+              <option value="x">성별</option>
+              <option value="male">남자</option>
+              <option value="female">여자</option>
+              <option value="nonsel">선택 안함</option>
+            </select>
+          </div>
+          <div id="user-email">
+            <div class="input-title" id="user-email-unite">
+              본인 확인 이메일
+              <p>(선택)</p>
+            </div>
+            <input
+              type="text"
+              id="input-email"
+              placeholder="선택입력"
+              class="input-board"
+              autocomplete="off"
+            />
+            <div id="warn-email" class="input-warning"></div>
+          </div>
+          <div id="user-phone">
+            <div class="input-title">휴대전화</div>
+            <input
+              type="text"
+              id="input-phone"
+              class="input-board"
+              autocomplete="off"
+            />
+            <div id="warn-phone" class="input-warning"></div>
+          </div>
+          <button id="signup-btn">가입하기</button>
+        </form>
+        <a href="/signin/" id="back-atag"> <div id="back-btn">뒤로가기</div></a>
+
+        <div id="footer">
+          <div id="serviceinfo">
+            <div><a href="#">이용약관</a></div>
+            <div id="footer-serviceinfo2"><a href="#">개인정보처리방침</a></div>
+            <div><a href="#">책임의 한계와 법적고지</a></div>
+            <div id="lastrightborder"><a href="#">회원정보 고객센터</a></div>
+          </div>
+          <div id="enterinfo">
+            <div id="footer-logo"><a href="#">U2</a></div>
+            <div id="footer-copy">
+              <div id="footer-copyright1">Copyright</div>
+              <div id="footer-copyright2"><a href="#"> U2 Corp.</a></div>
+              <div id="footer-copyright3">All Rights Reserved.</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <script src="../js/signup.js"></script>
+  </body>
+</html>
