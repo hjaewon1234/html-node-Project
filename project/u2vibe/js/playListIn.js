@@ -1,14 +1,41 @@
 const album = `i_love`;
-const songName = `Nxde`;
-const singerName = `(여자)아이들`;
+
 const albumName = `I love`;
 const ListName = `아이브가좋아요`;
 const ListContents = `아이고야~~~~~`;
 
+// if (document.cookie) {
+//   let logincheck = document.cookie.split("=")[1].split(".")[1];
+
+//   if (logincheck) {
+//     logoutbox.classList.remove("on");
+//     loginbox.classList.add("on");
+//     todayhide.classList.add("on");
+//     playlisthide.classList.remove("on");
+//     musicuploadthide.classList.remove("on");
+//     momhide.classList.add("on");
+
+//     const curuserName = JSON.parse(
+//       window.atob(document.cookie.split("=")[1].split(".")[1])
+//     ).id;
+
+//     userprofileid.innerText = curuserName;
+//   }
+//   document.getElementById("logout-btn").onclick = async function (e) {
+//     console.log("로그아웃");
+//     try {
+//       await axios.get("/api/user/logout");
+//     } catch (error) {
+//       console.error(error);
+//     }
+//     location.href = "http://localhost:8080/";
+//   };
+// }
+
 async function playListInfo() {
   const data = await axios.post(`/api/playlist/list`, {
     userId: `wodnjs`,
-    playlistInfo: `호박씨발아`,
+    playlistName: `아니제발`,
   });
   const playListPage = document.getElementsByClassName(`play-list-page`)[0];
   const playListHeader = document.createElement(`div`);
@@ -48,7 +75,12 @@ async function playListInfo() {
   playListRandomPlayBtn.innerText = `랜덤 재생`;
 }
 playListInfo();
-function makePlayInList() {
+async function makePlayInList() {
+  const listData = await axios.post(`/api/musiclist/list`, {
+    userId: `wodnjs`,
+    playlistName: `아니제발`,
+  }).data;
+  console.log(listData);
   const container = document.getElementById(`play-list-container`);
   const contentsOutterDiv = document.createElement(`div`);
   const contentsAddDiv = document.createElement(`div`);
@@ -93,7 +125,7 @@ function makePlayInList() {
   delBtnDiv.innerHTML = `<button>삭제123413213</button>`;
   // 여기는 삭제 버튼을 만들 곳인데 나중에 삭제 버튼을 바꿀때 바꿔주면 될 것 같음.
 }
-
-// document.getElementsByClassName(`start-btn`)[0].onclick = () => {
-//   makePlayList();
-// };
+makePlayInList();
+document.getElementsByClassName(`start-btn`)[0].onclick = () => {
+  makePlayList();
+};
