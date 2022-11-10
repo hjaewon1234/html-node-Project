@@ -14,6 +14,15 @@ const storage = multer.diskStorage({
 });
 const uploader = multer({ storage: storage });
 
+// delete 테이블
+// router.post("/delete", (req, res) => {
+//   MusicUpload.destroy({
+//     truncate: true,
+//     restartIdentity: true,
+//     cascade: false,
+//   });
+// });
+
 router.get("/upload", async (req, res) => {
   const listUp = await MusicUpload.findAll();
   console.log("listUp");
@@ -35,31 +44,11 @@ router.get("/upload", async (req, res) => {
 // });
 
 // multer로 서로 다른 name input객체의 파일을 업로드할 때
-// router.post("/input", (req, res) => {
-//   console.log(req.body);
-//   res.send("gdgd")
-// });
-
 router.post(
   "/upload",
   uploader.fields([{ name: "file" }, { name: "img" }]),
   async (req, res) => {
     try {
-      // console.log(req.files);
-      // console.log(req.body);
-      console.log("jj");
-      console.log(req.body.musicTitle);
-      console.log(req.body.formSelect);
-      console.log(req.body.singerName);
-      console.log(req.body.albumTitle);
-      console.log("노래제목, 장르, 가수이름, 앨범명");
-
-      console.log(req.files.file[0].filename);
-      console.log(req.files.img[0].filename);
-      console.log("음원파일, 앨범이미지");
-      // let imgPath = [];
-      // imgPath.push(req.files.img[0].path);
-
       const tempUpload = await MusicUpload.create({
         userId: req.body.id,
         musicName: req.body.musicTitle,
@@ -75,7 +64,7 @@ router.post(
         musicName: req.body.musicTitle,
         musicFile: req.files.file[0].filename,
         albumImg: req.files.img[0].filename,
-        singer: req.bodyt.singerName,
+        singer: req.body.singerName,
         albumName: req.body.albumTitle,
         genre: req.body.formSelec,
       });

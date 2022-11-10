@@ -64,6 +64,9 @@ stopBtn.onclick = () => {
   playController.pause();
 };
 
+// resetBtn.onclick = () => {
+//   const tempElem = axios.post("/api/musicUpload/delete", {});
+// };
 volumeControl.addEventListener("change", (e) => {
   playController.volume = this.value / 10;
 });
@@ -97,9 +100,9 @@ uploadContent.onsubmit = async (e) => {
     const data = await axios.post("/api/musicUpload/upload", formData);
     alert(
       "선택하신" +
-        data.data.fileName +
+        data.data.musicFile +
         " & " +
-        data.data.imgName +
+        data.data.albumImg +
         "가 업로드 되었습니다."
     );
   } catch (err) {

@@ -15,9 +15,6 @@ const playlisthide = document.getElementById("playlist-hide");
 const todayhide = document.getElementById("today-hide");
 const musicuploadthide = document.getElementById("musicUpload-hide");
 const momhide = document.getElementById("mom-hide");
-// const curuserName = JSON.parse(
-//   window.atob(document.cookie.split("=")[1].split(".")[1])
-// ).id;
 
 const playController = document.getElementById("play-controller");
 const playBtn = document.getElementById("play-btn");
@@ -94,9 +91,6 @@ function musicMove() {
   elemASinger.setAttribute("href", `../musicInfo`);
   elemImg.setAttribute("src", `path`);
 
-  // elemATitle.innerHTML = `${}`
-  // elemASinger.innerHTML = `${}`
-
   elemDiv.append(elemATitle);
   elemDiv.append(elemASinger);
 }
@@ -106,6 +100,7 @@ window.onload = () => {
 };
 
 let musicList = [];
+let imgList = [];
 
 async function listUp() {
   const result = (await axios.get("/api/chart/list")).data;
@@ -117,8 +112,18 @@ async function listUp() {
 }
 listUp();
 
+async function imgListUp() {
+  const result = (await axios.get("/api/chart/imglist")).data;
+  result?.data?.forEach((item) => {
+    let typeCheck = /jpg|jpeg|png/.test(item);
+    if (typeCheck) imgList.push(item);
+  });
+  console.log(imgList);
+}
+imgListUp();
 function musicPlay(idx) {
   playController.src = `../upload/${musicList[idx]}`;
+
   playController.play();
 }
 
@@ -129,11 +134,9 @@ stopBtn.onclick = () => {
   playController.pause();
 };
 
-volumeControl.addEventListener("change", (e) => {
+volumeControl.addEventListener("change", function (e) {
   playController.volume = this.value / 10;
 });
-
-// musicPlay();
 
 const slideInnerImg = document.getElementsByClassName("slide-inner-img");
 const slideInnerId = document.getElementsByClassName("slide-inner-id");
@@ -143,7 +146,7 @@ const innerImg = document.getElementsByClassName("inner-img");
 const slideInnerDiv = document.getElementsByClassName("slide-inner-div");
 
 async function chartListUp() {
-  const data = (await axios.get("/api/upload/upload")).data;
+  const data = (await axios.get("/api/musicUpload/upload")).data;
 
   data.list.forEach((item, index) => {
     innerImg[index].src = `../upload/${item.albumImg}`;
@@ -154,44 +157,44 @@ async function chartListUp() {
     slideInnerSinger[index].innerHTML = item.singer;
 
     slideInnerImg[index].append(innerImg[index]);
-    console.log(item);
-    console.log(Object.keys(item).length);
+
     [...slideInnerDiv].forEach((elem, idx) => {
       // console.log(elem);
       elem.onclick = (e) => {
-        checkNum++;
-        if (checkNum > 1) {
-          musicPlay(idx);
-          return;
-        }
-        // item = data.list
-        // item.id = data.list.id
-        // item[idx].musicName
-        // item[idx].singer
-        // console.log("ASd");
-        console.log(e.target);
         const imgDiv = document.createElement("div");
         const tempDiv = document.createElement("div");
         const tempImg = document.createElement("img");
 
         const innerDiv = document.createElement("div");
         const innerSecondDiv = document.createElement("div");
+        if (!checkNum) {
+          checkNum++;
+          console.log(Object.keys(item).length);
 
-        tempImg.src = `../upload/${item.albumImg}`;
-        tempImg.setAttribute("filter", "none");
+          tempImg.src = `../upload/${item.albumImg}`;
+          tempImg.setAttribute("filter", "none");
 
-        musicPlay(idx);
+          musicPlay(idx);
 
-        innerDiv.innerText = item.musicName;
-        innerSecondDiv.innerText = item.singer;
+          innerDiv.innerText = item.musicName;
+          innerSecondDiv.innerText = item.singer;
 
-        tempDiv.append(innerDiv);
-        tempDiv.append(innerSecondDiv);
+          tempDiv.append(innerDiv);
+          tempDiv.append(innerSecondDiv);
 
-        imgDiv.append(tempImg);
+          imgDiv.append(tempImg);
 
-        document.getElementsByClassName("container")[0].append(imgDiv);
-        document.getElementsByClassName("container")[0].append(tempDiv);
+          document.getElementsByClassName("container")[0].append(imgDiv);
+          document.getElementsByClassName("container")[0].append(tempDiv);
+        } else {
+          tempImg.src = `../upload/${item.albumImg}`;
+          tempImg.setAttribute("filter", "none");
+
+          innerDiv.innerText = item.musicName;
+          innerSecondDiv.innerText = item.singer;
+
+          musicPlay(idx);
+        }
       };
     });
   });
@@ -202,7 +205,6 @@ async function chartOn() {
 
   console.log(data.data.length);
 
-  console.log(data.data[0].tempFile);
   const innerImg = document.getElementsByClassName(`slide-inner-img`);
   const innerTitle = document.getElementsByClassName(`slide-inner-title`);
   const innerSinger = document.getElementsByClassName(`slide-inner-singer`);

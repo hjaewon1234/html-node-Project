@@ -13,7 +13,7 @@ const musicList = require(`./musiclist.js`);
 //   next();
 // });
 router.use("/user", user);
-router.use("/upload", musicUpload);
+router.use("/musicUpload", musicUpload);
 router.use("/chart", chart);
 router.use("/playlist", playlist);
 router.use("/musiclist", musicList);
