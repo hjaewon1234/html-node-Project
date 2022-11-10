@@ -10,7 +10,6 @@ module.exports = class MusicList extends Sequelize.Model {
         playList: {
           type: Sequelize.STRING(255),
         },
-
         albumImg: {
           type: Sequelize.STRING(100),
         },

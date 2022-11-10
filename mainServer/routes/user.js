@@ -84,5 +84,4 @@ router.get("/logout", (req, res) => {
   res.clearCookie("login");
   res.end();
 });
-
 module.exports = router;

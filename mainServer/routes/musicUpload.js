@@ -14,6 +14,11 @@ const storage = multer.diskStorage({
 });
 const uploader = multer({ storage: storage });
 
+router.get("/upload", (req, res) => {
+  console.log("get");
+
+  res.send("get으로 옴");
+});
 router.get("/upload", async (req, res) => {
   const listUp = await MusicUpload.findAll();
   console.log("listUp");
@@ -35,10 +40,12 @@ router.get("/upload", async (req, res) => {
 // });
 
 // multer로 서로 다른 name input객체의 파일을 업로드할 때
+
 // router.post("/input", (req, res) => {
 //   console.log(req.body);
 //   res.send("gdgd")
 // });
+
 router.post(
   "/upload",
   uploader.fields([{ name: "file" }, { name: "img" }]),
@@ -46,7 +53,6 @@ router.post(
     try {
       // console.log(req.files);
       // console.log(req.body);
-
       console.log("jj");
       console.log(req.body.musicTitle);
       console.log(req.body.formSelect);
