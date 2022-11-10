@@ -45,8 +45,8 @@ router.post(
   uploader.fields([{ name: "file" }, { name: "img" }]),
   async (req, res) => {
     try {
-      // console.log(req.files);
-      // console.log(req.body);
+      console.log(req.files);
+      console.log(req.body);
       console.log("jj");
       console.log(req.body.musicTitle);
       console.log(req.body.formSelect);
@@ -75,7 +75,7 @@ router.post(
         musicName: req.body.musicTitle,
         musicFile: req.files.file[0].filename,
         albumImg: req.files.img[0].filename,
-        singer: req.bodyt.singerName,
+        singer: req.body.singerName,
         albumName: req.body.albumTitle,
         genre: req.body.formSelec,
       });

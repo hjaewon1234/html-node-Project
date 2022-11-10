@@ -69,8 +69,10 @@ h2 {
   width: 35px;
   cursor: pointer;
 }
-
-.header-btn-box button:first-child:hover {
+#musicadd-btn {
+  font-size: 13px;
+}
+.header-btn-box button:hover {
   background-color: #ff0050;
   color: white;
 }
@@ -224,10 +226,8 @@ h2 {
 .album-list {
   display: flex;
   flex-direction: row;
-  /* overflow: hidden; */
   align-items: center;
   position: relative;
-  overflow: hidden;
 }
 
 .album-list div div:nth-child(n + 2):nth-child(-n + 3):hover {
@@ -263,7 +263,6 @@ h2 {
 .playList-line {
   display: flex;
   flex-direction: row;
-  overflow: hidden;
 }
 
 .playList-line-img {
@@ -355,4 +354,28 @@ textarea {
   top: 175px;
   right: 0;
   z-index: 10;
+}
+
+.logout-box.on {
+  display: none;
+}
+
+.login-box.on {
+  display: none;
+}
+
+#playlist-hide.on {
+  display: none;
+}
+
+#today-hide.on {
+  display: none;
+}
+
+#musicUpload-hide.on {
+  display: none;
+}
+
+#mom-hide.on {
+  display: none;
 }

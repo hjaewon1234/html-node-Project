@@ -1,22 +1,22 @@
 {
   "development": {
     "username": "root",
-    "password": "940214",
-    "database": "project",
+    "password": "1234",
+    "database": "u2vibe",
     "host": "127.0.0.1",
     "dialect": "mysql"
   },
   "test": {
     "username": "root",
-    "password": "940214",
-    "database": "project",
+    "password": "1234",
+    "database": "u2vibe",
     "host": "127.0.0.1",
     "dialect": "mysql"
   },
   "production": {
     "username": "root",
-    "password": "940214",
-    "database": "project",
+    "password": "1234",
+    "database": "u2vibe",
     "host": "127.0.0.1",
     "dialect": "mysql"
   }

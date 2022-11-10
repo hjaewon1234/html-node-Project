@@ -14,11 +14,49 @@ const volumeControl = document.getElementById("volume-control");
 const playBtn = document.getElementById("play-btn");
 const stopBtn = document.getElementById("stop-btn");
 
+//로그인
+let userprofileid = document.getElementById("userprofile-id");
+let loginbox = document.getElementById("login-box");
+let logoutbox = document.getElementById("logout-box");
+const playlisthide = document.getElementById("playlist-hide");
+const todayhide = document.getElementById("today-hide");
+const musicuploadthide = document.getElementById("musicUpload-hide");
+const momhide = document.getElementById("mom-hide");
+
 // 댓글
 const userName = document.getElementById("user-name");
 const commentBtn = document.getElementById("comment-btn");
 const commentText = document.getElementById("comment");
 const commentList = document.getElementById("comment-list");
+let userNameElem = "";
+if (document.cookie) {
+  let logincheck = document.cookie.split("=")[1].split(".")[1];
+
+  if (logincheck) {
+    logoutbox.classList.remove("on");
+    loginbox.classList.add("on");
+    todayhide.classList.add("on");
+    playlisthide.classList.remove("on");
+    musicuploadthide.classList.remove("on");
+    momhide.classList.add("on");
+
+    const curuserName = JSON.parse(
+      window.atob(document.cookie.split("=")[1].split(".")[1])
+    ).id;
+
+    userprofileid.innerText = curuserName;
+    userNameElem = curuserName;
+  }
+  document.getElementById("logout-btn").onclick = async function (e) {
+    console.log("로그아웃");
+    try {
+      await axios.get("/api/user/logout");
+    } catch (error) {
+      console.error(error);
+    }
+    location.href = "http://localhost:8080/";
+  };
+}
 
 playBtn.onclick = () => {
   playController.play();
@@ -28,7 +66,7 @@ stopBtn.onclick = () => {
 };
 
 volumeControl.addEventListener("change", (e) => {
-  playController.volume = this.value / 10;
+  playController.volume = e.target.value / 10;
 });
 
 lyricsBtn[0].onclick = () => {
@@ -45,7 +83,6 @@ lyricsoffBtn[0].onclick = () => {
 
 rightBtn.addEventListener("click", function () {
   albumList[0].style.transform = "translateX(-68.5vw)";
-  // albumList[0].style.overflow = "visible";
 });
 
 leftBtn.addEventListener("click", function () {
@@ -60,10 +97,15 @@ playleftBtn.onclick = () => {
   playList[0].style.transform = "translateX(0vw)";
 };
 //
+let checkNum = 0;
 async function listUp() {
   const result = (await axios.get("/api/musicInfo/play")).data;
   result?.list?.forEach((item) => {
     musicPlayBtn.onclick = () => {
+      checkNum++;
+      if (checkNum > 1) {
+        return;
+      }
       const imgDiv = document.createElement("div");
       const tempDiv = document.createElement("div");
       const tempImg = document.createElement("img");
@@ -72,7 +114,10 @@ async function listUp() {
       const innerSecondDiv = document.createElement("div");
 
       tempImg.src = `../upload/${item.albumImg}`;
+      playController.src = `../upload/${item.musicFile}`;
+      playController.play();
       console.log(item.albumImg);
+      console.log(item.musicFile);
       tempImg.setAttribute("filter", "none");
       tempImg.setAttribute("width", "50px");
 
@@ -95,20 +140,63 @@ async function listUp() {
 
 listUp();
 
+async function commentSaveload() {
+  const data = (await axios.get("/api/musicInfo")).data;
+  console.log(data.list);
+  data?.list?.forEach((item) => {
+    console.log(item.userId);
+    console.log(item.userComment);
+    const mainDiv = document.createElement("div");
+    const userDiv = document.createElement("div");
+    const idP = document.createElement("p");
+    const dateDiv = document.createElement("div");
+    const dateP = document.createElement("p");
+    const tempDiv = document.createElement("div");
+    const textP = document.createElement("p");
+    const btnBox = document.createElement("div");
+    const deleteBtn = document.createElement("button");
+    const line = document.createElement("hr");
+
+    idP.innerText = item.userId;
+    dateP.innerText = new Date(item.createdAt).toLocaleString();
+    textP.innerText = item.userComment;
+    deleteBtn.innerText = "삭제";
+
+    deleteBtn.style.borderRadius = "10px";
+    deleteBtn.style.fontSize = "12px";
+    deleteBtn.style.backgroundColor = "gray";
+    deleteBtn.style.color = "white";
+    dateP.style.color = "gray";
+    dateP.style.fontSize = "13px";
+
+    userDiv.append(idP);
+    dateDiv.append(dateP);
+    tempDiv.append(textP);
+    btnBox.append(deleteBtn);
+    mainDiv.append(userDiv);
+    mainDiv.append(dateDiv);
+    mainDiv.append(tempDiv);
+    mainDiv.append(btnBox);
+    mainDiv.append(line);
+    commentList.append(mainDiv);
+  });
+}
+commentSaveload();
 // 댓글
-userName.innerText = "이가원 님"; // 추후엔 로그인 한 아이디 들어갈 자리
+userName.innerText = `${userNameElem}님`; // 추후엔 로그인 한 아이디 들어갈 자리
 userName.style.marginLeft = "40px";
 commentList.style.marginTop = "40px";
 commentList.style.marginBottom = "100px";
 
-async function commentlist() {
+async function commentInsert() {
   commentBtn.onclick = async () => {
     try {
       const result = await axios.post("/api/musicInfo/comment", {
-        userId: "lkw",
+        userId: userNameElem,
         comment: commentText.value,
       });
       console.log(result);
+      const mainDiv = document.createElement("div");
       const userDiv = document.createElement("div");
       const idP = document.createElement("p");
       const dateDiv = document.createElement("div");
@@ -119,8 +207,8 @@ async function commentlist() {
       const deleteBtn = document.createElement("button");
       const line = document.createElement("hr");
 
-      idP.innerText = "이가원";
-      dateP.innerText = "현재 시간";
+      idP.innerText = userNameElem;
+      dateP.innerText = new Date(item.createdAt).toLocaleString();
       textP.innerText = commentText.value;
       deleteBtn.innerText = "삭제";
 
@@ -135,11 +223,12 @@ async function commentlist() {
       dateDiv.append(dateP);
       tempDiv.append(textP);
       btnBox.append(deleteBtn);
-      commentList.append(userDiv);
-      commentList.append(dateDiv);
-      commentList.append(tempDiv);
-      commentList.append(btnBox);
-      commentList.append(line);
+      mainDiv.append(userDiv);
+      mainDiv.append(dateDiv);
+      mainDiv.append(tempDiv);
+      mainDiv.append(btnBox);
+      mainDiv.append(line);
+      commentList.prepend(mainDiv);
 
       commentText.value = "";
 
@@ -158,4 +247,4 @@ async function commentlist() {
     }
   };
 }
-commentlist();
+commentInsert();
