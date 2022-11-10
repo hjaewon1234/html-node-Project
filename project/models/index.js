@@ -2,10 +2,10 @@
 
 const Sequelize = require("sequelize");
 
-const Chart = require("./chart");
-const PlayList = require("./playList");
-const MusicList = require("./musicList");
-const MusicUpload = require("./musicUpload");
+const Chart = require("./chart.js");
+const PlayList = require("./playList.js");
+const MusicList = require("./musicList.js");
+const MusicUpload = require("./musicUpload.js");
 const MusicInfo = require("./musicInfo.js");
 const User = require("./user.js");
 
