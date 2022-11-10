@@ -15,9 +15,6 @@ router.get("/imglist", async (req, res) => {
     res.send({ data: data });
   });
 });
-const tempFile = [`I_love`, `After_LIKE`, `ANTIFRAGILE`];
-const musicName = [`Nxde`, `After LIKE`, `ANTIFRAGILE`];
-const singerName = [`(여자)아이들`, `IVE(아이브)`, `LE SSERAFIM (르세라핌)`];
 
 // 배열로 하면 쉽게 가져올 수 있음 근데 db는 배열이 아니니까, 어떻게 가져올지 생각을 해보자.
 // 배열로 들어오는데 안에 요소들이 객체로 들어감
