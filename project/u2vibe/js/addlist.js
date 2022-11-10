@@ -1,12 +1,17 @@
 let addplaylist = document.getElementById("add-playlist");
 let inputtitle = document.getElementById("input-title");
 let inputcontents = document.getElementById("input-contents");
+let logincheck = document.cookie.split("=")[1].split(".")[1];
+const userprofileid = document.getElementById("userprofile-id");
+const curuserName = JSON.parse(
+  window.atob(document.cookie.split("=")[1].split(".")[1])
+).id;
 const addbtn = document.getElementById("add-btn");
+const listimg = document.getElementById("list-img");
+const listtitle = document.getElementById("list-title");
+const listcontents = document.getElementById("list-contents");
 
 if (document.cookie) {
-  const curuserName = JSON.parse(
-    window.atob(document.cookie.split("=")[1].split(".")[1])
-  ).id;
   if (logincheck) {
     userprofileid.innerText = curuserName;
   }
@@ -68,6 +73,7 @@ function makePlaylist() {
   <div class="list-contents">0곡</div>
 `;
 }
+
 inputtitle.oninput = function () {
   addbtn.classList.add("on");
   if (inputtitle.value == "") addbtn.classList.remove("on");

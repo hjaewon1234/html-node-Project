@@ -62,8 +62,9 @@
   border: 1px solid gray;
   border-radius: 100%;
   background-color: gray;
-  width: 17px;
+  width: 22px;
   cursor: pointer;
+  position: relative;
 }
 
 .inputid-contents,
@@ -75,6 +76,9 @@
 
 .x-btn img {
   width: 13px;
+  position: absolute;
+  left: 4px;
+  top: 3px;
 }
 
 .userimg,
