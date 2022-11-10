@@ -12,11 +12,6 @@ const storage = multer.diskStorage({
   },
 });
 const uploader = multer({ storage: storage });
-router.get("/upload", (req, res) => {
-  console.log("get");
-
-  res.send("get으로 옴");
-});
 
 // multer로 한개의 파일만 업로드 할 때
 // router.post("/upload", uploader.single("img"), (req, res) => {

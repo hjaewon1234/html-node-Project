@@ -76,10 +76,12 @@ router.post(
 
 router.post("/addedlist", async (req, res) => {
   try {
-    const tempUpload = await MusicUpload.findOne({
+    const tempUpload = await MusicUpload.findAll({
       where: { userId: req.body.id },
     });
     res.send({ info: tempUpload });
-  } catch (error) {}
+  } catch (error) {
+    console.log(err);
+  }
 });
 module.exports = router;
