@@ -39,7 +39,7 @@
 .play-list-inner-contents {
   display: flex;
   align-items: center;
-  width: 150px;
+  width: 300px;
   justify-content: space-between;
 }
 
@@ -75,14 +75,22 @@
 }
 
 .singer-name {
+  width: 150px;
   color: gray;
+  text-align: start;
+}
+.music-name {
+  text-align: start;
+  width: 100px;
 }
 .singer-name:hover {
   text-decoration: underline;
   cursor: pointer;
 }
 .album-name {
+  width: 150px;
   color: gray;
+  text-align: start;
 }
 .album-name:hover {
   text-decoration: underline;
