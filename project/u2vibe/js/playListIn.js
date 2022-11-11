@@ -26,6 +26,35 @@ if (document.cookie) {
   };
 }
 
+const album = `BORN_PINK`;
+if (document.cookie) {
+  let logincheck = document.cookie.split("=")[1].split(".")[1];
+
+  if (logincheck) {
+    logoutbox.classList.remove("on");
+    loginbox.classList.add("on");
+    todayhide.classList.add("on");
+    playlisthide.classList.remove("on");
+    musicuploadthide.classList.remove("on");
+    momhide.classList.add("on");
+
+    const curuserName = JSON.parse(
+      window.atob(document.cookie.split("=")[1].split(".")[1])
+    ).id;
+
+    userprofileid.innerText = curuserName;
+  }
+  document.getElementById("logout-btn").onclick = async function (e) {
+    console.log("로그아웃");
+    try {
+      await axios.get("/api/user/logout");
+    } catch (error) {
+      console.error(error);
+    }
+    location.href = "http://localhost:8080/";
+  };
+}
+
 async function playListInfo() {
   const data = await axios.post(`/api/playlist/list`, {
     userId: `wodnjs`,
@@ -111,7 +140,6 @@ async function makePlayInList() {
         document
           .getElementsByClassName(`play-list-contents-outter`)
           [i].remove();
-
         delFunc();
       };
     }
@@ -119,6 +147,7 @@ async function makePlayInList() {
   delFunc();
 }
 makePlayInList();
+
 playListInfo();
 function musicPlay(idx) {
   playController.src = `../upload/${musicList[idx]}`;
