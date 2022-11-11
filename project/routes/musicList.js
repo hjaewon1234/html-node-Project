@@ -16,4 +16,16 @@ router.post(`/list`, async (req, res) => {
   res.send({ data: listUp });
 });
 
+router.post(`/delete`, async (req, res) => {
+  console.log(req.body);
+  await MusicList.destroy({
+    where: {
+      singer: req.body.singer,
+      musicName: req.body.musicName,
+    },
+  });
+
+  res.send(`지웟다`);
+});
+
 module.exports = router;
