@@ -67,7 +67,13 @@
 }
 .del-btn {
   margin-right: 150px;
+  width: 100px;
+  height: 50px;
+  border-radius: 10%;
+  background-color: #2a2a2a;
+  color: white;
 }
+
 .singer-name {
   color: gray;
 }
