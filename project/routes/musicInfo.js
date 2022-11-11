@@ -19,31 +19,29 @@ router.post("/comment", (req, res) => {
   MusicInfo.create({
     userId: req.body.userId,
     userComment: req.body.comment,
+  }).then((data) => {
+    res.send({ status: "정상적으로 받아서 보냈음", data: req.body.comment });
   });
-  res.send("정상적으로 받아서 보냈음");
 });
 
-router.get("/", async (req, res) => {
-  const tempBoard = await MusicInfo.findAll({
+router.get("/", (req, res) => {
+  MusicInfo.findAll({
     order: [["id", "DESC"]], // 정렬
+  }).then((data) => {
+    console.log(data);
+    res.send({ list: data });
   });
-  res.send({ list: tempBoard });
 });
 
-// router.delete("/delete", async (req, res) => {
-//   const tempInfo = await MusicInfo.findOne({
-//     where: {
-//       user_id: req.body.userId,
-//     },
-//   });
-//   if (tempInfo.user_id === global.userId) {
-//     await MusicInfo.destroy({
-//       where: {
-//         user_id: req.body.userId,
-//       },
-//     });
-//   }
-//   res.end();
-// });
+router.post("/delete", (req, res) => {
+  MusicInfo.destroy({
+    where: {
+      userId: req.body.userId,
+      userComment: req.body.comment,
+    },
+  }).then((data) => {
+    res.send("잘 삭제해따!!넌 나가라!");
+  });
+});
 
 module.exports = router;

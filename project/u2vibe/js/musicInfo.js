@@ -28,6 +28,12 @@ const userName = document.getElementById("user-name");
 const commentBtn = document.getElementById("comment-btn");
 const commentText = document.getElementById("comment");
 const commentList = document.getElementById("comment-list");
+const commentLength = document.getElementById("comment-length");
+
+commentText.onkeyup = (e) => {
+  commentLength.innerText = `(${commentText.value.length} / 400)`;
+};
+
 let userNameElem = "";
 if (document.cookie) {
   let logincheck = document.cookie.split("=")[1].split(".")[1];
@@ -133,69 +139,14 @@ async function listUp() {
       document.getElementsByClassName("container")[0].append(tempDiv);
     };
   });
-  console.log("result");
-  console.log(result.data);
-  console.log(result.list);
 }
 
 listUp();
 
-async function commentSaveload() {
-  const data = (await axios.get("/api/musicInfo")).data;
-  console.log(data.list);
-  data?.list?.forEach((item) => {
-    console.log(item.userId);
-    console.log(item.userComment);
-    const mainDiv = document.createElement("div");
-    const userDiv = document.createElement("div");
-    const idP = document.createElement("p");
-    const dateDiv = document.createElement("div");
-    const dateP = document.createElement("p");
-    const tempDiv = document.createElement("div");
-    const textP = document.createElement("p");
-    const btnBox = document.createElement("div");
-    const deleteBtn = document.createElement("button");
-    const line = document.createElement("hr");
-
-    idP.innerText = item.userId;
-    dateP.innerText = new Date(item.createdAt).toLocaleString();
-    textP.innerText = item.userComment;
-    deleteBtn.innerText = "삭제";
-
-    deleteBtn.style.borderRadius = "10px";
-    deleteBtn.style.fontSize = "12px";
-    deleteBtn.style.backgroundColor = "gray";
-    deleteBtn.style.color = "white";
-    dateP.style.color = "gray";
-    dateP.style.fontSize = "13px";
-
-    userDiv.append(idP);
-    dateDiv.append(dateP);
-    tempDiv.append(textP);
-    btnBox.append(deleteBtn);
-    mainDiv.append(userDiv);
-    mainDiv.append(dateDiv);
-    mainDiv.append(tempDiv);
-    mainDiv.append(btnBox);
-    mainDiv.append(line);
-    commentList.append(mainDiv);
-  });
-}
-commentSaveload();
-// 댓글
-userName.innerText = `${userNameElem}님`; // 추후엔 로그인 한 아이디 들어갈 자리
-userName.style.marginLeft = "40px";
-commentList.style.marginTop = "40px";
-commentList.style.marginBottom = "100px";
-
-async function commentInsert() {
-  commentBtn.onclick = async () => {
-    try {
-      const result = await axios.post("/api/musicInfo/comment", {
-        userId: userNameElem,
-        comment: commentText.value,
-      });
-      console.log(result);
+function commentSaveload() {
+  commentList.innerHTML = "";
+  axios.get("/api/musicInfo").then((data) => {
+    data.data?.list?.forEach((item, index) => {
       const mainDiv = document.createElement("div");
       const userDiv = document.createElement("div");
       const idP = document.createElement("p");
@@ -207,9 +158,9 @@ async function commentInsert() {
       const deleteBtn = document.createElement("button");
       const line = document.createElement("hr");
 
-      idP.innerText = userNameElem;
+      idP.innerText = item.userId;
       dateP.innerText = new Date(item.createdAt).toLocaleString();
-      textP.innerText = commentText.value;
+      textP.innerText = item.userComment;
       deleteBtn.innerText = "삭제";
 
       deleteBtn.style.borderRadius = "10px";
@@ -218,6 +169,7 @@ async function commentInsert() {
       deleteBtn.style.color = "white";
       dateP.style.color = "gray";
       dateP.style.fontSize = "13px";
+      textP.classList.add("item-comment");
 
       userDiv.append(idP);
       dateDiv.append(dateP);
@@ -228,23 +180,50 @@ async function commentInsert() {
       mainDiv.append(tempDiv);
       mainDiv.append(btnBox);
       mainDiv.append(line);
-      commentList.prepend(mainDiv);
+      commentList.append(mainDiv);
 
-      commentText.value = "";
+      deleteBtn.onclick = async () => {
+        const resultDel = await axios.post("/api/musicInfo/delete", {
+          userId: userNameElem,
+          comment:
+            document.getElementsByClassName("item-comment")[index].innerText,
+        });
+        console.log(resultDel.data);
 
-      // deleteBtn.onclick = async function () {
-      //   try {
-      //     await axios.delete("/api/musicInfo/delete", {
-      //       userId: "lkw",
-      //     });
-      //     commentlist();
-      //   } catch (err) {
-      //     console.error(err);
-      //   }
-      // };
-    } catch (err) {
-      console.error(err);
-    }
-  };
+        commentSaveload();
+      };
+    });
+    document.getElementById(
+      "comment-num"
+    ).innerText = `${commentList.children.length}개의 감상평`;
+  });
 }
-commentInsert();
+
+commentSaveload();
+// 댓글
+userName.innerText = `${userNameElem}님`; // 추후엔 로그인 한 아이디 들어갈 자리
+userName.style.marginLeft = "40px";
+commentList.style.marginTop = "40px";
+commentList.style.marginBottom = "100px";
+
+commentBtn.onclick = () => {
+  try {
+    axios
+      .post("/api/musicInfo/comment", {
+        userId: userNameElem,
+        comment: commentText.value,
+      })
+      .then((data) => {
+        console.log(data);
+        commentSaveload();
+      });
+    commentText.value = "";
+    commentLength.innerText = "(0 / 400)";
+
+    document.getElementById(
+      "comment-num"
+    ).innerText = `${commentList.children.length}개의 감상평`;
+  } catch (err) {
+    console.error(err);
+  }
+};
