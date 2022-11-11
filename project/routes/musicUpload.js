@@ -84,4 +84,18 @@ router.post("/addedlist", async (req, res) => {
     console.log(err);
   }
 });
+
+router.post("/deletelist", async (req, res) => {
+  console.log(req.body.name);
+  console.log(req.body.singer);
+  const tempDelete = await MusicUpload.destroy({
+    where: {
+      userId: req.body.id,
+      musicName: req.body.name,
+      singer: req.body.singer,
+    },
+  });
+  res.send("삭제완료");
+});
+
 module.exports = router;

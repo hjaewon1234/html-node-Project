@@ -1,25 +1,17 @@
 let userprofileid = document.getElementById("userprofile-id");
 let logincheck = document.cookie.split("=")[1].split(".")[1];
-let mordaladdptn = document.getElementById("mordal-add-btn");
-let inputtitle = document.getElementById("mordal-input-title");
-let inputcontents = document.getElementById("mordal-input-contents");
-const addbtn = document.getElementById("mordal-add-btn");
-const canclebtn = document.getElementById("mordal-cancle-btn");
+let mordaladdbtn = document.getElementById("mordal-add-btn");
+const mordalcanclebtn = document.getElementById("mordal-cancle-btn");
 const mordalroot = document.getElementById("mordal-root");
 const addplaylist = document.getElementById("add-playlist");
 const listboard = document.getElementById("list-board");
-const mordalinputtitle = document.getElementById("mordal-input-title");
-const mordalinputcontents = document.getElementById("mordal-input-contents");
+let mordalinputtitle = document.getElementById("mordal-input-title");
+let mordalinputcontents = document.getElementById("mordal-input-contents");
 const curuserName = JSON.parse(
   window.atob(document.cookie.split("=")[1].split(".")[1])
 ).id;
 
 if (logincheck) {
-  // logoutbox.classList.remove("on");
-  // loginbox.classList.add("on");
-  // todayhide.classList.add("on");
-  // playlisthide.classList.remove("on");
-
   userprofileid.innerText = curuserName;
 }
 document.getElementById("logout-btn").onclick = async function (e) {
@@ -32,28 +24,66 @@ document.getElementById("logout-btn").onclick = async function (e) {
   location.href = "http://localhost:8080/";
 };
 
-inputtitle.oninput = function () {
-  addbtn.classList.add("on");
-  if (inputtitle.value == "") addbtn.classList.remove("on");
+mordalinputtitle.oninput = function () {
+  mordaladdbtn.classList.add("on");
+  if (mordalinputtitle.value == "") mordaladdbtn.classList.remove("on");
 };
 
-canclebtn.addEventListener("click", () => {
+mordalcanclebtn.addEventListener("click", () => {
   mordalroot.classList.add("on");
 });
 
-// addplaylist.addEventListener("click", () => {
-//   });
-addplaylist.onclick = () => {
+function listDivCreate() {
+  const listPostDiv = document.createElement("div");
+  listPostDiv.classList.add("list-post");
+  const addPlaylistDiv = document.createElement("div");
+  addPlaylistDiv.classList.add("addplaylist-div");
+  const listImg = document.createElement("div");
+
+  const imgplayListAdd = document.createElement("img");
+  imgplayListAdd.classList.add("list-img");
+
+  const listTitle = document.createElement("div");
+  listTitle.classList.add("list-title");
+  const listContentImis = document.createElement("div");
+  listContentImis.classList.add("list-contents-imsi");
+
+  imgplayListAdd.src = `../../assets/img/playlistadd.png`;
+  imgplayListAdd.setAttribute("alt", "imsi");
+
+  listTitle.innerText = "새 플레이리스트 추가";
+  listContentImis.innerText = "1";
+
+  addPlaylistDiv.setAttribute("id", "add-playlist");
+  addPlaylistDiv.setAttribute("onclick", "addplayClick()");
+
+  listImg.append(imgplayListAdd);
+
+  addPlaylistDiv.append(listImg);
+  addPlaylistDiv.append(listTitle);
+  addPlaylistDiv.append(listContentImis);
+
+  listPostDiv.append(addPlaylistDiv);
+
+  listboard.append(listPostDiv);
+}
+listDivCreate();
+
+function addplayClick() {
   mordalroot.classList.toggle("on");
-  console.log("addplay?");
-};
+  mordalinputtitle.value = null;
+  mordalinputcontents.value = null;
+}
 
 async function makePlaylist() {
   try {
+    if (mordalinputtitle.value == "") {
+      return;
+    }
     const data = await axios.post("/api/playList/addplaylist", {
       id: curuserName,
-      name: inputtitle.value,
-      info: inputcontents.value,
+      name: mordalinputtitle.value,
+      info: mordalinputcontents.value,
     });
     console.log(data.data);
     if (data.data.overlap == 1) {
@@ -69,11 +99,9 @@ async function makePlaylist() {
        <a href="#">
          <div class="list-hidden">
            <div class="icon-box">
-             <img src="../../assets/img/playbtn.png" alt="play" />
              <img
                src="../../assets/img/delbtn.png"
                alt="dot"
-               onclick="removelist()"
              />
            </div>
          </div>
@@ -85,6 +113,9 @@ async function makePlaylist() {
     listboard.appendChild(tempElem);
     console.log("들어오냐");
     mordalroot.classList.add("on");
+    listboard.innerHTML = "";
+    listDivCreate();
+    myplaylist();
   } catch (error) {
     console.error(error);
   }
@@ -105,11 +136,10 @@ async function myplaylist() {
       <a href="#">
         <div class="list-hidden">
           <div class="icon-box">
-            <img src="../../assets/img/playbtn.png" alt="play" />
             <img
               src="../../assets/img/delbtn.png"
               alt="dot"
-              onclick="removelist()"
+              class="delete-img"
             />
           </div>
         </div>
@@ -121,9 +151,22 @@ async function myplaylist() {
 
       listboard.append(tempElem);
     }
+    const tempNum = document.querySelectorAll(".delete-img");
+    [...tempNum].forEach((item, index) => {
+      item.onclick = async (e) => {
+        const tempId =
+          e.target.parentNode.parentNode.parentNode.parentNode
+            .nextElementSibling.innerText;
+        await axios.post("/api/playList/delete", {
+          title: tempId,
+        });
+        listboard.innerHTML = "";
+        listDivCreate();
+        myplaylist();
+      };
+    });
   } catch (error) {
     console.error(error);
   }
 }
-
 myplaylist();

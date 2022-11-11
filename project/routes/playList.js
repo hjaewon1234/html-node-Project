@@ -52,4 +52,14 @@ router.post("/myplaylist", async (req, res) => {
   }
 });
 
+router.post("/delete", async (req, res) => {
+  const deleteElem = await PlayList.destroy({
+    where: {
+      playlistName: req.body.title,
+    },
+  });
+  console.log(req.body.title);
+  res.send("삭제완료");
+});
+
 module.exports = router;

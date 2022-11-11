@@ -27,14 +27,6 @@ if (document.cookie) {
   };
 }
 
-function dropdown() {
-  console.log("dot작동");
-}
-
-function removelist() {
-  console.log("dot작동");
-}
-
 async function makeaddedlist() {
   const data = await axios.post("/api/musicUpload/addedlist", {
     id: curuserName,
@@ -43,21 +35,78 @@ async function makeaddedlist() {
   for (let i = 0; i < data.data.info.length; i++) {
     const tempElem = document.createElement("div");
     tempElem.classList.add("addedlist-post");
+    tempElem.innerHTML = "";
     tempElem.innerHTML = `
-    <div class="addedlist-click">
-                <div class="addedlist-img">
-                <img src="../../../upload/${data.data.info[i].albumImg}" alt="imsi"/>
-                </div>
-                <div class="addedlist-title">${data.data.info[i].musicName}</div>
-              </div>
-              <div class="addedlist-contents">${data.data.info[i].singer}</div>`;
+    <div class="list-click">
+      <div class="list-img">
+          <img src="../../../upload/${data.data.info[i].albumImg}" alt="imsi"/>
+          <a href="#">
+          <div class="list-hidden">
+              <div class="icon-box">
+                  <img
+                    src="../../assets/img/delbtn.png"
+                    alt="dot"
+                    class="delete-img"
+                    onclick=deleteaddedlist()
+                  />
+               </div>
+          </div>
+          </a>
+       </div>
+        <div class="addedlist-title">${data.data.info[i].musicName}</div>
+      </div>
+    <div class="addedlist-contents">${data.data.info[i].singer}</div>`;
     listboard.append(tempElem);
   }
+
+  const tempValue = document.querySelectorAll(".delete-img");
+
+  [...tempValue].forEach((item, index) => {
+    item.onclick = async (e) => {
+      const tempMusictitle =
+        e.target.parentNode.parentNode.parentNode.parentNode.nextElementSibling
+          .innerText;
+      const tempMusiccontents =
+        e.target.parentNode.parentNode.parentNode.parentNode.parentNode
+          .nextElementSibling.innerText;
+      console.log("찍고있니");
+      await axios.post("/api/musicUpload/deletelist", {
+        id: curuserName,
+        name: tempMusictitle,
+        singer: tempMusiccontents,
+      });
+      listboard.innerHTML = "";
+      makeaddedlist();
+    };
+  });
 }
 
+// function deleteaddedlist() {
+//   const tempValue = document.querySelectorAll(".delete-img");
+
+//   [...tempValue].forEach((item, index) => {
+//     item.onclick = async (e) => {
+//       const tempMusictitle =
+//         e.target.parentNode.parentNode.parentNode.parentNode.nextElementSibling
+//           .innerText;
+//       const tempMusiccontents =
+//         e.target.parentNode.parentNode.parentNode.parentNode.parentNode
+//           .nextElementSibling.innerText;
+//       console.log("찍고있니");
+//       await axios.post("/api/musicUpload/deletelist", {
+//         id: curuserName,
+//         name: tempMusictitle,
+//         singer: tempMusiccontents,
+//       });
+//     };
+//   });
+
+//   tempElem.innerHTML = "";
+//   makeaddedlist();
+// }
 makeaddedlist();
 
-inputtitle.oninput = function () {
-  addbtn.classList.add("on");
-  if (inputtitle.value == "") addbtn.classList.remove("on");
-};
+// inputtitle.oninput = function () {
+//   addbtn.classList.add("on");
+//   if (inputtitle.value == "") addbtn.classList.remove("on");
+// };
