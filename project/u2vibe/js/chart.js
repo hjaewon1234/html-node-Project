@@ -6,6 +6,8 @@ const nextGenre = document.getElementsByClassName(`genre`)[2];
 const prevGenre = document.getElementsByClassName(`genre`)[0];
 const genrePrev = document.getElementById(`genre-prev-btn`);
 const genreNext = document.getElementById(`genre-next-btn`);
+const myChart = document.getElementsByClassName(`chart-in`)[1];
+const chartText = document.getElementsByClassName(`chart-text`)[0];
 
 let userprofileid = document.getElementById("userprofile-id");
 let loginbox = document.getElementById("login-box");
@@ -21,34 +23,41 @@ const playBtn = document.getElementById("play-btn");
 const stopBtn = document.getElementById("stop-btn");
 const volumeControl = document.getElementById("volume-control");
 
+const curuserName = JSON.parse(
+  window.atob(document.cookie.split("=")[1].split(".")[1])
+).id;
+
 let checkNum = 0;
-if (document.cookie) {
-  let logincheck = document.cookie.split("=")[1].split(".")[1];
 
-  if (logincheck) {
-    logoutbox.classList.remove("on");
-    loginbox.classList.add("on");
-    todayhide.classList.add("on");
-    playlisthide.classList.remove("on");
-    musicuploadthide.classList.remove("on");
-    momhide.classList.add("on");
+let logincheck = document.cookie.split("=")[1].split(".")[1];
 
-    const curuserName = JSON.parse(
-      window.atob(document.cookie.split("=")[1].split(".")[1])
-    ).id;
+if (logincheck) {
+  logoutbox.classList.remove("on");
+  loginbox.classList.add("on");
+  todayhide.classList.add("on");
+  playlisthide.classList.remove("on");
+  musicuploadthide.classList.remove("on");
+  momhide.classList.add("on");
+  myChart.classList.remove("on");
+  chartText.classList.remove("on");
 
-    userprofileid.innerText = curuserName;
-  }
-  document.getElementById("logout-btn").onclick = async function (e) {
-    console.log("로그아웃");
-    try {
-      await axios.get("/api/user/logout");
-    } catch (error) {
-      console.error(error);
-    }
-    location.href = "http://localhost:8080/";
-  };
+  const curuserName = JSON.parse(
+    window.atob(document.cookie.split("=")[1].split(".")[1])
+  ).id;
+
+  userprofileid.innerText = curuserName;
+  console.log(curuserName);
 }
+document.getElementById("logout-btn").onclick = async function (e) {
+  console.log("로그아웃");
+  try {
+    await axios.get("/api/user/logout");
+  } catch (error) {
+    console.error(error);
+  }
+  location.href = "http://localhost:8080/";
+};
+
 function prevBtn() {
   if (nextElem.classList.value == `carousel-item`) {
     prev.classList.toggle(`off`);

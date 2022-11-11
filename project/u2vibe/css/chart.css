@@ -45,7 +45,7 @@
 .slide-inner-div:nth-child(n):hover {
   opacity: 0.5;
 }
-.slide-inner-div:nth-child(n):hover::before {
+.slide-inner-img:hover::before {
   content: "";
   background-image: url(../assets/img/play.png);
   background-size: 50px 50px;
@@ -106,6 +106,13 @@
   width: 180%;
   flex-wrap: wrap;
 }
+.chart-text {
+  display: flex;
+  align-items: center;
+}
+.chart-text.on {
+  display: none;
+}
 .genre-inner-div {
   display: flex;
   margin: 10px 10px 0px 0px;
@@ -128,6 +135,10 @@
 
 .chart-in {
   margin-top: 50px;
+}
+
+.chart-in.on {
+  display: none;
 }
 
 .logout-box.on {
