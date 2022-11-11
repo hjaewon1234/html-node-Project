@@ -1,17 +1,31 @@
+const curuserName = JSON.parse(
+  window.atob(document.cookie.split("=")[1].split(".")[1])
+).id;
+
+let userprofileid = document.getElementById("userprofile-id");
+
+let logoutbox = document.getElementById("logout-box");
+
+const playlisthide = document.getElementById("playlist-hide");
+const todayhide = document.getElementById("today-hide");
+const musicuploadthide = document.getElementById("musicUpload-hide");
+const momhide = document.getElementById("mom-hide");
+
+const playController = document.getElementById("play-controller");
+const playBtn = document.getElementById("play-btn");
+const stopBtn = document.getElementById("stop-btn");
+const volumeControl = document.getElementById("volume-control");
+
 if (document.cookie) {
   let logincheck = document.cookie.split("=")[1].split(".")[1];
 
   if (logincheck) {
     logoutbox.classList.remove("on");
-    loginbox.classList.add("on");
-    todayhide.classList.add("on");
-    playlisthide.classList.remove("on");
-    musicuploadthide.classList.remove("on");
-    momhide.classList.add("on");
 
-    const curuserName = JSON.parse(
-      window.atob(document.cookie.split("=")[1].split(".")[1])
-    ).id;
+    // todayhide.classList.add("on");
+    // playlisthide.classList.remove("on");
+    // musicuploadthide.classList.remove("on");
+    // momhide.classList.add("on");
 
     userprofileid.innerText = curuserName;
   }
@@ -25,11 +39,12 @@ if (document.cookie) {
     location.href = "http://localhost:8080/";
   };
 }
+document.queryCommandValue;
 
 async function playListInfo() {
   const data = await axios.post(`/api/playlist/list`, {
-    userId: `wodnjs`,
-    playlistName: `아니제발`,
+    userId: curuserName,
+    playlistName: `어 이게되네`,
   });
   // 유저 id랑 리스트 명으로 찾아서 플레이 리스트를 가져옴
   const playListPage = document.getElementsByClassName(`play-list-page`)[0];
@@ -76,8 +91,8 @@ async function makePlayInList() {
   try {
     const listData = (
       await axios.post(`/api/musiclist/list`, {
-        userId: `wodnjs`,
-        playlistName: `아니제발`,
+        userId: curuserName,
+        playlistName: `어 이게되네`,
       })
     ).data;
     // 유저 id랑 리스트 명으로 플레이리스를 찾아서 리스트에 노래를 가져옴
@@ -111,7 +126,6 @@ async function makePlayInList() {
         document
           .getElementsByClassName(`play-list-contents-outter`)
           [i].remove();
-
         delFunc();
       };
     }
@@ -119,9 +133,13 @@ async function makePlayInList() {
   delFunc();
 }
 makePlayInList();
+
 playListInfo();
 function musicPlay(idx) {
   playController.src = `../upload/${musicList[idx]}`;
 
   playController.play();
 }
+
+// console.log(window.location.search.split("?")[1]);
+// 쿼리 스트링으로 받을 내용 위에 써져잇는대로 받을 수 있다고 생각중.
