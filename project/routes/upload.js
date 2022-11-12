@@ -23,16 +23,17 @@ const uploader = multer({ storage: storage });
 // });
 
 // multer로 서로 다른 name input객체의 파일을 업로드할 때
-router.post(
-  "/upload",
-  uploader.fields([{ name: "file" }, { name: "img" }]),
-  (req, res) => {
-    console.log(req.files);
+// router.post(
+//   "/upload",
+//   uploader.fields([{ name: "file" }, { name: "img" }]),
+//   (req, res) => {
+//     console.log(req.files);
 
-    res.send({
-      fileName: req.files.file[0].filename,
-      imgName: req.files.img[0].filename,
-    });
-  }
-);
+//     res.send({
+//       fileName: req.files.file[0].filename,
+//       imgName: req.files.img[0].filename,
+//     });
+//   }
+// );
+
 module.exports = router;

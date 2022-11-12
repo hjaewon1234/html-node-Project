@@ -1,5 +1,6 @@
 const router = require("express").Router();
 const fs = require("fs");
+const { where } = require("sequelize");
 
 // 음원을 담기 위해 fs으로 폴더 접근해서 data 전송
 router.get("/list", async (req, res) => {
@@ -21,6 +22,7 @@ router.get("/imglist", async (req, res) => {
 // 배열에 n번째에서 어떤 객체에서  원하는 요소를 찾는게 필요할 것 같다.
 
 const { Chart } = require("../models/index.js");
+const { MusicUpload } = require("../models/index.js");
 
 router.post(`/list`, async (req, res) => {
   const chartUp = await Chart.findAll();
@@ -29,6 +31,24 @@ router.post(`/list`, async (req, res) => {
   res.send({ data: chartUp });
   // 차트 db에서 찾은것을 프론트 쪽 js로 쏴준다. 형식은
   // 배열형식으로 오되 안에 내용물은 객체로
+});
+
+router.post(`/userList`, async (req, res) => {
+  console.log(req.body.count + `콘솔로 들어오는 거는 머냐`);
+  req.body.count++;
+  console.log(req.body.count + `카운트가 늘엇냐?!`);
+  const userChartOn = await MusicUpload.findAll({
+    where: {
+      userId: req.body.userId,
+    },
+  });
+  // 수정할때는 findAll 한것 처럼 여기있는 db에서 그걸 찾고 그걸 수정한다
+  // update임 (destroy처럼)
+  // 이런식으로 문장을 써주면 된다고함.
+  // console.log(userChartOn[0].count + `찾아온거 이것들 맞냐?`);
+  // userChartOn[0].count++;
+  // userChartOn[0].console.log(userChartOn[0].count + `늘어낫냐?`);
+  res.send({ data: userChartOn });
 });
 
 module.exports = router;

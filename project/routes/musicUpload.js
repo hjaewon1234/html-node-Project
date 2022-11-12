@@ -57,6 +57,7 @@ router.post(
         singer: req.body.singerName,
         albumName: req.body.albumTitle,
         genre: req.body.formSelect,
+        count: 0,
       });
       console.log(tempUpload);
       res.send({
