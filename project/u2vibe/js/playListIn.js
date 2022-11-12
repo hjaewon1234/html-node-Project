@@ -1,50 +1,41 @@
-// const curuserName = JSON.parse(
-//   window.atob(document.cookie.split("=")[1].split(".")[1])
-// ).id;
+const album = `BORN_PINK`;
+const curuserName = JSON.parse(
+  window.atob(document.cookie.split("=")[1].split(".")[1])
+).id;
+// if (document.cookie) {
+//   let logincheck = document.cookie.split("=")[1].split(".")[1];
 
-let userprofileid = document.getElementById("userprofile-id");
+//   if (logincheck) {
+//     // logoutbox.classList.remove("on");
+//     // loginbox.classList.add("on");
+//     // todayhide.classList.add("on");
+//     // playlisthide.classList.remove("on");
+//     // musicuploadthide.classList.remove("on");
+//     // momhide.classList.add("on");
 
-let logoutbox = document.getElementById("logout-box");
+//     const curuserName = JSON.parse(
+//       window.atob(document.cookie.split("=")[1].split(".")[1])
+//     ).id;
 
-const playlisthide = document.getElementById("playlist-hide");
-const todayhide = document.getElementById("today-hide");
-const musicuploadthide = document.getElementById("musicUpload-hide");
-const momhide = document.getElementById("mom-hide");
+//     userprofileid.innerText = curuserName;
+//   }
+//   document.getElementById("logout-btn").onclick = async function (e) {
+//     console.log("로그아웃");
+//     try {
+//       await axios.get("/api/user/logout");
+//     } catch (error) {
+//       console.error(error);
+//     }
+//     location.href = "http://localhost:8080/";
+//   };
+// }
 
-const playController = document.getElementById("play-controller");
-const playBtn = document.getElementById("play-btn");
-const stopBtn = document.getElementById("stop-btn");
-const volumeControl = document.getElementById("volume-control");
-
-if (document.cookie) {
-  let logincheck = document.cookie.split("=")[1].split(".")[1];
-
-  if (logincheck) {
-    logoutbox.classList.remove("on");
-
-    // todayhide.classList.add("on");
-    // playlisthide.classList.remove("on");
-    // musicuploadthide.classList.remove("on");
-    // momhide.classList.add("on");
-
-    // userprofileid.innerText = curuserName;
-  }
-  document.getElementById("logout-btn").onclick = async function (e) {
-    console.log("로그아웃");
-    try {
-      await axios.get("/api/user/logout");
-    } catch (error) {
-      console.error(error);
-    }
-    location.href = "http://localhost:8080/";
-  };
-}
-document.queryCommandValue;
+// `http://localhost:8080/playListIn/=${asdasdasd}`
 
 async function playListInfo() {
   const data = await axios.post(`/api/playlist/list`, {
-    userId: `wodnjs`,
-    playlistName: `어 이게되네`,
+    userId: curuserName,
+    playlistName: window.location.search.split("?")[1],
   });
   // 유저 id랑 리스트 명으로 찾아서 플레이 리스트를 가져옴
   const playListPage = document.getElementsByClassName(`play-list-page`)[0];
@@ -91,9 +82,8 @@ async function makePlayInList() {
   try {
     const listData = (
       await axios.post(`/api/musiclist/list`, {
-        userId: `wodnjs`,
-        playlistName: `아 이게되네`,
-        // playlistName: window.location.search.split("?")[1],
+        userId: curuserName,
+        playlistName: window.location.search.split("?")[1],
       })
     ).data;
     // 유저 id랑 리스트 명으로 플레이리스를 찾아서 리스트에 노래를 가져옴
