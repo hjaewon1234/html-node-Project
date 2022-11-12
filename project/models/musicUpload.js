@@ -22,6 +22,10 @@ module.exports = class MusicUpload extends Sequelize.Model {
         albumName: {
           type: Sequelize.STRING(100),
         },
+        count: {
+          type: Sequelize.INTEGER.UNSIGNED,
+          allowNull: true,
+        },
         genre: {
           type: Sequelize.STRING(100),
         },
