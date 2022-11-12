@@ -1,8 +1,8 @@
-const nextElem = document.getElementsByClassName(`carousel-item`)[2];
+const nextElem = document.getElementsByClassName(`carousel-item`)[1];
 const prevElem = document.getElementsByClassName(`carousel-item`)[0];
 const prev = document.getElementById(`prev-btn`);
 const next = document.getElementById(`next-btn`);
-const nextGenre = document.getElementsByClassName(`genre`)[2];
+const nextGenre = document.getElementsByClassName(`genre`)[1];
 const prevGenre = document.getElementsByClassName(`genre`)[0];
 const genrePrev = document.getElementById(`genre-prev-btn`);
 const genreNext = document.getElementById(`genre-next-btn`);
@@ -23,6 +23,7 @@ const playBtn = document.getElementById("play-btn");
 const stopBtn = document.getElementById("stop-btn");
 const volumeControl = document.getElementById("volume-control");
 
+console.log(nextElem.classList.value + `어디냐`);
 const curuserName = JSON.parse(
   window.atob(document.cookie.split("=")[1].split(".")[1])
 ).id;
@@ -58,36 +59,14 @@ document.getElementById("logout-btn").onclick = async function (e) {
   location.href = "http://localhost:8080/";
 };
 
-function prevBtn() {
-  if (nextElem.classList.value == `carousel-item`) {
-    prev.classList.toggle(`off`);
-  } else {
-    next.classList.toggle(`off`);
-  }
+function removeBtn() {
+  prev.classList.toggle(`off`);
+  next.classList.toggle(`off`);
 }
 
-function nextBtn() {
-  if (prevElem.classList.value == `carousel-item`) {
-    next.classList.toggle(`off`);
-  } else {
-    prev.classList.toggle(`off`);
-  }
-}
-
-function genrePrevBtn() {
-  if (nextGenre.classList.value == `carousel-item genre`) {
-    genrePrev.classList.toggle(`off`);
-  } else {
-    genreNext.classList.toggle(`off`);
-  }
-}
-
-function genreNextBtn() {
-  if (prevGenre.classList.value == `carousel-item genre`) {
-    genreNext.classList.toggle(`off`);
-  } else {
-    genrePrev.classList.toggle(`off`);
-  }
+function genreremoveBtn() {
+  genrePrev.classList.toggle(`off`);
+  genreNext.classList.toggle(`off`);
 }
 
 function musicMove() {
