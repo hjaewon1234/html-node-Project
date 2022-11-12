@@ -119,11 +119,13 @@ main ul li:nth-child(11) {
   display: inline-flex;
   justify-content: center;
   align-items: center;
+  background-color: rgba(200, 0, 0, 0.55);
+  margin-left: 10px;
 }
 
 .img-item img {
-  width: 350px;
-  height: 300px;
+  width: 482px;
+  height: 336px;
 }
 .text-item {
   width: 69%;

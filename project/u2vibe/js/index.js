@@ -66,6 +66,21 @@ function listDivCreate() {
   listPostDiv.append(addPlaylistDiv);
 
   listboard.append(listPostDiv);
+
+  const tempElem = document.createElement("div");
+  tempElem.classList.add("list-post");
+  tempElem.innerHTML = `<div class="list-click">
+     <div class="list-img">
+       <img src="../../assets/img/newplaylist.png" alt="newplaylist" />
+       <a href="#">
+         
+       </a>
+     </div>
+     <div class="list-title">Now Playlist</div>
+     </div>
+     <div class="list-contents">0곡</div>
+     `;
+  listboard.appendChild(tempElem);
 }
 listDivCreate();
 
@@ -151,6 +166,23 @@ async function myplaylist() {
 
       listboard.append(tempElem);
     }
+    const tempClick = document.querySelectorAll(".list-img");
+    [...tempClick].forEach((item, index) => {
+      item.onclick = async (e) => {
+        const tempQuery = e.target.parentNode.nextElementSibling.innerText;
+        console.log(tempQuery);
+        location.href = `http://localhost:8080/playListIn?${tempQuery}`;
+      };
+    });
+
+    const titleClick = document.querySelectorAll(".list-title");
+    [...titleClick].forEach((item, index) => {
+      item.onclick = async (e) => {
+        const temptitleQuery = e.target.innerText;
+        location.href = `http://localhost:8080/playListIn?${temptitleQuery}`;
+      };
+    });
+
     const tempNum = document.querySelectorAll(".delete-img");
     [...tempNum].forEach((item, index) => {
       item.onclick = async (e) => {
@@ -169,4 +201,5 @@ async function myplaylist() {
     console.error(error);
   }
 }
+
 myplaylist();

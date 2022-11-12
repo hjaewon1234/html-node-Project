@@ -1,36 +1,41 @@
 const album = `BORN_PINK`;
-if (document.cookie) {
-  let logincheck = document.cookie.split("=")[1].split(".")[1];
+const curuserName = JSON.parse(
+  window.atob(document.cookie.split("=")[1].split(".")[1])
+).id;
+// if (document.cookie) {
+//   let logincheck = document.cookie.split("=")[1].split(".")[1];
 
-  if (logincheck) {
-    logoutbox.classList.remove("on");
-    loginbox.classList.add("on");
-    todayhide.classList.add("on");
-    playlisthide.classList.remove("on");
-    musicuploadthide.classList.remove("on");
-    momhide.classList.add("on");
+//   if (logincheck) {
+//     // logoutbox.classList.remove("on");
+//     // loginbox.classList.add("on");
+//     // todayhide.classList.add("on");
+//     // playlisthide.classList.remove("on");
+//     // musicuploadthide.classList.remove("on");
+//     // momhide.classList.add("on");
 
-    const curuserName = JSON.parse(
-      window.atob(document.cookie.split("=")[1].split(".")[1])
-    ).id;
+//     const curuserName = JSON.parse(
+//       window.atob(document.cookie.split("=")[1].split(".")[1])
+//     ).id;
 
-    userprofileid.innerText = curuserName;
-  }
-  document.getElementById("logout-btn").onclick = async function (e) {
-    console.log("로그아웃");
-    try {
-      await axios.get("/api/user/logout");
-    } catch (error) {
-      console.error(error);
-    }
-    location.href = "http://localhost:8080/";
-  };
-}
+//     userprofileid.innerText = curuserName;
+//   }
+//   document.getElementById("logout-btn").onclick = async function (e) {
+//     console.log("로그아웃");
+//     try {
+//       await axios.get("/api/user/logout");
+//     } catch (error) {
+//       console.error(error);
+//     }
+//     location.href = "http://localhost:8080/";
+//   };
+// }
+
+// `http://localhost:8080/playListIn/=${asdasdasd}`
 
 async function playListInfo() {
   const data = await axios.post(`/api/playlist/list`, {
-    userId: `wodnjs`,
-    playlistName: `아니제발`,
+    userId: curuserName,
+    playlistName: window.location.search.split("?")[1],
   });
   // 유저 id랑 리스트 명으로 찾아서 플레이 리스트를 가져옴
   const playListPage = document.getElementsByClassName(`play-list-page`)[0];
@@ -77,8 +82,8 @@ async function makePlayInList() {
   try {
     const listData = (
       await axios.post(`/api/musiclist/list`, {
-        userId: `wodnjs`,
-        playlistName: `아니제발`,
+        userId: curuserName,
+        playlistName: window.location.search.split("?")[1],
       })
     ).data;
     // 유저 id랑 리스트 명으로 플레이리스를 찾아서 리스트에 노래를 가져옴
@@ -89,8 +94,8 @@ async function makePlayInList() {
       addList.innerHTML = `<div class="play-list-contents-outter"><div class="play-list-contents-add">
       <div class="play-list-inner-contents"><div><input type="checkbox"></div><div>
           <img src = "/assets/img/${listData.data[i].albumImg}" class="play-List-img-file" ></div><div></div></div>
-      <div class="singer-name">${listData.data[i].musicName}</div>
-      <div class="album-name">${listData.data[i].singer}</div>
+      <div class="music-name">${listData.data[i].musicName}</div>
+      <div class="singer-name">${listData.data[i].singer}</div>
       <div class="det-btn"><button>삭제</button></div></div></div>`;
       container.append(addList);
       console.log(`${i}번 굴럿어`);
