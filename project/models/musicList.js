@@ -16,6 +16,9 @@ module.exports = class MusicList extends Sequelize.Model {
         musicName: {
           type: Sequelize.STRING(100),
         },
+        musicFile: {
+          type: Sequelize.STRING(100),
+        },
         singer: {
           type: Sequelize.STRING(100),
         },
@@ -30,6 +33,7 @@ module.exports = class MusicList extends Sequelize.Model {
         sequelize,
         timestamps: true,
         underscored: true,
+        paranoid: true,
         modelName: "MusicList",
         tableName: "musiclist",
         charset: "utf8mb4",

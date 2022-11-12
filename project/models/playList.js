@@ -18,6 +18,7 @@ module.exports = class PlayList extends Sequelize.Model {
         sequelize,
         timestamps: true,
         underscored: true,
+        paranoid: true,
         modelName: "PlayList",
         tableName: "playlist",
         charset: "utf8mb4",

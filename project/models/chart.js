@@ -13,6 +13,13 @@ module.exports = class Chart extends Sequelize.Model {
         singer: {
           type: Sequelize.STRING(100),
         },
+        albumName: {
+          type: Sequelize.STRING(100),
+          allowNull: true,
+        },
+        musicFile: {
+          type: Sequelize.STRING(100),
+        },
         count: {
           type: Sequelize.INTEGER.UNSIGNED,
           allowNull: true,
