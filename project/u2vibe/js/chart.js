@@ -146,8 +146,20 @@ async function chartOn() {
     ].innerHTML = `<img src="/assets/img/${data.data[i].albumImg}" alt="" class="inner-img" />`;
     innerTitle[i].innerText = data.data[i].musicName;
     innerSinger[i].innerText = data.data[i].singer;
-    innerIdx[i].innerText = data.data[i].id;
+    innerIdx.innerText = i + 1;
     console.log(`${i}번 돌앗어`);
+    console.log(data.data[i].count);
+  }
+  for (let j = 0; j < data.data.length; j++) {
+    console.log(`살려줘`);
+    innerImg[j].onclick = () => {
+      data.data[j].count++;
+
+      axios.post(`/api/chart/count`, {
+        count: data.data[j].count,
+        id: data.data[j].id,
+      });
+    };
   }
 }
 chartOn();
@@ -158,8 +170,6 @@ async function userChartOn() {
       count: 0,
     })
   ).data;
-
-  console.log(data);
 
   const innerImg = document.getElementsByClassName(`slide-inner-img-user`);
   const innerTitle = document.getElementsByClassName(`slide-inner-title-user`);
@@ -174,10 +184,19 @@ async function userChartOn() {
     ].innerHTML = `<img src="../upload/${data.data[i].albumImg}" alt="" class="inner-img" />`;
     innerTitle[i].innerText = data.data[i].musicName;
     innerSinger[i].innerText = data.data[i].singer;
-    innerIdx[i].innerText = data.data[i].id;
+    innerIdx[i].innerText = i + 1;
     console.log(`${i}번 돌앗어`);
   }
-
-  // console.log(document.getElementsByClassName(`inner-img`)[0]);
+  for (let j = 0; j < data.data.length; j++) {
+    console.log(`살려줘`);
+    innerImg[j].onclick = () => {
+      data.data[j].count++;
+      console.log(`나눌림`);
+      axios.post(`/api/chart/countUser`, {
+        count: data.data[j].count,
+        id: data.data[j].id,
+      });
+    };
+  }
 }
 userChartOn();

@@ -25,7 +25,9 @@ const { Chart } = require("../models/index.js");
 const { MusicUpload } = require("../models/index.js");
 
 router.post(`/list`, async (req, res) => {
-  const chartUp = await Chart.findAll();
+  const chartUp = await Chart.findAll({
+    order: [["count", "DESC"]],
+  });
   // 차트에 줄 정보(사용자랑 상관없는것)을 받아오기위해
   // 차트 db에서 모든걸 다 찾아서 chartUp 변수를 만들어준다.
   res.send({ data: chartUp });
@@ -49,6 +51,30 @@ router.post(`/userList`, async (req, res) => {
   // userChartOn[0].count++;
   // userChartOn[0].console.log(userChartOn[0].count + `늘어낫냐?`);
   res.send({ data: userChartOn });
+});
+
+router.post(`/count`, async (req, res) => {
+  console.log(`카운트 횟수` + req.body.count, `id` + req.body.id);
+  await Chart.update(
+    { count: req.body.count },
+    {
+      where: {
+        id: req.body.id,
+      },
+    }
+  );
+
+  res.send(`잘되네`);
+});
+router.post(`/countUser`, async (req, res) => {
+  await MusicUpload.update(
+    { count: req.body.count },
+    {
+      where: {
+        id: req.body.id,
+      },
+    }
+  );
 });
 
 module.exports = router;
