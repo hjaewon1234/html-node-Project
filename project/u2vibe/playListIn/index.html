@@ -19,7 +19,7 @@
     <main class="d-flex flex-nowrap">
       <div class="d-flex flex-column flex-shrink-0 p-3 text-bg-dark">
         <a
-          href="./"
+          href="../"
           class="d-flex align-items-center mb-3 mb-md-0 me-md-auto text-white text-decoration-none"
         >
           <span class="fs-4">U2 VIBE</span>
@@ -35,27 +35,13 @@
           </div>
         </div>
         <ul class="nav nav-pills flex-column mb-auto">
-          <li>
-            <a href="#" class="nav-link text-white"
-              ><svg
-                xmlns="http://www.w3.org/2000/svg"
-                width="16"
-                height="16"
-                fill="currentColor"
-                class="bi bi-music-note"
-                viewBox="0 0 16 16"
-              >
-                <path
-                  d="M9 13c0 1.105-1.12 2-2.5 2S4 14.105 4 13s1.12-2 2.5-2 2.5.895 2.5 2z"
-                />
-                <path fill-rule="evenodd" d="M9 3v10H8V3h1z" />
-                <path
-                  d="M8 2.82a1 1 0 0 1 .804-.98l3-.6A1 1 0 0 1 13 2.22V4L8 5V2.82z"
-                />
-              </svg>
-              투데이
+          <li id="playlist-hide" class="on">
+            <a href="../playlist/playlist-playlist/" class="nav-link text-white"
+              ><img src="../../assets/img/music-note-list.svg" alt="" />
+              재생목록
             </a>
           </li>
+
           <li>
             <a href="#" class="nav-link text-white">
               <svg
@@ -127,8 +113,8 @@
               VIBE MAG
             </a>
           </li>
-          <li>
-            <a href="#" class="nav-link text-white">
+          <li id="musicUpload-hide" class="on">
+            <a href="../musicUpload/" class="nav-link text-white">
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 width="16"
@@ -144,9 +130,10 @@
                   d="M14 14V4.5L9.5 0H4a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h8a2 2 0 0 0 2-2zM9.5 3A1.5 1.5 0 0 0 11 4.5h2V14a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1h5.5v2z"
                 />
               </svg>
-              이달의 노래
+              음악 업로드
             </a>
           </li>
+          <li id="mom-hide"></li>
           <li>
             <a href="#" class="nav-link text-white"> #내돈내산 </a>
           </li>
