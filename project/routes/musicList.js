@@ -10,7 +10,6 @@ router.post(`/list`, async (req, res) => {
     },
   });
 
-  console.log(`리스트업정보` + listUp[0].userId);
   res.send({ data: listUp });
 });
 

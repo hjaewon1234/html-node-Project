@@ -39,7 +39,7 @@ async function makePlayInList() {
     const listData = (
       await axios.post(`/api/musiclist/list`, {
         userId: curuserName,
-        playlistName: window.location.search.split("?")[1],
+        playlistName: decodeURI(window.location.search.split("?")[1]),
       })
     ).data;
     // 유저 id랑 리스트 명으로 플레이리스를 찾아서 리스트에 노래를 가져옴
@@ -48,13 +48,33 @@ async function makePlayInList() {
     for (let i = 0; i < listData.data.length; i++) {
       let addList = document.createElement(`div`);
       addList.innerHTML = `<div class="play-list-contents-outter"><div class="play-list-contents-add">
-      <div class="play-list-inner-contents"><div><input type="checkbox"></div><div>
+      <div class="play-list-inner-contents"><div><input type="checkbox"></div><div class="play-img-div">
           <img src = "/assets/img/${listData.data[i].albumImg}" class="play-List-img-file" ></div><div class="music-name">${listData.data[i].musicName}</div></div>
       <div class="singer-name">${listData.data[i].singer}</div>
       <div class="album-name">${listData.data[i].albumName}</div>
       <div ><button class="del-btn">삭제</button></div></div></div>`;
       container.append(addList);
-      console.log(`${i}번 굴럿어`);
+      document.getElementsByClassName(`play-img-div`)[i].onclick = () => {
+        document.getElementsByClassName("container")[0].innerHTML = "";
+        let imgDiv = document.createElement("div");
+        let tempDiv = document.createElement("div");
+        let tempImg = document.createElement("img");
+        let innerDiv = document.createElement("div");
+        let innerSecondDiv = document.createElement("div");
+        tempImg.src =
+          document.getElementsByClassName(`play-List-img-file`)[i].src;
+        tempImg.setAttribute("filter", "none");
+        tempImg.setAttribute("width", "50px");
+        innerDiv.innerText = listData.data[i].musicName;
+        innerSecondDiv.innerText = listData.data[i].singer;
+        playController.src = `../upload/${listData.data[i].musicFile}`;
+        playController.play();
+        tempDiv.append(innerDiv);
+        tempDiv.append(innerSecondDiv);
+        imgDiv.append(tempImg);
+        document.getElementsByClassName("container")[0].append(imgDiv);
+        document.getElementsByClassName("container")[0].append(tempDiv);
+      };
     }
 
     console.log(document.getElementsByClassName(`play-List-img-file`)[0].src);
@@ -66,7 +86,7 @@ async function makePlayInList() {
   function delFunc() {
     for (let i = 0; i < test1.length; i++) {
       test1[i].onclick = () => {
-        axios.post(`/api/musiclist/delete`, {
+        axios.post(`/api/playList/delete`, {
           singer: document.getElementsByClassName(`singer-name`)[i].innerText,
           musicName: document.getElementsByClassName(`music-name`)[i].innerText,
         }).data;
@@ -84,8 +104,9 @@ makePlayInList();
 async function playListInfo() {
   const data = await axios.post(`/api/playlist/list`, {
     userId: curuserName,
-    playlistName: window.location.search.split("?")[1],
+    playlistName: decodeURI(window.location.search.split("?")[1]),
   });
+
   // 유저 id랑 리스트 명으로 찾아서 플레이 리스트를 가져옴
   const playListPage = document.getElementsByClassName(`play-list-page`)[0];
   const playListHeader = document.createElement(`div`);
@@ -107,8 +128,8 @@ async function playListInfo() {
   playListInfoDiv.append(playListName);
   playListInfoDiv.append(playListContents);
   playListInfo.append(playListBtnBox);
-  playListBtnBox.append(playListPlayBtn);
-  playListBtnBox.append(playListRandomPlayBtn);
+  // playListBtnBox.append(playListPlayBtn);
+  // playListBtnBox.append(playListRandomPlayBtn);
   // 위에는 모양에 맞게 구성 시켜줬음.
   playListHeader.classList.add(`play-list-header`);
   playListHeaderImg.innerHTML = `<img src="${
@@ -121,10 +142,14 @@ async function playListInfo() {
   playListName.innerText = `${data.data.playlistName}`;
   // 플레이 리스트의 이름을 가져온다.
   playListContents.innerText = `${data.data.playlistInfo}`;
-  playListPlayBtn.classList.add(`start-btn`);
-  playListRandomPlayBtn.classList.add(`random-start-btn`);
-  playListPlayBtn.innerText = `재생`;
-  playListRandomPlayBtn.innerText = `랜덤 재생`;
+  // playListPlayBtn.classList.add(`start-btn`);
+  // playListRandomPlayBtn.classList.add(`random-start-btn`);
+  // playListPlayBtn.innerText = `재생`;
+  // playListRandomPlayBtn.innerText = `랜덤 재생`;
+  // document.getElementsByClassName(`start-btn`)[0].onclick = () => {
+  //   playController.src = `../upload/${data.data[0].musicFile}`;
+  //   playController.play();
+  // };
 }
 
 playListInfo();

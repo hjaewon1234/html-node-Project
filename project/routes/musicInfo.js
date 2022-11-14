@@ -30,7 +30,7 @@ router.post("/musicadd", (req, res) => {
     // );
     MusicList.create({
       userId: tempuserId,
-      playList: "NowPlaylist",
+      playList: "Now Playlist",
       albumImg: tempImg,
       musicName: tempmusicName,
       singer: tempSinger,

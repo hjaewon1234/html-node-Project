@@ -129,7 +129,7 @@ const slideInnerDiv = document.getElementsByClassName("slide-inner-div");
 async function chartOn() {
   const data = (await axios.post("/api/chart/list")).data;
 
-  // console.log(data.data.length);
+  console.log(data.data[0].musicFile + `음악의 이름이야`);
 
   const innerImg = document.getElementsByClassName(`slide-inner-img`);
   const innerTitle = document.getElementsByClassName(`slide-inner-title`);
@@ -152,6 +152,7 @@ async function chartOn() {
         count: data.data[j].count,
         id: data.data[j].id,
       });
+
       // 뮤직 플레이어 쪽에 올리는 부분
       document.getElementsByClassName("container")[0].innerHTML = "";
       let imgDiv = document.createElement("div");
@@ -161,7 +162,7 @@ async function chartOn() {
       let innerSecondDiv = document.createElement("div");
       tempImg.src = `/assets/img/${data.data[j].albumImg}`;
       playController.src = `../upload/${data.data[j].musicFile}`;
-      // playController.play();
+      playController.play();
       tempImg.setAttribute("filter", "none");
       tempImg.setAttribute("width", "50px");
       innerDiv.innerText = data.data[j].musicName;
@@ -220,7 +221,7 @@ async function userChartOn() {
       let innerSecondDiv = document.createElement("div");
       tempImg.src = `../upload/${data.data[j].albumImg}`;
       playController.src = `../upload/${data.data[j].musicFile}`;
-      // playController.play();
+      playController.play();
       tempImg.setAttribute("filter", "none");
       tempImg.setAttribute("width", "50px");
       innerDiv.innerText = data.data[j].musicName;
