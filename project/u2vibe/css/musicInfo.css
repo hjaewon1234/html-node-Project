@@ -156,16 +156,18 @@ h2 {
 }
 
 .hidden-btn-img {
-  width: 35px;
-  margin-bottom: 10px;
+  width: 40px;
+  height: 40px;
+  margin-bottom: 5px;
+  border-radius: 25px;
 }
 
 .album-img-box:hover .hidden-box {
   opacity: 1;
 }
 
-.hidden-btn-img:hover {
-  background-color: hotpink;
+.hidden-btn-img:first-child:hover {
+  background-color: #ff0050;
 }
 .album-text {
   margin-left: 25px;
@@ -322,16 +324,46 @@ textarea {
 
 #left-btn {
   background-color: white;
-  height: 50px;
+  padding: 0;
+  border-radius: 25px;
+  border: none;
   position: absolute;
   top: 175px;
   left: 0;
   z-index: 10;
 }
 
+@keyframes slide-animation-right {
+  0% {
+    transform: translateX(0vw);
+  }
+  100% {
+    transform: translateX(-68.5vw);
+  }
+}
+
+@keyframes slide-animation-left {
+  0% {
+    transform: translateX(-68.5vw);
+  }
+  100% {
+    transform: translateX(0vw);
+  }
+}
+
+.slide-motion-right {
+  animation: slide-animation-right 1.5s forwards;
+}
+
+.slide-motion-left {
+  animation: slide-animation-left 1.5s forwards;
+}
+
 #right-btn {
   background-color: white;
-  height: 50px;
+  padding: 0;
+  border-radius: 25px;
+  border: none;
   position: absolute;
   top: 175px;
   right: 0;
@@ -340,7 +372,9 @@ textarea {
 
 #playleft-btn {
   background-color: white;
-  height: 50px;
+  padding: 0;
+  border-radius: 25px;
+  border: none;
   position: absolute;
   top: 175px;
   left: 0;
@@ -349,7 +383,9 @@ textarea {
 
 #playright-btn {
   background-color: white;
-  height: 50px;
+  padding: 0;
+  border-radius: 25px;
+  border: none;
   position: absolute;
   top: 175px;
   right: 0;

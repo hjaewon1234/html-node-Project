@@ -56,6 +56,7 @@ router.post(
         albumImg: req.files.img[0].filename,
         singer: req.body.singerName,
         albumName: req.body.albumTitle,
+        count: 0,
         genre: req.body.formSelect,
         count: 0,
       });
