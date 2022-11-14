@@ -2,7 +2,7 @@ const router = require("express").Router();
 
 const fs = require("fs");
 
-const { Chart, MusicInfo, MusicList } = require("../models/index.js");
+const { Comment, Music, MusicList } = require("../models/index.js");
 
 let tempImg = "";
 let tempmusicName = "";
@@ -13,7 +13,7 @@ let tempuserId = "";
 
 router.post("/musicadd", (req, res) => {
   tempuserId = req.body.userId;
-  Chart.findOne({
+  Music.findOne({
     where: { musicName: req.body.musicName, singer: req.body.singer },
   }).then((data) => {
     tempImg = data.albumImg;
@@ -42,7 +42,7 @@ router.post("/musicadd", (req, res) => {
 });
 
 router.get("/play", async (req, res) => {
-  const listUp = await Chart.findAll();
+  const listUp = await Music.findAll();
   console.log("listUp");
   console.log(listUp);
 
@@ -53,7 +53,7 @@ router.get("/play", async (req, res) => {
 });
 
 router.post("/comment", (req, res) => {
-  MusicInfo.create({
+  Comment.create({
     userId: req.body.userId,
     userComment: req.body.comment,
   }).then((data) => {
@@ -62,7 +62,7 @@ router.post("/comment", (req, res) => {
 });
 
 router.get("/", (req, res) => {
-  MusicInfo.findAll({
+  Comment.findAll({
     order: [["id", "DESC"]], // 정렬
   }).then((data) => {
     console.log(data);
@@ -71,7 +71,7 @@ router.get("/", (req, res) => {
 });
 
 router.post("/delete", (req, res) => {
-  MusicInfo.destroy({
+  Comment.destroy({
     where: {
       userId: req.body.userId,
       userComment: req.body.comment,

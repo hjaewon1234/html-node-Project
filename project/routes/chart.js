@@ -1,6 +1,5 @@
 const router = require("express").Router();
 const fs = require("fs");
-const { where } = require("sequelize");
 
 // 음원을 담기 위해 fs으로 폴더 접근해서 data 전송
 router.get("/list", async (req, res) => {
@@ -21,11 +20,10 @@ router.get("/imglist", async (req, res) => {
 // 배열로 들어오는데 안에 요소들이 객체로 들어감
 // 배열에 n번째에서 어떤 객체에서  원하는 요소를 찾는게 필요할 것 같다.
 
-const { Chart } = require("../models/index.js");
-const { MusicUpload } = require("../models/index.js");
+const { Music } = require("../models/index.js");
 
 router.post(`/list`, async (req, res) => {
-  const chartUp = await Chart.findAll({
+  const chartUp = await Music.findAll({
     order: [["count", "DESC"]],
   });
   // 차트에 줄 정보(사용자랑 상관없는것)을 받아오기위해
@@ -36,9 +34,7 @@ router.post(`/list`, async (req, res) => {
 });
 
 router.post(`/userList`, async (req, res) => {
-  req.body.count++;
-
-  const userChartOn = await MusicUpload.findAll({
+  const userChartOn = await Music.findAll({
     order: [["count", "DESC"]],
     where: {
       userId: req.body.userId,
@@ -55,7 +51,7 @@ router.post(`/userList`, async (req, res) => {
 
 router.post(`/count`, async (req, res) => {
   console.log(`카운트 횟수` + req.body.count, `id` + req.body.id);
-  await Chart.update(
+  await Music.update(
     { count: req.body.count },
     {
       where: {
@@ -67,7 +63,7 @@ router.post(`/count`, async (req, res) => {
   res.send(`잘되네`);
 });
 router.post(`/countUser`, async (req, res) => {
-  await MusicUpload.update(
+  await Music.update(
     { count: req.body.count },
     {
       where: {

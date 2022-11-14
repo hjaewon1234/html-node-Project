@@ -116,8 +116,6 @@ async function playListInfo() {
   const playListName = document.createElement(`h1`);
   const playListContents = document.createElement(`h4`);
   const playListBtnBox = document.createElement(`div`);
-  const playListPlayBtn = document.createElement(`button`);
-  const playListRandomPlayBtn = document.createElement(`button`);
 
   console.log(data.data.playlistName);
 

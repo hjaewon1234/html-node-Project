@@ -1,6 +1,6 @@
 const Sequelize = require("sequelize");
 
-module.exports = class MusicInfo extends Sequelize.Model {
+module.exports = class Comment extends Sequelize.Model {
   static init(sequelize) {
     return super.init(
       {
@@ -16,8 +16,8 @@ module.exports = class MusicInfo extends Sequelize.Model {
         timestamps: true,
         underscored: true,
         paranoid: true,
-        modelName: "MusicInfo",
-        tableName: "musicinfo",
+        modelName: "Comment",
+        tableName: "comment",
         charset: "utf8mb4",
         collate: "utf8mb4_general_ci",
       }

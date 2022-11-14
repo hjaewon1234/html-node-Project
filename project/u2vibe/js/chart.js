@@ -139,7 +139,7 @@ async function chartOn() {
   for (let i = 0; i < data.data.length; i++) {
     innerImg[
       i
-    ].innerHTML = `<img src="/assets/img/${data.data[i].albumImg}" alt="" class="inner-img" />`;
+    ].innerHTML = `<img src="../upload/${data.data[i].albumImg}" alt="" class="inner-img" />`;
     innerTitle[i].innerText = data.data[i].musicName;
     innerSinger[i].innerText = data.data[i].singer;
     innerIdx[i].innerText = i + 1;
@@ -160,7 +160,7 @@ async function chartOn() {
       let tempImg = document.createElement("img");
       let innerDiv = document.createElement("div");
       let innerSecondDiv = document.createElement("div");
-      tempImg.src = `/assets/img/${data.data[j].albumImg}`;
+      tempImg.src = `../upload/${data.data[j].albumImg}`;
       playController.src = `../upload/${data.data[j].musicFile}`;
       playController.play();
       tempImg.setAttribute("filter", "none");
@@ -185,7 +185,6 @@ async function userChartOn() {
   const data = (
     await axios.post("/api/chart/userList", {
       userId: curuserName,
-      count: 0,
     })
   ).data;
 

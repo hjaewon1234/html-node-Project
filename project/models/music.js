@@ -1,11 +1,12 @@
 const Sequelize = require("sequelize");
 
-module.exports = class MusicUpload extends Sequelize.Model {
+module.exports = class Music extends Sequelize.Model {
   static init(sequelize) {
     return super.init(
       {
         userId: {
           type: Sequelize.STRING(100),
+          allowNull: true,
         },
         musicName: {
           type: Sequelize.STRING(100),
@@ -19,10 +20,7 @@ module.exports = class MusicUpload extends Sequelize.Model {
         singer: {
           type: Sequelize.STRING(100),
         },
-        count: {
-          type: Sequelize.INTEGER.UNSIGNED,
-          allowNull: true,
-        },
+
         albumName: {
           type: Sequelize.STRING(100),
         },
@@ -39,8 +37,8 @@ module.exports = class MusicUpload extends Sequelize.Model {
         timestamps: true,
         underscored: true,
         paranoid: true,
-        modelName: "MusicUpload",
-        tableName: "musicupload",
+        modelName: "Music",
+        tableName: "music",
         charset: "utf8mb4",
         collate: "utf8mb4_general_ci",
       }

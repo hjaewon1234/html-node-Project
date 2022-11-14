@@ -1,8 +1,7 @@
 const router = require("express").Router();
 
-const { findOne } = require("../models/chart.js");
+const { findOne } = require("../models/music.js");
 const { PlayList } = require(`../models/index.js`);
-const { MusicList } = require(`../models/index.js`);
 
 router.post(`/list`, async (req, res) => {
   console.log(req.body);
