@@ -8,6 +8,7 @@ const playleftBtn = document.getElementById("playleft-btn");
 const playrightBtn = document.getElementById("playright-btn");
 const playList = document.getElementsByClassName("playList-line");
 const musicPlayBtn = document.getElementById("musicplay-btn");
+const musicAddBtn = document.getElementById("musicadd-btn");
 // 하단 음원재생바
 const playController = document.getElementById("play-controller");
 const volumeControl = document.getElementById("volume-control");
@@ -88,19 +89,27 @@ lyricsoffBtn[0].onclick = () => {
 };
 
 rightBtn.addEventListener("click", function () {
-  albumList[0].style.transform = "translateX(-68.5vw)";
+  // albumList[0].style.transform = "translateX(-68.5vw)";
+  albumList[0].classList.add("slide-motion-right");
+  albumList[0].classList.remove("slide-motion-left");
 });
 
 leftBtn.addEventListener("click", function () {
-  albumList[0].style.transform = "translateX(0vw)";
+  // albumList[0].style.transform = "translateX(0vw)";
+  albumList[0].classList.add("slide-motion-left");
+  albumList[0].classList.remove("slide-motion-right");
 });
 
 playrightBtn.onclick = () => {
-  playList[0].style.transform = "translateX(-68.5vw)";
+  // playList[0].style.transform = "translateX(-68.5vw)";
+  playList[0].classList.add("slide-motion-right");
+  playList[0].classList.remove("slide-motion-left");
 };
 
 playleftBtn.onclick = () => {
-  playList[0].style.transform = "translateX(0vw)";
+  // playList[0].style.transform = "translateX(0vw)";
+  playList[0].classList.add("slide-motion-left");
+  playList[0].classList.remove("slide-motion-right");
 };
 //
 let checkNum = 0;
@@ -142,6 +151,23 @@ async function listUp() {
 }
 
 listUp();
+
+//재생목록 추가
+const musicNameInfo = document.getElementById("music-name");
+const singerInfo = document.getElementById("singer-name");
+console.log(musicNameInfo.innerText, singerInfo.innerText);
+
+musicAddBtn.onclick = () => {
+  axios
+    .post("/api/musicInfo/musicadd", {
+      userId: userNameElem,
+      musicName: musicNameInfo.innerText,
+      singer: singerInfo.innerText,
+    })
+    .then((data) => {
+      alert("현재 재생목록에 추가되었습니다.");
+    });
+};
 
 function commentSaveload() {
   commentList.innerHTML = "";
@@ -207,6 +233,7 @@ commentList.style.marginTop = "40px";
 commentList.style.marginBottom = "100px";
 
 commentBtn.onclick = () => {
+  if (!commentText.value) return alert("댓글 내용을 입력해주세요.");
   try {
     axios
       .post("/api/musicInfo/comment", {

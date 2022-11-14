@@ -2,7 +2,7 @@ const router = require("express").Router();
 
 const { MusicList } = require(`../models/index.js`);
 
-router.post(`/list/listin`, async (req, res) => {
+router.post(`/list`, async (req, res) => {
   const listUp = await MusicList.findAll({
     where: {
       userId: req.body.userId,

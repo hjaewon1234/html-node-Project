@@ -2,10 +2,47 @@ const router = require("express").Router();
 
 const fs = require("fs");
 
-const { MusicUpload, MusicInfo } = require("../models/index.js");
+const { Chart, MusicInfo, MusicList } = require("../models/index.js");
+
+let tempImg = "";
+let tempmusicName = "";
+let tempSinger = "";
+let tempalbumName = "";
+let tempmusicFile = "";
+let tempuserId = "";
+
+router.post("/musicadd", (req, res) => {
+  tempuserId = req.body.userId;
+  Chart.findOne({
+    where: { musicName: req.body.musicName, singer: req.body.singer },
+  }).then((data) => {
+    tempImg = data.albumImg;
+    tempmusicName = data.musicName;
+    tempSinger = data.singer;
+    tempalbumName = data.albumName;
+    tempmusicFile = data.musicFile;
+    // console.log(
+    //   tempImg,
+    //   tempmusicName,
+    //   tempSinger,
+    //   tempalbumName,
+    //   tempmusicFile
+    // );
+    MusicList.create({
+      userId: tempuserId,
+      playList: "NowPlaylist",
+      albumImg: tempImg,
+      musicName: tempmusicName,
+      singer: tempSinger,
+      albumName: tempalbumName,
+      musicFile: tempmusicFile,
+      genre: "1",
+    });
+  });
+});
 
 router.get("/play", async (req, res) => {
-  const listUp = await MusicUpload.findAll();
+  const listUp = await Chart.findAll();
   console.log("listUp");
   console.log(listUp);
 
