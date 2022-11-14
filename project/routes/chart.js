@@ -36,10 +36,10 @@ router.post(`/list`, async (req, res) => {
 });
 
 router.post(`/userList`, async (req, res) => {
-  console.log(req.body.count + `콘솔로 들어오는 거는 머냐`);
   req.body.count++;
-  console.log(req.body.count + `카운트가 늘엇냐?!`);
+
   const userChartOn = await MusicUpload.findAll({
+    order: [["count", "DESC"]],
     where: {
       userId: req.body.userId,
     },
