@@ -45,9 +45,10 @@ router.post("/myplaylist", async (req, res) => {
     const tempUserid = await PlayList.findAll({
       where: { userId: req.body.id },
     });
+    console.log(req.bdoy);
     res.send({ info: tempUserid });
   } catch (error) {
-    res.status(502);
+    res.status(503);
     res.send(error);
   }
 });

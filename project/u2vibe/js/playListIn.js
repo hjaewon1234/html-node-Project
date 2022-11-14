@@ -1,3 +1,9 @@
+let logoutbox = document.getElementById("logout-box");
+const playlisthide = document.getElementById("playlist-hide");
+const todayhide = document.getElementById("today-hide");
+const musicuploadthide = document.getElementById("musicUpload-hide");
+const momhide = document.getElementById("mom-hide");
+
 const album = `BORN_PINK`;
 const userprofileid = document.getElementById("userprofile-id");
 const playController = document.getElementById("play-controller");
@@ -6,70 +12,26 @@ const curuserName = JSON.parse(
   window.atob(document.cookie.split("=")[1].split(".")[1])
 ).id;
 if (document.cookie) {
-  const curuserName = JSON.parse(
-    window.atob(document.cookie.split("=")[1].split(".")[1])
-  ).id;
+  let logincheck = document.cookie.split("=")[1].split(".")[1];
 
-  userprofileid.innerText = curuserName;
-}
-document.getElementById("logout-btn").onclick = async function (e) {
-  console.log("로그아웃");
-  try {
-    await axios.get("/api/user/logout");
-  } catch (error) {
-    console.error(error);
+  if (logincheck) {
+    logoutbox.classList.remove("on");
+
+    const curuserName = JSON.parse(
+      window.atob(document.cookie.split("=")[1].split(".")[1])
+    ).id;
+
+    userprofileid.innerText = curuserName;
   }
-  location.href = "http://localhost:8080/";
-};
-
-// `http://localhost:8080/playListIn/=${asdasdasd}`
-
-async function playListInfo() {
-  const data = await axios.post(`/api/playlist/list`, {
-    userId: curuserName,
-    playlistName: decodeURI(window.location.search.split("?")[1]),
-    // userId: `wodnjs`,
-    // playlistName: `ABC`,
-  });
-  // 유저 id랑 리스트 명으로 찾아서 플레이 리스트를 가져옴
-  const playListPage = document.getElementsByClassName(`play-list-page`)[0];
-  const playListHeader = document.createElement(`div`);
-  const playListHeaderImg = document.createElement(`div`);
-  const playListInfo = document.createElement(`div`);
-  const playListInfoDiv = document.createElement(`div`);
-  const playListName = document.createElement(`h1`);
-  const playListContents = document.createElement(`h4`);
-  const playListBtnBox = document.createElement(`div`);
-  const playListPlayBtn = document.createElement(`button`);
-  const playListRandomPlayBtn = document.createElement(`button`);
-
-  console.log(data.data.playlistName);
-
-  playListPage.prepend(playListHeader);
-  playListHeader.append(playListHeaderImg);
-  playListHeader.append(playListInfo);
-  playListInfo.append(playListInfoDiv);
-  playListInfoDiv.append(playListName);
-  playListInfoDiv.append(playListContents);
-  playListInfo.append(playListBtnBox);
-  playListBtnBox.append(playListPlayBtn);
-  playListBtnBox.append(playListRandomPlayBtn);
-  // 위에는 모양에 맞게 구성 시켜줬음.
-  playListHeader.classList.add(`play-list-header`);
-  playListHeaderImg.innerHTML = `<img src="${
-    document.getElementsByClassName(`play-List-img-file`)[0].src
-  }" alt="" style="width: 240px" />`;
-  // 엘범명으로 가져오는 플레이리스트 사진
-  // 플레이리스트를 만들 때 따로 설정하는게 없으면 가장 위에 노래에 앨범 사진이
-  //
-  playListInfo.classList.add(`play-list-info`);
-  playListName.innerText = `${data.data.playlistName}`;
-  // 플레이 리스트의 이름을 가져온다.
-  playListContents.innerText = `${data.data.playlistInfo}`;
-  playListPlayBtn.classList.add(`start-btn`);
-  playListRandomPlayBtn.classList.add(`random-start-btn`);
-  playListPlayBtn.innerText = `재생`;
-  playListRandomPlayBtn.innerText = `랜덤 재생`;
+  document.getElementById("logout-btn").onclick = async function (e) {
+    console.log("로그아웃");
+    try {
+      await axios.get("/api/user/logout");
+    } catch (error) {
+      console.error(error);
+    }
+    location.href = "http://localhost:8080/";
+  };
 }
 
 async function makePlayInList() {
@@ -144,6 +106,52 @@ async function makePlayInList() {
   delFunc();
 }
 makePlayInList();
+
+async function playListInfo() {
+  const data = await axios.post(`/api/playlist/list`, {
+    userId: curuserName,
+    playlistName: window.location.search.split("?")[1],
+  });
+  // 유저 id랑 리스트 명으로 찾아서 플레이 리스트를 가져옴
+  const playListPage = document.getElementsByClassName(`play-list-page`)[0];
+  const playListHeader = document.createElement(`div`);
+  const playListHeaderImg = document.createElement(`div`);
+  const playListInfo = document.createElement(`div`);
+  const playListInfoDiv = document.createElement(`div`);
+  const playListName = document.createElement(`h1`);
+  const playListContents = document.createElement(`h4`);
+  const playListBtnBox = document.createElement(`div`);
+  const playListPlayBtn = document.createElement(`button`);
+  const playListRandomPlayBtn = document.createElement(`button`);
+
+  console.log(data.data.playlistName);
+
+  playListPage.prepend(playListHeader);
+  playListHeader.append(playListHeaderImg);
+  playListHeader.append(playListInfo);
+  playListInfo.append(playListInfoDiv);
+  playListInfoDiv.append(playListName);
+  playListInfoDiv.append(playListContents);
+  playListInfo.append(playListBtnBox);
+  playListBtnBox.append(playListPlayBtn);
+  playListBtnBox.append(playListRandomPlayBtn);
+  // 위에는 모양에 맞게 구성 시켜줬음.
+  playListHeader.classList.add(`play-list-header`);
+  playListHeaderImg.innerHTML = `<img src="${
+    document.getElementsByClassName(`play-List-img-file`)[0].src
+  }" alt="" style="width: 240px" />`;
+  // 엘범명으로 가져오는 플레이리스트 사진
+  // 플레이리스트를 만들 때 따로 설정하는게 없으면 가장 위에 노래에 앨범 사진이
+  //
+  playListInfo.classList.add(`play-list-info`);
+  playListName.innerText = `${data.data.playlistName}`;
+  // 플레이 리스트의 이름을 가져온다.
+  playListContents.innerText = `${data.data.playlistInfo}`;
+  playListPlayBtn.classList.add(`start-btn`);
+  playListRandomPlayBtn.classList.add(`random-start-btn`);
+  playListPlayBtn.innerText = `재생`;
+  playListRandomPlayBtn.innerText = `랜덤 재생`;
+}
 
 playListInfo();
 function musicPlay(idx) {

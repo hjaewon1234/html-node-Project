@@ -41,7 +41,7 @@ function listDivCreate() {
   const listImg = document.createElement("div");
 
   const imgplayListAdd = document.createElement("img");
-  imgplayListAdd.classList.add("list-img");
+  // imgplayListAdd.classList.add("list-img");
 
   const listTitle = document.createElement("div");
   listTitle.classList.add("list-title");
@@ -66,21 +66,6 @@ function listDivCreate() {
   listPostDiv.append(addPlaylistDiv);
 
   listboard.append(listPostDiv);
-
-  const tempElem = document.createElement("div");
-  tempElem.classList.add("list-post");
-  tempElem.innerHTML = `<div class="list-click">
-     <div class="list-img">
-       <img src="../../assets/img/newplaylist.png" alt="newplaylist" />
-       <a href="#">
-         
-       </a>
-     </div>
-     <div class="list-title">Now Playlist</div>
-     </div>
-     <div class="list-contents">0곡</div>
-     `;
-  listboard.appendChild(tempElem);
 }
 listDivCreate();
 
