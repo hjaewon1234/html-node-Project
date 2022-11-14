@@ -15,13 +15,13 @@ const storage = multer.diskStorage({
 const uploader = multer({ storage: storage });
 
 // delete 테이블
-// router.post("/delete", (req, res) => {
-//   MusicUpload.destroy({
-//     truncate: true,
-//     restartIdentity: true,
-//     cascade: false,
-//   });
-// });
+router.post("/delete", (req, res) => {
+  MusicUpload.destroy({
+    truncate: true,
+    restartIdentity: true,
+    cascade: false,
+  });
+});
 
 router.get("/upload", async (req, res) => {
   const listUp = await MusicUpload.findAll();
