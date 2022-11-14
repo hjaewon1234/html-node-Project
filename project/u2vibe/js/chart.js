@@ -23,40 +23,37 @@ const playBtn = document.getElementById("play-btn");
 const stopBtn = document.getElementById("stop-btn");
 const volumeControl = document.getElementById("volume-control");
 
-const curuserName = JSON.parse(
-  window.atob(document.cookie.split("=")[1].split(".")[1])
-).id;
-
 let checkNum = 0;
 
-let logincheck = document.cookie.split("=")[1].split(".")[1];
+if (document.cookie) {
+  let logincheck = document.cookie.split("=")[1].split(".")[1];
 
-if (logincheck) {
-  logoutbox.classList.remove("on");
-  loginbox.classList.add("on");
-  todayhide.classList.add("on");
-  playlisthide.classList.remove("on");
-  musicuploadthide.classList.remove("on");
-  momhide.classList.add("on");
-  myChart.classList.remove("on");
-  chartText.classList.remove("on");
+  if (logincheck) {
+    logoutbox.classList.remove("on");
+    loginbox.classList.add("on");
+    todayhide.classList.add("on");
+    playlisthide.classList.remove("on");
+    musicuploadthide.classList.remove("on");
+    momhide.classList.add("on");
+    myChart.classList.remove("on");
+    chartText.classList.remove("on");
 
-  const curuserName = JSON.parse(
-    window.atob(document.cookie.split("=")[1].split(".")[1])
-  ).id;
+    const curuserName = JSON.parse(
+      window.atob(document.cookie.split("=")[1].split(".")[1])
+    ).id;
 
-  userprofileid.innerText = curuserName;
-}
-document.getElementById("logout-btn").onclick = async function (e) {
-  console.log("로그아웃");
-  try {
-    await axios.get("/api/user/logout");
-  } catch (error) {
-    console.error(error);
+    userprofileid.innerText = curuserName;
   }
-  location.href = "http://localhost:8080/";
-};
-
+  document.getElementById("logout-btn").onclick = async function (e) {
+    console.log("로그아웃");
+    try {
+      await axios.get("/api/user/logout");
+    } catch (error) {
+      console.error(error);
+    }
+    location.href = "http://localhost:8080/";
+  };
+}
 function removeBtn() {
   prev.classList.toggle(`off`);
   next.classList.toggle(`off`);
@@ -146,7 +143,7 @@ async function chartOn() {
     ].innerHTML = `<img src="/assets/img/${data.data[i].albumImg}" alt="" class="inner-img" />`;
     innerTitle[i].innerText = data.data[i].musicName;
     innerSinger[i].innerText = data.data[i].singer;
-    innerIdx.innerText = i + 1;
+    innerIdx[i].innerText = i + 1;
     console.log(`${i}번 돌앗어`);
     console.log(data.data[i].count);
   }
@@ -164,6 +161,9 @@ async function chartOn() {
 }
 chartOn();
 async function userChartOn() {
+  const curuserName = JSON.parse(
+    window.atob(document.cookie.split("=")[1].split(".")[1])
+  ).id;
   const data = (
     await axios.post("/api/chart/userList", {
       userId: curuserName,
