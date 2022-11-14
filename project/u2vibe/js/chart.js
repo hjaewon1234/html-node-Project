@@ -128,7 +128,6 @@ const slideInnerDiv = document.getElementsByClassName("slide-inner-div");
 
 async function chartOn() {
   const data = (await axios.post("/api/chart/list")).data;
-  console.log(data);
 
   // console.log(data.data.length);
 
@@ -144,18 +143,36 @@ async function chartOn() {
     innerTitle[i].innerText = data.data[i].musicName;
     innerSinger[i].innerText = data.data[i].singer;
     innerIdx[i].innerText = i + 1;
-    console.log(`${i}번 돌앗어`);
-    console.log(data.data[i].count);
   }
   for (let j = 0; j < data.data.length; j++) {
     console.log(`살려줘`);
     innerImg[j].onclick = () => {
       data.data[j].count++;
-
       axios.post(`/api/chart/count`, {
         count: data.data[j].count,
         id: data.data[j].id,
       });
+      // 뮤직 플레이어 쪽에 올리는 부분
+      document.getElementsByClassName("container")[0].innerHTML = "";
+      let imgDiv = document.createElement("div");
+      let tempDiv = document.createElement("div");
+      let tempImg = document.createElement("img");
+      let innerDiv = document.createElement("div");
+      let innerSecondDiv = document.createElement("div");
+      tempImg.src = `/assets/img/${data.data[j].albumImg}`;
+      playController.src = `../upload/${data.data[j].musicFile}`;
+      // playController.play();
+      tempImg.setAttribute("filter", "none");
+      tempImg.setAttribute("width", "50px");
+      innerDiv.innerText = data.data[j].musicName;
+      innerSecondDiv.innerText = data.data[j].singer;
+      tempDiv.append(innerDiv);
+      tempDiv.append(innerSecondDiv);
+
+      imgDiv.append(tempImg);
+
+      document.getElementsByClassName("container")[0].append(imgDiv);
+      document.getElementsByClassName("container")[0].append(tempDiv);
     };
   }
 }
@@ -188,14 +205,33 @@ async function userChartOn() {
     console.log(`${i}번 돌앗어`);
   }
   for (let j = 0; j < data.data.length; j++) {
-    console.log(`살려줘`);
     innerImg[j].onclick = () => {
       data.data[j].count++;
-      console.log(`나눌림`);
+
       axios.post(`/api/chart/countUser`, {
         count: data.data[j].count,
         id: data.data[j].id,
       });
+      document.getElementsByClassName("container")[0].innerHTML = "";
+      let imgDiv = document.createElement("div");
+      let tempDiv = document.createElement("div");
+      let tempImg = document.createElement("img");
+      let innerDiv = document.createElement("div");
+      let innerSecondDiv = document.createElement("div");
+      tempImg.src = `../upload/${data.data[j].albumImg}`;
+      playController.src = `../upload/${data.data[j].musicFile}`;
+      // playController.play();
+      tempImg.setAttribute("filter", "none");
+      tempImg.setAttribute("width", "50px");
+      innerDiv.innerText = data.data[j].musicName;
+      innerSecondDiv.innerText = data.data[j].singer;
+      tempDiv.append(innerDiv);
+      tempDiv.append(innerSecondDiv);
+
+      imgDiv.append(tempImg);
+
+      document.getElementsByClassName("container")[0].append(imgDiv);
+      document.getElementsByClassName("container")[0].append(tempDiv);
     };
   }
 }

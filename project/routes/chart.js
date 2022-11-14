@@ -75,6 +75,8 @@ router.post(`/countUser`, async (req, res) => {
       },
     }
   );
+
+  res.send(`잘되네`);
 });
 
 module.exports = router;

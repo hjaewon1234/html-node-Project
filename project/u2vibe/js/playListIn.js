@@ -1,4 +1,5 @@
 const album = `BORN_PINK`;
+const playController = document.getElementById("play-controller");
 const curuserName = JSON.parse(
   window.atob(document.cookie.split("=")[1].split(".")[1])
 ).id;
@@ -34,8 +35,10 @@ const curuserName = JSON.parse(
 
 async function playListInfo() {
   const data = await axios.post(`/api/playlist/list`, {
-    userId: curuserName,
-    playlistName: window.location.search.split("?")[1],
+    // userId: curuserName,
+    // playlistName: window.location.search.split("?")[1],
+    userId: `wodnjs`,
+    playlistName: `ABC`,
   });
   // 유저 id랑 리스트 명으로 찾아서 플레이 리스트를 가져옴
   const playListPage = document.getElementsByClassName(`play-list-page`)[0];
@@ -82,8 +85,10 @@ async function makePlayInList() {
   try {
     const listData = (
       await axios.post(`/api/musiclist/list`, {
-        userId: curuserName,
-        playlistName: window.location.search.split("?")[1],
+        // userId: curuserName,
+        // playlistName: window.location.search.split("?")[1],
+        userId: `wodnjs`,
+        playlistName: `ABC`,
       })
     ).data;
     // 유저 id랑 리스트 명으로 플레이리스를 찾아서 리스트에 노래를 가져옴
@@ -92,13 +97,37 @@ async function makePlayInList() {
     for (let i = 0; i < listData.data.length; i++) {
       let addList = document.createElement(`div`);
       addList.innerHTML = `<div class="play-list-contents-outter"><div class="play-list-contents-add">
-      <div class="play-list-inner-contents"><div><input type="checkbox"></div><div>
+      <div class="play-list-inner-contents"><div><input type="checkbox"></div><div class="list-in-img">
           <img src = "/assets/img/${listData.data[i].albumImg}" class="play-List-img-file" ></div><div class="music-name">${listData.data[i].musicName}</div></div>
       <div class="singer-name">${listData.data[i].singer}</div>
       <div class="album-name">${listData.data[i].albumName}</div>
       <div ><button class="del-btn">삭제</button></div></div></div>`;
       container.append(addList);
       console.log(`${i}번 굴럿어`);
+      let clickImg = document.getElementsByClassName(`list-in-img`);
+      clickImg[i].onclick = () => {
+        document.getElementsByClassName("container")[0].innerHTML = "";
+        let imgDiv = document.createElement("div");
+        let tempDiv = document.createElement("div");
+        let tempImg = document.createElement("img");
+        let innerDiv = document.createElement("div");
+        let innerSecondDiv = document.createElement("div");
+        tempImg.src =
+          document.getElementsByClassName(`play-List-img-file`)[i].src;
+        playController.src = `../upload/${listData.data[i].musicFile}`;
+        // playController.play();
+        tempImg.setAttribute("filter", "none");
+        tempImg.setAttribute("width", "50px");
+        innerDiv.innerText = listData.data[i].musicName;
+        innerSecondDiv.innerText = listData.data[i].singer;
+        tempDiv.append(innerDiv);
+        tempDiv.append(innerSecondDiv);
+
+        imgDiv.append(tempImg);
+        document.getElementsByClassName("container")[0].append(imgDiv);
+        document.getElementsByClassName("container")[0].append(tempDiv);
+        console.log(`나눌림`);
+      };
     }
 
     console.log(document.getElementsByClassName(`play-List-img-file`)[0].src);

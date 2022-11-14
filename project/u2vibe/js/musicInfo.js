@@ -122,8 +122,7 @@ async function listUp() {
       tempImg.src = `../upload/${item.albumImg}`;
       playController.src = `../upload/${item.musicFile}`;
       playController.play();
-      console.log(item.albumImg);
-      console.log(item.musicFile);
+
       tempImg.setAttribute("filter", "none");
       tempImg.setAttribute("width", "50px");
 
