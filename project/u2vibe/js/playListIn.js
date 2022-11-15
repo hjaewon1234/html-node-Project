@@ -139,8 +139,6 @@ async function playListInfo() {
   playListInfoDiv.append(playListName);
   playListInfoDiv.append(playListContents);
   playListInfo.append(playListBtnBox);
-  playListBtnBox.append(playListPlayBtn);
-  playListBtnBox.append(playListRandomPlayBtn);
   // 위에는 모양에 맞게 구성 시켜줬음.
   playListHeader.classList.add(`play-list-header`);
   playListHeaderImg.innerHTML = `<img src="${
