@@ -91,6 +91,8 @@
   width: 150px;
   color: gray;
   text-align: start;
+  text-overflow: ellipsis;
+  white-space: nowrap;
 }
 .album-name:hover {
   text-decoration: underline;
