@@ -18,8 +18,6 @@ const stopBtn = document.getElementById("stop-btn");
 let userprofileid = document.getElementById("userprofile-id");
 let logincheck = document.cookie.split("=")[1].split(".")[1];
 
-// 로그인 정보 불러오기
-
 const curuserName = JSON.parse(
   window.atob(document.cookie.split("=")[1].split(".")[1])
 ).id;
@@ -27,7 +25,6 @@ if (logincheck) {
   userprofileid.innerText = curuserName;
 }
 
-// 로그아웃 버튼
 document.getElementById("logout-btn").onclick = async function (e) {
   console.log("로그아웃");
   try {
@@ -38,7 +35,6 @@ document.getElementById("logout-btn").onclick = async function (e) {
   location.href = "http://localhost:8080/";
 };
 
-// 이미지 미리보기 함수
 function setImg(input) {
   if (input.files && input.files[0]) {
     let readImg = new FileReader();
@@ -52,7 +48,6 @@ function setImg(input) {
   }
 }
 
-// 파일 선택 후 변화하면
 imgUpload.addEventListener("change", (e) => {
   setImg(e.target);
 });
@@ -64,9 +59,6 @@ stopBtn.onclick = () => {
   playController.pause();
 };
 
-// resetBtn.onclick = () => {
-//   const tempElem = axios.post("/api/musicUpload/delete", {});
-// };
 volumeControl.addEventListener("change", (e) => {
   playController.volume = this.value / 10;
 });
@@ -86,8 +78,6 @@ uploadContent.onsubmit = async (e) => {
 
   try {
     const { file, img } = e.target;
-    // const img = e.target.img;
-    // const file = e.target.file;
     let formData = new FormData();
     formData.append("id", curuserName);
     formData.append("file", file.files[0]);

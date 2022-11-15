@@ -19,6 +19,10 @@ body {
   padding: 50px 0 40px;
   display: flex;
 }
+.fs-4 img {
+  width: 100px;
+  margin-left: 80px;
+}
 
 h1 {
   font-weight: bold;

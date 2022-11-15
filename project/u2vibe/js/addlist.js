@@ -81,32 +81,4 @@ async function makeaddedlist() {
   });
 }
 
-// function deleteaddedlist() {
-//   const tempValue = document.querySelectorAll(".delete-img");
-
-//   [...tempValue].forEach((item, index) => {
-//     item.onclick = async (e) => {
-//       const tempMusictitle =
-//         e.target.parentNode.parentNode.parentNode.parentNode.nextElementSibling
-//           .innerText;
-//       const tempMusiccontents =
-//         e.target.parentNode.parentNode.parentNode.parentNode.parentNode
-//           .nextElementSibling.innerText;
-//       console.log("찍고있니");
-//       await axios.post("/api/musicUpload/deletelist", {
-//         id: curuserName,
-//         name: tempMusictitle,
-//         singer: tempMusiccontents,
-//       });
-//     };
-//   });
-
-//   tempElem.innerHTML = "";
-//   makeaddedlist();
-// }
 makeaddedlist();
-
-// inputtitle.oninput = function () {
-//   addbtn.classList.add("on");
-//   if (inputtitle.value == "") addbtn.classList.remove("on");
-// };

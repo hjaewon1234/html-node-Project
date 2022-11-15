@@ -17,6 +17,10 @@
   width: 91%;
   margin: 0 auto;
 }
+.fs-4 img {
+  width: 100px;
+  margin-left: 80px;
+}
 
 #title-title {
   font-size: 38px;

@@ -82,7 +82,7 @@ router.post("/addedlist", async (req, res) => {
     });
     res.send({ info: tempUpload });
   } catch (error) {
-    console.log(err);
+    console.log(error);
   }
 });
 
