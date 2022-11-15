@@ -9,13 +9,11 @@ const playrightBtn = document.getElementById("playright-btn");
 const playList = document.getElementsByClassName("playList-line");
 const musicPlayBtn = document.getElementById("musicplay-btn");
 const musicAddBtn = document.getElementById("musicadd-btn");
-// 하단 음원재생바
 const playController = document.getElementById("play-controller");
 const volumeControl = document.getElementById("volume-control");
 const playBtn = document.getElementById("play-btn");
 const stopBtn = document.getElementById("stop-btn");
 
-//로그인
 let userprofileid = document.getElementById("userprofile-id");
 let loginbox = document.getElementById("login-box");
 let logoutbox = document.getElementById("logout-box");
@@ -24,7 +22,6 @@ const todayhide = document.getElementById("today-hide");
 const musicuploadthide = document.getElementById("musicUpload-hide");
 const momhide = document.getElementById("mom-hide");
 
-// 댓글
 const userName = document.getElementById("user-name");
 const commentBtn = document.getElementById("comment-btn");
 const commentText = document.getElementById("comment");
@@ -89,25 +86,21 @@ lyricsoffBtn[0].onclick = () => {
 };
 
 rightBtn.addEventListener("click", function () {
-  // albumList[0].style.transform = "translateX(-68.5vw)";
   albumList[0].classList.add("slide-motion-right");
   albumList[0].classList.remove("slide-motion-left");
 });
 
 leftBtn.addEventListener("click", function () {
-  // albumList[0].style.transform = "translateX(0vw)";
   albumList[0].classList.add("slide-motion-left");
   albumList[0].classList.remove("slide-motion-right");
 });
 
 playrightBtn.onclick = () => {
-  // playList[0].style.transform = "translateX(-68.5vw)";
   playList[0].classList.add("slide-motion-right");
   playList[0].classList.remove("slide-motion-left");
 };
 
 playleftBtn.onclick = () => {
-  // playList[0].style.transform = "translateX(0vw)";
   playList[0].classList.add("slide-motion-left");
   playList[0].classList.remove("slide-motion-right");
 };
@@ -151,7 +144,6 @@ async function listUp() {
 
 listUp();
 
-//재생목록 추가
 const musicNameInfo = document.getElementById("music-name");
 const singerInfo = document.getElementById("singer-name");
 console.log(musicNameInfo.innerText, singerInfo.innerText);
@@ -226,7 +218,7 @@ function commentSaveload() {
 
 commentSaveload();
 // 댓글
-userName.innerText = `${userNameElem}님`; // 추후엔 로그인 한 아이디 들어갈 자리
+userName.innerText = `${userNameElem}님`;
 userName.style.marginLeft = "40px";
 commentList.style.marginTop = "40px";
 commentList.style.marginBottom = "100px";

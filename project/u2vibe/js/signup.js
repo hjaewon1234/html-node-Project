@@ -1,5 +1,3 @@
-//////////////////// 회원가입 경고창 /////////////////////////
-
 let inputid = document.getElementById("input-id");
 let warnid = document.getElementById("warn-id");
 let inputpw = document.getElementById("input-pw");
@@ -39,7 +37,6 @@ function signupcheck() {
   return 1;
 }
 
-// 중복 가입된 아이디 체크 미구현
 inputid.addEventListener("focusout", (event) => {
   const idcheck = /^[a-z0-9_-]{5,20}$/g;
   const idresult = idcheck.test(inputid.value);
@@ -200,8 +197,6 @@ inputphone.addEventListener("focusout", (event) => {
   if (phoneresult) warnphone.innerText = "";
   else warnphone.innerText = "형식에 맞지 않는 번호입니다.";
 });
-
-//////////////////// 회원가입 경고창 /////////////////////////
 
 document.forms["signup-form"].onsubmit = async function (e) {
   e.preventDefault();

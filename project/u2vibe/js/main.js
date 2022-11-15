@@ -47,12 +47,8 @@ document.getElementById("logout-btn").onclick = async function (e) {
 async function listUp() {
   const result = (await axios.get("/api/upload/upload")).data;
   console.log(result);
-  // result?.list?.forEach((item) => {
 
-  // });
   console.log("result");
   console.log(result.data);
   console.log(result.list);
 }
-
-// listUp();

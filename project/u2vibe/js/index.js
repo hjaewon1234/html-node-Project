@@ -41,7 +41,6 @@ function listDivCreate() {
   const listImg = document.createElement("div");
 
   const imgplayListAdd = document.createElement("img");
-  // imgplayListAdd.classList.add("list-img");
 
   const listTitle = document.createElement("div");
   listTitle.classList.add("list-title");

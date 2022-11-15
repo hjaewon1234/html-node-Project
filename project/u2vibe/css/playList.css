@@ -22,6 +22,10 @@
 .play-list-info h4 {
   color: gray;
 }
+.fs-4 img {
+  width: 100px;
+  margin-left: 80px;
+}
 .play-list-contents {
   margin-top: 50px;
   margin-left: 40px;

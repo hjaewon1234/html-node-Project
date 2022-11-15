@@ -21,7 +21,7 @@ router.post(`/list`, async (req, res) => {
 router.post("/addplaylist", async (req, res) => {
   try {
     const tempPlaylist = await PlayList.findOne({
-      where: { playlistName: req.body.name },
+      where: { playlistName: req.body.name, userId: req.body.id },
     });
     if (tempPlaylist) {
       res.send({ overlap: 1 });

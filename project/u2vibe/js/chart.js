@@ -152,7 +152,6 @@ async function chartOn() {
         count: data.data[j].count,
         id: data.data[j].id,
       });
-      // 뮤직 플레이어 쪽에 올리는 부분
       document.getElementsByClassName("container")[0].innerHTML = "";
       let imgDiv = document.createElement("div");
       let tempDiv = document.createElement("div");
@@ -161,7 +160,6 @@ async function chartOn() {
       let innerSecondDiv = document.createElement("div");
       tempImg.src = `/assets/img/${data.data[j].albumImg}`;
       playController.src = `../upload/${data.data[j].musicFile}`;
-      // playController.play();
       tempImg.setAttribute("filter", "none");
       tempImg.setAttribute("width", "50px");
       innerDiv.innerText = data.data[j].musicName;

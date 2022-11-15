@@ -18,6 +18,10 @@
   display: flex;
   justify-content: space-between;
 }
+.fs-4 img {
+  width: 100px;
+  margin-left: 80px;
+}
 .slide-inner-div {
   height: 60px;
   display: flex;
