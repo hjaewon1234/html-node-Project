@@ -88,11 +88,12 @@
   cursor: pointer;
 }
 .album-name {
-  width: 150px;
+  width: 200px;
   color: gray;
   text-align: start;
   text-overflow: ellipsis;
   white-space: nowrap;
+  overflow: hidden;
 }
 .album-name:hover {
   text-decoration: underline;
