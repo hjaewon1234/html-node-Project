@@ -42,6 +42,7 @@ async function makePlayInList() {
         playlistName: decodeURI(window.location.search.split("?")[1]),
       })
     ).data;
+    // 유저 id랑 리스트 명으로 플레이리스를 찾아서 리스트에 노래를 가져옴
     const container = document.getElementById(`play-list-container`);
 
     for (let i = 0; i < listData.data.length; i++) {
@@ -105,7 +106,6 @@ async function playListInfo() {
     userId: curuserName,
     playlistName: decodeURI(window.location.search.split("?")[1]),
   });
-
   // 유저 id랑 리스트 명으로 찾아서 플레이 리스트를 가져옴
   const playListPage = document.getElementsByClassName(`play-list-page`)[0];
   const playListHeader = document.createElement(`div`);
@@ -125,15 +125,19 @@ async function playListInfo() {
   playListInfoDiv.append(playListName);
   playListInfoDiv.append(playListContents);
   playListInfo.append(playListBtnBox);
-  // playListBtnBox.append(playListPlayBtn);
-  // playListBtnBox.append(playListRandomPlayBtn);
+  playListBtnBox.append(playListPlayBtn);
+  playListBtnBox.append(playListRandomPlayBtn);
   // 위에는 모양에 맞게 구성 시켜줬음.
   playListHeader.classList.add(`play-list-header`);
   playListHeaderImg.innerHTML = `<img src="${
     document.getElementsByClassName(`play-List-img-file`)[0].src
   }" alt="" style="width: 240px" />`;
+  // 엘범명으로 가져오는 플레이리스트 사진
+  // 플레이리스트를 만들 때 따로 설정하는게 없으면 가장 위에 노래에 앨범 사진이
+  //
   playListInfo.classList.add(`play-list-info`);
   playListName.innerText = `${data.data.playlistName}`;
+  // 플레이 리스트의 이름을 가져온다.
   playListContents.innerText = `${data.data.playlistInfo}`;
   // playListPlayBtn.classList.add(`start-btn`);
   // playListRandomPlayBtn.classList.add(`random-start-btn`);
@@ -151,3 +155,6 @@ function musicPlay(idx) {
 
   playController.play();
 }
+
+// console.log(window.location.search.split("?")[1]);
+// 쿼리 스트링으로 받을 내용 위에 써져잇는대로 받을 수 있다고 생각중.
