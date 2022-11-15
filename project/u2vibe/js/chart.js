@@ -88,7 +88,7 @@ let imgList = [];
 async function listUp() {
   const result = (await axios.get("/api/chart/list")).data;
   result?.data?.forEach((item) => {
-    let typeCheck = /mp3|ogg|wma|wav|au|rm|mid/.test(item);
+    let typeCheck = /mp3|ogg|wma|wav|au|rm|mid|mp4/.test(item);
     if (typeCheck) musicList.push(item);
   });
 }
@@ -115,8 +115,8 @@ stopBtn.onclick = () => {
   playController.pause();
 };
 
-volumeControl.addEventListener("change", function (e) {
-  playController.volume = this.value / 10;
+volumeControl.addEventListener("change", (e) => {
+  playController.volume = e.target.value / 10;
 });
 
 const slideInnerImg = document.getElementsByClassName("slide-inner-img");

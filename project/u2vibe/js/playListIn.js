@@ -3,6 +3,9 @@ const playlisthide = document.getElementById("playlist-hide");
 const todayhide = document.getElementById("today-hide");
 const musicuploadthide = document.getElementById("musicUpload-hide");
 const momhide = document.getElementById("mom-hide");
+const volumeControl = document.getElementById("volume-control");
+const playBtn = document.getElementById("play-btn");
+const stopBtn = document.getElementById("stop-btn");
 
 const album = `BORN_PINK`;
 const userprofileid = document.getElementById("userprofile-id");
@@ -34,6 +37,17 @@ if (document.cookie) {
   };
 }
 
+playBtn.onclick = () => {
+  playController.play();
+};
+stopBtn.onclick = () => {
+  playController.pause();
+};
+
+volumeControl.addEventListener("change", (e) => {
+  playController.volume = e.target.value / 10;
+});
+
 async function makePlayInList() {
   try {
     const listData = (
@@ -49,7 +63,7 @@ async function makePlayInList() {
       let addList = document.createElement(`div`);
       addList.innerHTML = `<div class="play-list-contents-outter"><div class="play-list-contents-add">
       <div class="play-list-inner-contents"><div><input type="checkbox"></div><div class="play-img-div">
-          <img src = "/assets/img/${listData.data[i].albumImg}" class="play-List-img-file" ></div><div class="music-name">${listData.data[i].musicName}</div></div>
+          <img src = "../upload/${listData.data[i].albumImg}" class="play-List-img-file" ></div><div class="music-name">${listData.data[i].musicName}</div></div>
       <div class="singer-name">${listData.data[i].singer}</div>
       <div class="album-name">${listData.data[i].albumName}</div>
       <div ><button class="del-btn">삭제</button></div></div></div>`;
