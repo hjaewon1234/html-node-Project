@@ -55,10 +55,15 @@ if (document.cookie) {
   };
 }
 function removeBtn() {
-  prev.classList.toggle(`off`);
-  next.classList.toggle(`off`);
+  if (prevElem.classList == `carousel-item`) {
+    next.classList.toggle(`off`);
+    return;
+  } else {
+    prev.classList.toggle(`off`);
+  }
 }
-
+// const nextGenre = document.getElementsByClassName(`genre`)[1];
+// const prevGenre = document.getElementsByClassName(`genre`)[0];
 function genreremoveBtn() {
   genrePrev.classList.toggle(`off`);
   genreNext.classList.toggle(`off`);
@@ -236,3 +241,14 @@ async function userChartOn() {
   }
 }
 userChartOn();
+
+async function buttonremove() {
+  const data = await axios.post("api/chart/chartNum").data;
+
+  // if (data.data.length < 15) {
+  //   genreNext.classList.add(`off`);
+  //   next.classList.add(`off`);
+  // }
+}
+
+buttonremove();

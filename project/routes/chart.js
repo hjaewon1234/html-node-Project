@@ -75,4 +75,10 @@ router.post(`/countUser`, async (req, res) => {
   res.send(`잘되네`);
 });
 
+router.post(`/chartNum`, async (req, res) => {
+  const chartNum = await Music.findAll();
+  console.logt(chartNum + `차트에서 온건 뭘까`);
+  res.send({ data: chartNum });
+});
+
 module.exports = router;
