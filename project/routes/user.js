@@ -2,22 +2,13 @@ const router = require("express").Router();
 const jwt = require("jsonwebtoken");
 const Cryptojs = require("crypto-js");
 
-// const fs = require("fs");
-// const multer = require("multer");
-
 const { User } = require("../models/index.js");
-// DataBase에 User테이블 연동, 연결
-
-// GET / POST / PUT / PATCH / DELETE
 
 router.post("/regist", async (req, res) => {
   try {
     const tempUser = await User.findOne({ where: { userId: req.body.id } });
-    if (tempUser) {
-      res.send({ overlap: 1 });
-      res.status(500);
-      return;
-    }
+    if (tempUser) return res.status(500).send({ overlap: 1 });
+
     await User.create({
       userId: req.body.id,
       userPw: Cryptojs.SHA256(req.body.pw).toString(),
@@ -34,8 +25,7 @@ router.post("/regist", async (req, res) => {
 
     res.end("jjj");
   } catch (error) {
-    res.status(500);
-    res.send(error);
+    res.status(500).send(error);
   }
 });
 
@@ -46,38 +36,31 @@ router.post("/cookie", function (req, res) {
 router.post("/login", async (req, res) => {
   try {
     const checkUser = await User.findOne({ where: { userId: req.body.id } });
-    if (!checkUser) {
-      res.send({ message: "회원가입 되지 않은 ID 입니다." });
-      res.status(500);
-      return;
-    }
 
-    if (checkUser.userPw == Cryptojs.SHA256(req.body.pw).toString()) {
-      res.cookie(
-        "login",
-        jwt.sign(
-          {
-            id: checkUser.userId,
-            name: checkUser.userName,
-          },
-          process.env.JWT_KEY,
-          {
-            algorithm: "HS256",
-            expiresIn: "30m",
-            issuer: "vive",
-          }
-        )
-      );
-      res.send({
-        name: checkUser.userName,
-        logincheck: 1,
-      });
-      console.log("로그인 성공");
+    if (!checkUser)
+      return res.status(500).send({ message: "회원가입 되지 않은 ID 입니다." });
 
-      return;
-    }
-    res.status(500);
-    res.send({ message: "잘못된 비밀번호입니다." });
+    if (!checkUser.userPw == Cryptojs.SHA256(req.body.pw).toString())
+      return res.status(500).send({ message: "잘못된 비밀번호입니다." });
+    res.cookie(
+      "login",
+      jwt.sign(
+        {
+          id: checkUser.userId,
+          name: checkUser.userName,
+        },
+        process.env.JWT_KEY,
+        {
+          algorithm: "HS256",
+          expiresIn: "30m",
+          issuer: "vive",
+        }
+      )
+    );
+    res.send({
+      name: checkUser.userName,
+      logincheck: 1,
+    });
   } catch (error) {
     console.error(error);
   }
